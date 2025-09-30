@@ -117,6 +117,7 @@
       border-radius: 0.5rem;
       padding: 0.25rem;
       gap: 0.25rem;
+      flex-wrap: wrap; /* Allow wrapping for more buttons */
     }
     
     .lang-btn {
@@ -268,6 +269,9 @@
         flex-direction: column;
         gap: 1rem;
       }
+      .language-selector {
+          justify-content: center; /* Center language buttons on smaller screens */
+      }
     }
   </style>
 </head>
@@ -284,13 +288,18 @@
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 2rem;">
+        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center;">
           <a href="index.html" class="nav-link" data-translate="nav-home">Startseite</a>
           
           <div class="language-selector">
             <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
             <button class="lang-btn active" onclick="changeLanguage('de')">DE</button>
             <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+            <!-- Added 4 new language buttons for Albanian, Serbian, Bulgarian, Turkish -->
+            <button class="lang-btn" onclick="changeLanguage('sq')">SQ</button>
+            <button class="lang-btn" onclick="changeLanguage('sr')">SR</button>
+            <button class="lang-btn" onclick="changeLanguage('bg')">BG</button>
+            <button class="lang-btn" onclick="changeLanguage('tr')">TR</button>
           </div>
         </div>
       </div>
@@ -719,6 +728,270 @@
         'nav-imprint': 'Στοιχεία Επιχείρησης',
         'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
         'footer-note': 'Επαγγελματικές MIDI λύσεις και ενσωμάτωση hardware'
+      },
+      sq: {
+        'subtitle': 'Zgjidhje Profesionale MIDI',
+        'nav-home': 'Ballina',
+        'title': 'Kushtet e Përgjithshme të Biznesit (KPB)',
+        'last-updated': 'Përditësuar: Dhjetor 2024',
+        'section1-title': '§ 1 Fusha e Aplikimit',
+        'section1-content1': 'Këto Kushte të Përgjithshme të Biznesit (në vijim "KPB") zbatohen për të gjitha kontratat midis ECHOPAIS (në vijim "Ofruesi") dhe klientit për ofrimin e softuerit MIDI, aplikacioneve mobile dhe produkteve hardware me firmware MIDI të integruar.',
+        'section1-content2': 'Fusha e Aplikimit: Këto KPB zbatohen për të gjitha marrëdhëniet e biznesit me konsumatorët dhe sipërmarrësit në kuptimin e Kodit Civil Gjerman (BGB).',
+        'section1-content3': 'Kushte të Ndryshme: Kushtet e Përgjithshme të Biznesit të ndryshme, konfliktuese ose plotësuese të klientit do të bëhen pjesë e kontratës vetëm në masën që ofruesi ka rënë dakord shprehimisht me vlefshmërinë e tyre.',
+        'section2-title': '§ 2 Lidhja e Kontratës',
+        'section2-content1': 'Lidhja e kontratës ndryshon në varësi të llojit të produktit:',
+        'section2-list-apps': 'Aplikacione iOS/Android: Kontrata lidhet përmes Apple App Store ose Google Play Store sipas kushteve të tyre',
+        'section2-list-hardware': 'Produkte Hardware: Kontrata lidhet duke porositur përmes faqes sonë të internetit dhe pranimit me konfirmim porosie',
+        'section2-list-firmware': 'MIDI Firmware: Marrëveshje licence duke shkarkuar dhe instaluar softuerin',
+        'section2-content2': 'Oferta dhe Pranimi: Prezantimi i produkteve në faqen tonë të internetit nuk përbën një ofertë ligjërisht detyruese, por një ftesë për të paraqitur një ofertë (invitatio ad offerendum).',
+        'section3-title': '§ 3 E Drejta e Tërheqjes',
+        'section3-content1': 'Udhëzime tërheqjeje për konsumatorët:',
+        'section3-content2': 'Ju keni të drejtë të tërhiqeni nga kjo kontratë brenda katërmbëdhjetë ditëve pa dhënë asnjë arsye. Periudha e tërheqjes është katërmbëdhjetë ditë nga dita e lidhjes së kontratës.',
+        'section3-content3': 'Përjashtime nga e drejta e tërheqjes:',
+        'section3-list-1': 'Përmbajtje dixhitale (softuer, aplikacione) nëse ekzekutimi ka filluar me pëlqimin e shprehur të konsumatorit para se të ketë skaduar periudha e tërheqjes',
+        'section3-list-2': 'Produkte hardware të vulosura që nuk janë të përshtatshme për kthim për arsye mbrojtjeje shëndetësore ose higjiene nëse vula e tyre është hequr pas dorëzimit',
+        'section3-content4': 'Pasojat e tërheqjes: Në rast të një tërheqjeje efektive, shërbimet e marra nga të dyja palët duhet të kthehen.',
+        'section4-title': '§ 4 Çmimet dhe Kushtet e Pagesës',
+        'section4-content1': 'Çmimet: Të gjitha çmimet e deklaruara janë çmime përfundimtare duke përfshirë TVSH-në ligjore.',
+        'section4-content2': 'Metodat e pagesës:',
+        'section4-list-1': 'Aplikacione iOS/Android: Pagesa përmes App Store/Google Play Store',
+        'section4-list-2': 'Produkte Hardware: PayPal, kartë krediti, transfertë bankare',
+        'section4-list-3': 'Kosto shtesë: Kostot e dërgesës tregohen veçmas',
+        'section4-content3': 'Data e skadencës: Pagesa duhet bërë menjëherë pas lidhjes së kontratës, përveç nëse rënë dakord ndryshe.',
+        'section5-title': '§ 5 Dorëzimi dhe Performanca',
+        'section5-content1': 'Kohët e dorëzimit:',
+        'section5-list-1': 'Softuer/Aplikacione: Shkarkim i menjëhershëm pas blerjes',
+        'section5-list-2': 'Produkte Hardware: 3-7 ditë pune brenda Gjermanisë, 7-14 ditë pune në të gjithë BE-në',
+        'section5-list-3': 'Përditësime firmware: Automatike ose manuale përmes platformës përkatëse',
+        'section5-content2': 'Dërgesa: Produktet hardware dorëzohen përmes DHL ose ofruesit të ngjashëm të shërbimit të dërgesës.',
+        'section5-content3': 'Transferimi i rrezikut: Për konsumatorët, rreziku kalon vetëm me dorëzimin e mallrave te konsumatori.',
+        'section6-title': '§ 6 Garancia dhe Përgjegjësia',
+        'section6-content1': 'Garancia e Softuerit: Dispozitat ligjore të garancisë zbatohen për softuerin MIDI dhe aplikacionet mobile.',
+        'section6-content2': 'Garancia e Hardware: Komponentët hardware burimin nga prodhuesit e certifikuar. Garancia ofrohet nga prodhuesi përkatës.',
+        'section6-content3': 'Kufizimi i Përgjegjësisë: ECHOPAIS është përgjegjës vetëm për defekte që lidhen me softuerin. Prodhuesi përkatës është përgjegjës për defektet e hardware.',
+        'section6-content4': 'Dëmtime: Përgjegjësia për dëmtime kufizohet në çmimin e blerjes së softuerit, përveç rasteve të qëllimit ose neglizhencës së rëndë.',
+        'section7-title': '§ 7 E Drejta e Autorit dhe të Drejtat e Përdorimit',
+        'section7-content1': 'Licenca e Softuerit: Klienti fiton një të drejtë të thjeshtë, jo të transferueshme për të përdorur softuerin MIDI.',
+        'section7-content2': 'Kufizime të Përdorimit: Inxhinieria e kundërt, dekompilimi ose shpërndarja e softuerit është e ndaluar.',
+        'section7-content3': 'Të Drejtat e Hardware: Të drejtat për komponentët hardware mbeten me prodhuesin përkatës.',
+        'section7-content4': 'Përdorimi Komercial: Softueri mund të përdoret për prodhim muzikor komercial.',
+        'section8-title': '§ 8 Mbrojtja e të Dhënave',
+        'section8-content1': 'Përpunimi i të Dhënave: Përpunimi i të dhënave personale kryhet në përputhje me politikën tonë të privatësisë dhe dispozitat e GDPR.',
+        'section8-content2': 'Të Dhënat e App Store: Për produktet e blera përmes dyqaneve të aplikacioneve, zbatohen gjithashtu politikat e privatësisë të Apple ose Google.',
+        'section8-content3': 'Të Dhënat e Hardware: Prodhuesit përkatës janë përgjegjës për të dhënat që lidhen me hardware.',
+        'section9-title': '§ 9 Dispozitat Përfundimtare',
+        'section9-content1': 'Ligji i Zbatueshëm: Zbatohet ligji i Republikës Federale të Gjermanisë, duke përjashtuar Konventën e Kombeve të Bashkuara për Kontratat e Shitjes Ndërkombëtare të Mallrave.',
+        'section9-content2': 'Vendi i Juridiksionit: Vendi i juridiksionit për të gjitha mosmarrëveshjet është Bielefeld, Gjermani, me kusht që klienti të jetë tregtar.',
+        'section9-content3': 'Klauzola e Ndarjes: Nëse dispozitat individuale të këtyre KPB janë të pavlefshme, vlefshmëria e dispozitave të mbetura mbetet e paprekur.',
+        'section9-content4': 'Ndryshimet: Ndryshimet në këto KPB do të komunikohen me klientin përmes emailit dhe konsiderohen të miratuara nëse klienti nuk kundërshton brenda 14 ditëve.',
+        'section10-title': '§ 10 Kontakti dhe Zgjidhja e Mosmarrëveshjeve',
+        'section10-content1': 'Kontakti: ECHOPAIS, Giannis Tsotsis (Gentian Coci), Lagesche Str. 54, 33813 Oerlinghausen, Gjermani, Email: g.coci@echopais.com, Telefon: +49 176 70795385',
+        'section10-content2': 'Zgjidhja Online e Mosmarrëveshjeve: Komisioni Evropian ofron një platformë për zgjidhjen online të mosmarrëveshjeve (ODR): https://ec.europa.eu/consumers/odr/',
+        'section10-content3': 'Arbitrazhi i Konsumatorit: Ne nuk jemi të detyruar të marrim pjesë në procedurat e zgjidhjes së mosmarrëveshjeve para një bordi arbitrazhi konsumatori.',
+        'nav-privacy': 'Politika e Privatësisë',
+        'nav-terms': 'Kushtet e Shërbimit',
+        'nav-cookies': 'Politika e Cookies',
+        'nav-imprint': 'Të Dhënat e Kompanisë',
+        'footer-rights': 'Të gjitha të drejtat e rezervuara',
+        'footer-note': 'Zgjidhje profesionale MIDI dhe integrimi i hardware'
+      },
+      sr: {
+        'subtitle': 'Profesionalna MIDI Rešenja',
+        'nav-home': 'Početna',
+        'title': 'Opšti Uslovi Poslovanja (OUP)',
+        'last-updated': 'Poslednje ažuriranje: Decembar 2024',
+        'section1-title': '§ 1 Oblast Primene',
+        'section1-content1': 'Ovi Opšti Uslovi Poslovanja (u daljem tekstu "OUP") primenjuju se na sve ugovore između ECHOPAIS (u daljem tekstu "Pružalac") i klijenta za pružanje MIDI softvera, mobilnih aplikacija i hardverskih proizvoda sa integrisanim MIDI firmverom.',
+        'section1-content2': 'Oblast Primene: Ovi OUP primenjuju se na sve poslovne odnose sa potrošačima i preduzetnicima u smislu Nemačkog građanskog zakonika (BGB).',
+        'section1-content3': 'Odstupajući Uslovi: Odstupajući, suprotstavljeni ili dopunski Opšti Uslovi Poslovanja klijenta postaće deo ugovora samo u meri u kojoj je pružalac izričito pristao na njihovu validnost.',
+        'section2-title': '§ 2 Zaključenje Ugovora',
+        'section2-content1': 'Zaključenje ugovora varira u zavisnosti od vrste proizvoda:',
+        'section2-list-apps': 'iOS/Android Aplikacije: Ugovor se zaključuje preko Apple App Store ili Google Play Store prema njihovim uslovima',
+        'section2-list-hardware': 'Hardverski Proizvodi: Ugovor se zaključuje poručivanjem preko naše veb stranice i prihvatanjem potvrdom porudžbine',
+        'section2-list-firmware': 'MIDI Firmware: Licencni sporazum preuzimanjem i instaliranjem softvera',
+        'section2-content2': 'Ponuda i Prihvatanje: Prezentacija proizvoda na našoj veb stranici ne predstavlja pravno obavezujuću ponudu, već poziv za podnošenje ponude (invitatio ad offerendum).',
+        'section3-title': '§ 3 Pravo na Odustajanje',
+        'section3-content1': 'Uputstvo za odustajanje za potrošače:',
+        'section3-content2': 'Imate pravo da odustanete od ovog ugovora u roku od četrnaest dana bez navođenja razloga. Period odustajanja je četrnaest dana od dana zaključenja ugovora.',
+        'section3-content3': 'Izuzeci od prava na odustajanje:',
+        'section3-list-1': 'Digitalni sadržaj (softver, aplikacije) ako je izvršenje počelo sa izričitom saglasnošću potrošača pre isteka perioda odustajanja',
+        'section3-list-2': 'Zapečaćeni hardverski proizvodi koji nisu pogodni za vraćanje iz razloga zaštite zdravlja ili higijene ako je njihov pečat uklonjen nakon isporuke',
+        'section3-content4': 'Posledice odustajanja: U slučaju efikasnog odustajanja, usluge koje su primile obe strane moraju biti vraćene.',
+        'section4-title': '§ 4 Cene i Uslovi Plaćanja',
+        'section4-content1': 'Cene: Sve navedene cene su konačne cene uključujući zakonski PDV.',
+        'section4-content2': 'Načini plaćanja:',
+        'section4-list-1': 'iOS/Android Aplikacije: Plaćanje preko App Store/Google Play Store',
+        'section4-list-2': 'Hardverski Proizvodi: PayPal, kreditna kartica, bankovna transakcija',
+        'section4-list-3': 'Dodatni troškovi: Troškovi dostave prikazani su odvojeno',
+        'section4-content3': 'Datum dospeća: Plaćanje dospeva odmah nakon zaključenja ugovora, osim ako nije drugačije dogovoreno.',
+        'section5-title': '§ 5 Isporuka i Izvršenje',
+        'section5-content1': 'Vreme isporuke:',
+        'section5-list-1': 'Softver/Aplikacije: Trenutno preuzimanje nakon kupovine',
+        'section5-list-2': 'Hardverski Proizvodi: 3-7 radnih dana unutar Nemačke, 7-14 radnih dana širom EU',
+        'section5-list-3': 'Ažuriranja firmvera: Automatski ili ručno preko odgovarajuće platforme',
+        'section5-content2': 'Dostava: Hardverski proizvodi se isporučuju preko DHL ili uporedivog pružaoca usluga dostave.',
+        'section5-content3': 'Prenos rizika: Za potrošače, rizik prelazi samo sa predajom robe potrošaču.',
+        'section6-title': '§ 6 Garancija i Odgovornost',
+        'section6-content1': 'Garancija Softvera: Zakonske odredbe o garanciji primenjuju se na MIDI softver i mobilne aplikacije.',
+        'section6-content2': 'Garancija Hardvera: Hardverske komponente se nabavljaju od sertifikovanih proizvođača. Garanciju pruža odgovarajući proizvođač.',
+        'section6-content3': 'Ograničenje Odgovornosti: ECHOPAIS je odgovoran samo za nedostatke vezane za softver. Odgovarajući proizvođač je odgovoran za hardverske nedostatke.',
+        'section6-content4': 'Štete: Odgovornost za štete ograničena je na kupoprodajnu cenu softvera, osim u slučajevima namere ili grube nepažnje.',
+        'section7-title': '§ 7 Autorska Prava i Prava Korišćenja',
+        'section7-content1': 'Licenca Softvera: Klijent stiče jednostavno, neprenosivo pravo korišćenja MIDI softvera.',
+        'section7-content2': 'Ograničenja Korišćenja: Reverzno inženjerstvo, dekompilacija ili distribucija softvera je zabranjena.',
+        'section7-content3': 'Prava Hardvera: Prava na hardverske komponente ostaju kod odgovarajućeg proizvođača.',
+        'section7-content4': 'Komercijalna Upotreba: Softver se može koristiti za komercijalnu muzičku produkciju.',
+        'section8-title': '§ 8 Zaštita Podataka',
+        'section8-content1': 'Obrada Podataka: Obrada ličnih podataka vrši se u skladu sa našom politikom privatnosti i odredbama GDPR.',
+        'section8-content2': 'Podaci App Store: Za proizvode kupljene preko prodavnica aplikacija, primenjuju se i politike privatnosti Apple ili Google.',
+        'section8-content3': 'Podaci Hardvera: Odgovarajući proizvođači su odgovorni za podatke vezane za hardver.',
+        'section9-title': '§ 9 Završne Odredbe',
+        'section9-content1': 'Primenljivo Pravo: Primenjuje se pravo Savezne Republike Nemačke, isključujući Konvenciju Ujedinjenih Nacija o Ugovorima o Međunarodnoj Prodaji Robe.',
+        'section9-content2': 'Mesto Nadležnosti: Mesto nadležnosti za sve sporove je Bielefeld, Nemačka, pod uslovom da je klijent trgovac.',
+        'section9-content3': 'Klauzula o Razdvajanju: Ako su pojedinačne odredbe ovih OUP nevažeće, validnost preostalih odredbi ostaje nepromenjena.',
+        'section9-content4': 'Izmene: Izmene ovih OUP biće saopštene klijentu putem e-pošte i smatraju se odobrenim ako klijent ne prigovori u roku od 14 dana.',
+        'section10-title': '§ 10 Kontakt i Rešavanje Sporova',
+        'section10-content1': 'Kontakt: ECHOPAIS, Giannis Tsotsis (Gentian Coci), Lagesche Str. 54, 33813 Oerlinghausen, Nemačka, Email: g.coci@echopais.com, Telefon: +49 176 70795385',
+        'section10-content2': 'Online Rešavanje Sporova: Evropska komisija pruža platformu za online rešavanje sporova (ODR): https://ec.europa.eu/consumers/odr/',
+        'section10-content3': 'Arbitraža Potrošača: Nismo obavezni da učestvujemo u postupcima rešavanja sporova pred odborom za arbitražu potrošača.',
+        'nav-privacy': 'Politika Privatnosti',
+        'nav-terms': 'Uslovi Korišćenja',
+        'nav-cookies': 'Politika Kolačića',
+        'nav-imprint': 'Podaci o Kompaniji',
+        'footer-rights': 'Sva prava zadržana',
+        'footer-note': 'Profesionalna MIDI rešenja i integracija hardvera'
+      },
+      bg: {
+        'subtitle': 'Професионални MIDI Решения',
+        'nav-home': 'Начало',
+        'title': 'Общи Условия за Ползване (ОУП)',
+        'last-updated': 'Последна актуализация: Декември 2024',
+        'section1-title': '§ 1 Обхват на Приложение',
+        'section1-content1': 'Тези Общи Условия за Ползване (наричани по-долу "ОУП") се прилагат за всички договори между ECHOPAIS (наричан по-долу "Доставчик") и клиента за предоставяне на MIDI софтуер, мобилни приложения и хардуерни продукти с интегриран MIDI фърмуер.',
+        'section1-content2': 'Обхват на Приложение: Тези ОУП се прилагат за всички бизнес отношения с потребители и предприемачи по смисъла на Германския граждански кодекс (BGB).',
+        'section1-content3': 'Отклоняващи се Условия: Отклоняващите се, противоречащи или допълнителни Общи Условия за Ползване на клиента ще станат част от договора само в степента, в която доставчикът изрично е се съгласил с тяхната валидност.',
+        'section2-title': '§ 2 Сключване на Договор',
+        'section2-content1': 'Сключването на договора варира в зависимост от вида на продукта:',
+        'section2-list-apps': 'iOS/Android Приложения: Договорът се сключва чрез Apple App Store или Google Play Store според техните условия',
+        'section2-list-hardware': 'Хардуерни Продукти: Договорът се сключва чрез поръчка през нашия уебсайт и приемане чрез потвърждение на поръчката',
+        'section2-list-firmware': 'MIDI Фърмуер: Лицензионно споразумение чрез изтегляне и инсталиране на софтуера',
+        'section2-content2': 'Оферта и Приемане: Представянето на продуктите на нашия уебсайт не представлява правно обвързваща оферта, а покана за подаване на оферта (invitatio ad offerendum).',
+        'section3-title': '§ 3 Право на Оттегляне',
+        'section3-content1': 'Инструкции за оттегляне за потребители:',
+        'section3-content2': 'Имате право да се оттеглите от този договор в рамките на четиринадесет дни без да посочвате причина. Периодът на оттегляне е четиринадесет дни от деня на сключване на договора.',
+        'section3-content3': 'Изключения от правото на оттегляне:',
+        'section3-list-1': 'Цифрово съдържание (софтуер, приложения), ако изпълнението е започнало с изричното съгласие на потребителя преди изтичането на периода на оттегляне',
+        'section3-list-2': 'Запечатани хардуерни продукти, които не са подходящи за връщане по причини за защита на здравето или хигиена, ако техният печат е премахнат след доставката',
+        'section3-content4': 'Последици от оттеглянето: В случай на ефективно оттегляне, услугите, получени от двете страни, трябва да бъдат върнати.',
+        'section4-title': '§ 4 Цени и Условия за Плащане',
+        'section4-content1': 'Цени: Всички посочени цени са крайни цени, включително законния ДДС.',
+        'section4-content2': 'Методи на плащане:',
+        'section4-list-1': 'iOS/Android Приложения: Плащане чрез App Store/Google Play Store',
+        'section4-list-2': 'Хардуерни Продукти: PayPal, кредитна карта, банков превод',
+        'section4-list-3': 'Допълнителни разходи: Разходите за доставка се показват отделно',
+        'section4-content3': 'Падеж: Плащането е дължимо веднага след сключване на договора, освен ако не е договорено друго.',
+        'section5-title': '§ 5 Доставка и Изпълнение',
+        'section5-content1': 'Срокове за доставка:',
+        'section5-list-1': 'Софтуер/Приложения: Незабавно изтегляне след покупка',
+        'section5-list-2': 'Хардуерни Продукти: 3-7 работни дни в рамките на Германия, 7-14 работни дни в целия ЕС',
+        'section5-list-3': 'Актуализации на фърмуера: Автоматично или ръчно чрез съответната платформа',
+        'section5-content2': 'Доставка: Хардуерните продукти се доставят чрез DHL или сравним доставчик на услуги за доставка.',
+        'section5-content3': 'Прехвърляне на риска: За потребителите рискът преминава само с предаването на стоките на потребителя.',
+        'section6-title': '§ 6 Гаранция и Отговорност',
+        'section6-content1': 'Гаранция за Софтуер: Законовите разпоредби за гаранция се прилагат за MIDI софтуер и мобилни приложения.',
+        'section6-content2': 'Гаранция за Хардуер: Хардуерните компоненти се доставят от сертифицирани производители. Гаранцията се предоставя от съответния производител.',
+        'section6-content3': 'Ограничение на Отговорността: ECHOPAIS носи отговорност само за дефекти, свързани със софтуера. Съответният производител носи отговорност за хардуерни дефекти.',
+        'section6-content4': 'Щети: Отговорността за щети е ограничена до покупната цена на софтуера, освен в случаи на умисъл или груба небрежност.',
+        'section7-title': '§ 7 Авторско Право и Права на Ползване',
+        'section7-content1': 'Лиценз за Софтуер: Клиентът придобива просто, непрехвърлимо право за използване на MIDI софтуера.',
+        'section7-content2': 'Ограничения на Ползването: Обратното инженерство, декомпилацията или разпространението на софтуера е забранено.',
+        'section7-content3': 'Права за Хардуер: Правата върху хардуерните компоненти остават при съответния производител.',
+        'section7-content4': 'Търговска Употреба: Софтуерът може да се използва за търговско музикално производство.',
+        'section8-title': '§ 8 Защита на Данните',
+        'section8-content1': 'Обработка на Данни: Обработката на лични данни се извършва в съответствие с нашата политика за поверителност и разпоредбите на GDPR.',
+        'section8-content2': 'Данни от App Store: За продукти, закупени чрез магазини за приложения, се прилагат и политиките за поверителност на Apple или Google.',
+        'section8-content3': 'Данни за Хардуер: Съответните производители носят отговорност за данните, свързани с хардуера.',
+        'section9-title': '§ 9 Заключителни Разпоредби',
+        'section9-content1': 'Приложимо Право: Прилага се правото на Федерална Република Германия, с изключение на Конвенцията на ООН за договорите за международна продажба на стоки.',
+        'section9-content2': 'Място на Юрисдикция: Мястото на юрисдикция за всички спорове е Билефелд, Германия, при условие че клиентът е търговец.',
+        'section9-content3': 'Клауза за Разделяне: Ако отделни разпоредби на тези ОУП са невалидни, валидността на останалите разпоредби остава незасегната.',
+        'section9-content4': 'Промени: Промените в тези ОУП ще бъдат съобщени на клиента по имейл и се считат за одобрени, ако клиентът не възрази в рамките на 14 дни.',
+        'section10-title': '§ 10 Контакт и Разрешаване на Спорове',
+        'section10-content1': 'Контакт: ECHOPAIS, Giannis Tsotsis (Gentian Coci), Lagesche Str. 54, 33813 Oerlinghausen, Германия, Имейл: g.coci@echopais.com, Телефон: +49 176 70795385',
+        'section10-content2': 'Онлайн Разрешаване на Спорове: Европейската комисия предоставя платформа за онлайн разрешаване на спорове (ODR): https://ec.europa.eu/consumers/odr/',
+        'section10-content3': 'Арбитраж на Потребителя: Не сме задължени да участваме в процедури за разрешаване на спорове пред арбитражен съвет на потребителите.',
+        'nav-privacy': 'Политика за Поверителност',
+        'nav-terms': 'Условия за Ползване',
+        'nav-cookies': 'Политика за Бисквитки',
+        'nav-imprint': 'Данни за Компанията',
+        'footer-rights': 'Всички права запазени',
+        'footer-note': 'Професионални MIDI решения и интеграция на хардуер'
+      },
+      tr: {
+        'subtitle': 'Profesyonel MIDI Çözümleri',
+        'nav-home': 'Ana Sayfa',
+        'title': 'Genel İş Koşulları (GİK)',
+        'last-updated': 'Son güncelleme: Aralık 2024',
+        'section1-title': '§ 1 Uygulama Kapsamı',
+        'section1-content1': 'Bu Genel İş Koşulları (bundan böyle "GİK") ECHOPAIS (bundan böyle "Sağlayıcı") ile müşteri arasında MIDI yazılımı, mobil uygulamalar ve entegre MIDI firmware\'li donanım ürünlerinin sağlanması için yapılan tüm sözleşmeler için geçerlidir.',
+        'section1-content2': 'Uygulama Kapsamı: Bu GİK, Alman Medeni Kanunu (BGB) anlamında tüketiciler ve girişimcilerle yapılan tüm iş ilişkileri için geçerlidir.',
+        'section1-content3': 'Farklı Koşullar: Müşterinin farklı, çelişkili veya tamamlayıcı Genel İş Koşulları, yalnızca sağlayıcının geçerliliklerini açıkça kabul ettiği ölçüde sözleşmenin bir parçası olacaktır.',
+        'section2-title': '§ 2 Sözleşmenin Yapılması',
+        'section2-content1': 'Sözleşmenin yapılması ürün türüne göre değişir:',
+        'section2-list-apps': 'iOS/Android Uygulamaları: Sözleşme, Apple App Store veya Google Play Store üzerinden kendi koşullarına göre yapılır',
+        'section2-list-hardware': 'Donanım Ürünleri: Sözleşme, web sitemiz üzerinden sipariş vererek ve sipariş onayı ile kabul edilerek yapılır',
+        'section2-list-firmware': 'MIDI Firmware: Yazılımı indirip yükleyerek lisans sözleşmesi',
+        'section2-content2': 'Teklif ve Kabul: Web sitemizdeki ürünlerin sunumu yasal olarak bağlayıcı bir teklif oluşturmaz, ancak bir teklif sunma daveti (invitatio ad offerendum) oluşturur.',
+        'section3-title': '§ 3 Cayma Hakkı',
+        'section3-content1': 'Tüketiciler için cayma talimatı:',
+        'section3-content2': 'Herhangi bir neden göstermeden on dört gün içinde bu sözleşmeden cayma hakkına sahipsiniz. Cayma süresi, sözleşmenin yapıldığı günden itibaren on dört gündür.',
+        'section3-content3': 'Cayma hakkından istisnalar:',
+        'section3-list-1': 'Dijital içerik (yazılım, uygulamalar), cayma süresi dolmadan önce tüketicinin açık rızasıyla yürütmeye başlanmışsa',
+        'section3-list-2': 'Sağlık koruma veya hijyen nedenleriyle iade için uygun olmayan mühürlü donanım ürünleri, teslimat sonrası mühürleri kaldırılmışsa',
+        'section3-content4': 'Caymanın sonuçları: Etkili bir cayma durumunda, her iki tarafın aldığı hizmetler iade edilmelidir.',
+        'section4-title': '§ 4 Fiyatlar ve Ödeme Koşulları',
+        'section4-content1': 'Fiyatlar: Belirtilen tüm fiyatlar yasal KDV dahil nihai fiyatlardır.',
+        'section4-content2': 'Ödeme yöntemleri:',
+        'section4-list-1': 'iOS/Android Uygulamaları: App Store/Google Play Store üzerinden ödeme',
+        'section4-list-2': 'Donanım Ürünleri: PayPal, kredi kartı, banka havalesi',
+        'section4-list-3': 'Ek maliyetler: Kargo masrafları ayrı gösterilir',
+        'section4-content3': 'Vade tarihi: Aksi kararlaştırılmadıkça, ödeme sözleşmenin yapılmasından hemen sonra yapılmalıdır.',
+        'section5-title': '§ 5 Teslimat ve Performans',
+        'section5-content1': 'Teslimat süreleri:',
+        'section5-list-1': 'Yazılım/Uygulamalar: Satın alma sonrası anında indirme',
+        'section5-list-2': 'Donanım Ürünleri: Almanya içinde 3-7 iş günü, AB genelinde 7-14 iş günü',
+        'section5-list-3': 'Firmware güncellemeleri: İlgili platform üzerinden otomatik veya manuel',
+        'section5-content2': 'Kargo: Donanım ürünleri DHL veya karşılaştırılabilir kargo hizmeti sağlayıcısı aracılığıyla teslim edilir.',
+        'section5-content3': 'Risk transferi: Tüketiciler için risk, yalnızca malların tüketiciye teslimi ile geçer.',
+        'section6-title': '§ 6 Garanti ve Sorumluluk',
+        'section6-content1': 'Yazılım Garantisi: MIDI yazılımı ve mobil uygulamalar için yasal garanti hükümleri geçerlidir.',
+        'section6-content2': 'Donanım Garantisi: Donanım bileşenleri sertifikalı üreticilerden temin edilir. Garanti ilgili üretici tarafından sağlanır.',
+        'section6-content3': 'Sorumluluk Sınırlaması: ECHOPAIS yalnızca yazılımla ilgili kusurlardan sorumludur. İlgili üretici donanım kusurlarından sorumludur.',
+        'section6-content4': 'Zararlar: Hasar sorumluluğu, kasıt veya ağır ihmal durumları dışında yazılımın satın alma fiyatı ile sınırlıdır.',
+        'section7-title': '§ 7 Telif Hakkı ve Kullanım Hakları',
+        'section7-content1': 'Yazılım Lisansı: Müşteri, MIDI yazılımını kullanmak için basit, devredilemez bir hak elde eder.',
+        'section7-content2': 'Kullanım Kısıtlamaları: Tersine mühendislik, derleme veya yazılımın dağıtımı yasaktır.',
+        'section7-content3': 'Donanım Hakları: Donanım bileşenlerine ilişkin haklar ilgili üreticiye aittir.',
+        'section7-content4': 'Ticari Kullanım: Yazılım ticari müzik prodüksiyonu için kullanılabilir.',
+        'section8-title': '§ 8 Veri Koruma',
+        'section8-content1': 'Veri İşleme: Kişisel verilerin işlenmesi, gizlilik politikamıza ve GDPR hükümlerine uygun olarak gerçekleştirilir.',
+        'section8-content2': 'App Store Verileri: Uygulama mağazaları üzerinden satın alınan ürünler için Apple veya Google\'ın gizlilik politikaları da geçerlidir.',
+        'section8-content3': 'Donanım Verileri: İlgili üreticiler donanımla ilgili verilerden sorumludur.',
+        'section9-title': '§ 9 Son Hükümler',
+        'section9-content1': 'Uygulanacak Hukuk: Birleşmiş Milletler Uluslararası Mal Satımı Sözleşmeleri Konvansiyonu hariç olmak üzere Almanya Federal Cumhuriyeti hukuku uygulanır.',
+        'section9-content2': 'Yetki Yeri: Müşterinin tüccar olması koşuluyla, tüm anlaşmazlıklar için yetki yeri Bielefeld, Almanya\'dır.',
+        'section9-content3': 'Ayrılabilirlik Maddesi: Bu GİK\'nin bireysel hükümleri geçersiz olsa bile, kalan hükümlerin geçerliliği etkilenmez.',
+        'section9-content4': 'Değişiklikler: Bu GİK\'deki değişiklikler müşteriye e-posta ile bildirilecek ve müşteri 14 gün içinde itiraz etmezse onaylanmış sayılacaktır.',
+        'section10-title': '§ 10 İletişim ve Uyuşmazlık Çözümü',
+        'section10-content1': 'İletişim: ECHOPAIS, Giannis Tsotsis (Gentian Coci), Lagesche Str. 54, 33813 Oerlinghausen, Almanya, E-posta: g.coci@echopais.com, Telefon: +49 176 70795385',
+        'section10-content2': 'Çevrimiçi Uyuşmazlık Çözümü: Avrupa Komisyonu çevrimiçi uyuşmazlık çözümü (ODR) için bir platform sağlar: https://ec.europa.eu/consumers/odr/',
+        'section10-content3': 'Tüketici Tahkimi: Bir tüketici tahkim kurulu önünde uyuşmazlık çözüm prosedürlerine katılmak zorunda değiliz.',
+        'nav-privacy': 'Gizlilik Politikası',
+        'nav-terms': 'Kullanım Koşulları',
+        'nav-cookies': 'Çerez Politikası',
+        'nav-imprint': 'Şirket Bilgileri',
+        'footer-rights': 'Tüm hakları saklıdır',
+        'footer-note': 'Profesyonel MIDI çözümleri ve donanım entegrasyonu'
       }
     };
 
@@ -756,6 +1029,13 @@
         if (langBtn) {
           langBtn.click();
         }
+      } else {
+          // Ensure DE is active if it's the default or loaded
+          const deBtn = document.querySelector('.lang-btn.active[onclick="changeLanguage(\'de\')"]');
+          if (!deBtn) {
+              const defaultDeBtn = document.querySelector('.lang-btn[onclick="changeLanguage(\'de\')"]');
+              if(defaultDeBtn) defaultDeBtn.classList.add('active');
+          }
       }
     });
   </script>
