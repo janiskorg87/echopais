@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echo-Terza Tutorial - ECHOPAIS</title>
+  <meta name="description" content="Complete tutorial and instructions for Echo-Terza MIDI System">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange-500: #ff6600;
+      --orange-600: #e65c00;
+      --orange-400: #ff8533;
+      --orange-300: #ffa366;
+      --orange-200: #ffcc99;
+      --zinc-100: #f4f4f5;
+      --zinc-200: #e4e4e7;
+      --zinc-300: #d4d4d8;
+      --zinc-400: #a1a1aa;
+      --zinc-500: #71717a;
+      --zinc-600: #52525b;
+      --zinc-700: #3f3f46;
+      --zinc-800: #27272a;
+      --zinc-900: #18181b;
+      --black: #09090b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--zinc-900) 0%, var(--black) 100%);
+      color: var(--zinc-100);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Header */
+    header {
+      background: rgba(24, 24, 27, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--zinc-800);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo-box {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--zinc-100);
+      margin: 0;
+    }
+    
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--orange-400);
+      margin: 0;
+    }
+    
+    .nav-link {
+      color: var(--zinc-300);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--orange-400);
+      background: rgba(255, 102, 0, 0.1);
+    }
+    
+    /* Language Selector */
+    .language-selector {
+      display: flex;
+      background: var(--zinc-800);
+      border-radius: 0.5rem;
+      padding: 0.25rem;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--zinc-300);
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.875rem;
+    }
+    
+    .lang-btn.active {
+      background: var(--orange-500);
+      color: white;
+    }
+    
+    .lang-btn:hover:not(.active) {
+      background: var(--zinc-700);
+      color: var(--zinc-100);
+    }
+    
+    /* Main Content */
+    main {
+      padding: 4rem 0;
+    }
+    
+    .tutorial-hero {
+      background: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .tutorial-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--orange-400);
+      margin-bottom: 1rem;
+    }
+    
+    .tutorial-subtitle {
+      font-size: 1.25rem;
+      color: var(--zinc-400);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .tutorial-content {
+      background: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .section {
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid var(--zinc-700);
+    }
+    
+    .section:last-child {
+      border-bottom: none;
+    }
+    
+    .section-number {
+      display: inline-block;
+      background: var(--orange-500);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-content {
+      color: var(--zinc-300);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+    
+    .section-content p {
+      margin-bottom: 1rem;
+    }
+    
+    .section-content strong {
+      color: var(--orange-300);
+      font-weight: 600;
+    }
+    
+    .section-content ul, .section-content ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .section-content li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .highlight-box {
+      background: var(--zinc-700);
+      border-left: 4px solid var(--orange-500);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .highlight-box strong {
+      color: var(--orange-400);
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--zinc-900);
+      border-top: 1px solid var(--zinc-800);
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      text-align: center;
+      color: var(--zinc-500);
+      font-size: 0.875rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--zinc-400);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--orange-400);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .tutorial-title {
+        font-size: 2rem;
+      }
+      
+      .section {
+        padding: 2rem 1.5rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-box">E</div>
+          <div class="logo-text">
+            <h1>ECHOPAIS</h1>
+            <p data-translate="subtitle">Professional MIDI Solutions</p>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+          <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+          
+          <div class="language-selector">
+            <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+            <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+            <button class="lang-btn" onclick="changeLanguage('sq')">SQ</button>
+            <button class="lang-btn" onclick="changeLanguage('sr')">SR</button>
+            <button class="lang-btn" onclick="changeLanguage('bg')">BG</button>
+            <button class="lang-btn" onclick="changeLanguage('tr')">TR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="tutorial-hero">
+      <h1 class="tutorial-title">Echo-Terza</h1>
+      <p class="tutorial-subtitle" data-translate="hero-subtitle">Complete Guide & Instructions</p>
+    </div>
+
+    <div class="tutorial-content">
+      <!-- Section 1: What is Echo-Terza -->
+      <div class="section">
+        <div class="section-number">1</div>
+        <h2 class="section-title" data-translate="section1-title">What is Echo-Terza?</h2>
+        <div class="section-content">
+          <p data-translate="section1-content">
+            <strong>echo-terza</strong> is a Seconda (Terza) and Microtonal Scale system for any synth/MIDI setup. 
+            It works either separately or in combination, with Root/Transpose control, Note/Chord Finder, and complete MIDI Mapping.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 2: Quick Start -->
+      <div class="section">
+        <div class="section-number">2</div>
+        <h2 class="section-title" data-translate="section2-title">Quick Start</h2>
+        <div class="section-content">
+          <ol>
+            <li data-translate="section2-step1">Open Terza or Scale (only one active at a time; or Both for combination).</li>
+            <li data-translate="section2-step2">Choose Root (C…B) and Preset (Major/Minor etc. for Terza or scale for Scale).</li>
+            <li data-translate="section2-step3">If needed, set Transpose (e.g. +2 semitones). Everything adjusts correctly (Terza & Scale).</li>
+            <li data-translate="section2-step4">Select Mono/Poly according to your instrument/host (see §5).</li>
+            <li data-translate="section2-step5">Play. Tap on the piano to quickly change note/target depending on the mode.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Section 3: Interface -->
+      <div class="section">
+        <div class="section-number">3</div>
+        <h2 class="section-title" data-translate="section3-title">Interface</h2>
+        <div class="section-content">
+          <p><strong data-translate="section3-terza">Terza On/Off:</strong> <span data-translate="section3-terza-desc">Enables second voices (Seconda) according to the selected Terza preset and Root.</span></p>
+          <p><strong data-translate="section3-scale">Scale (Microtonal) On/Off:</strong> <span data-translate="section3-scale-desc">Enables microtonal rendering of scale notes.</span></p>
+          <p><strong data-translate="section3-both">Both:</strong> <span data-translate="section3-both-desc">Terza and Scale simultaneously.</span></p>
+          <p><strong data-translate="section3-root">Root & Transpose:</strong> <span data-translate="section3-root-desc">Root: C–B. Transpose: in semitones. Everything you hear is transferred correctly (Terza & Scale).</span></p>
+          <p><strong data-translate="section3-piano">Piano Keys:</strong> <span data-translate="section3-piano-desc">In Terza mode: tap for quick target change. In Scale/Microtonal: tap to mark/unmark scale note (if Scale is active).</span></p>
+        </div>
+      </div>
+
+      <!-- Section 4: Terza & Scale Functions -->
+      <div class="section">
+        <div class="section-number">4</div>
+        <h2 class="section-title" data-translate="section4-title">Terza & Scale Functions</h2>
+        <div class="section-content">
+          <div class="highlight-box">
+            <p><strong data-translate="section4-terza">Terza (Seconda):</strong> <span data-translate="section4-terza-desc">Produces second voice based on preset (Major/Minor etc.) and Root. Changing Transpose or Root, the result remains theoretically correct everywhere (doesn't "go out of tune").</span></p>
+          </div>
+          <div class="highlight-box">
+            <p><strong data-translate="section4-scale">Scale (Microtonal):</strong> <span data-translate="section4-scale-desc">Applies microtonal tuning to selected scale notes. Default Pitch Bend Range: –60 (instant change by tapping the value and entering new value). When entering a note, a picker appears; you can set manual offset per note.</span></p>
+          </div>
+          <p data-translate="section4-important"><strong>Important:</strong> Terza and Scale are independent functions. Work them separately or open Both when you want both together.</p>
+        </div>
+      </div>
+
+      <!-- Section 5: Mono/Poly Modes -->
+      <div class="section">
+        <div class="section-number">5</div>
+        <h2 class="section-title" data-translate="section5-title">Mono / Poly Modes</h2>
+        <div class="section-content">
+          <p><strong data-translate="section5-poly">Terza in Poly:</strong> <span data-translate="section5-poly-desc">Works immediately and "catches" on all instruments/MIDI without special setup.</span></p>
+          <p><strong data-translate="section5-mono">Terza in Mono (Seconda on 2nd channel scenario):</strong> <span data-translate="section5-mono-desc">You must set a second sound on your synth to MIDI In: Channel 2. The seconda is sent there. Select sound & channel 2 and you're ready.</span></p>
+          <p><strong data-translate="section5-scale-mono">Scale (Microtonal) in Mono/Poly:</strong> <span data-translate="section5-scale-mono-desc">In Mono it works everywhere. In Poly, often requires "mirroring" sound/path to apply correctly (depends on synth/host).</span></p>
+          <p><strong data-translate="section5-mpe">MPE / Pitch Bend:</strong> <span data-translate="section5-mpe-desc">Microtonal here works with Pitch Bend. For polyphonic microtonal, check if your instrument supports MPE or special formats. For synths with SysEx microtuning, Echopais provides a separate Scaler app that speaks native SysEx (more accurate, less setup).</span></p>
+        </div>
+      </div>
+
+      <!-- Section 6: Chord Finder -->
+      <div class="section">
+        <div class="section-number">6</div>
+        <h2 class="section-title" data-translate="section6-title">Chord Finder (Terza)</h2>
+        <div class="section-content">
+          <ul>
+            <li data-translate="section6-step1">Map a button from your instrument to Chord Finder.</li>
+            <li data-translate="section6-step2">Press the mapped button and play the chord: e.g. C–E–G → C Major, C–E♭–G → C Minor. The app recognizes the key and automatically sets the corresponding Terza preset regardless of transposition.</li>
+            <li data-translate="section6-special">Special presets (e.g. Hijaz, HijazKiar, Sabah): Hijaz: C–E–G + C# → C Hijaz, Sabah: C–E–G + D# → C Sabah. With three fingers like the classics; the additional note determines the path.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 7: Note Finder -->
+      <div class="section">
+        <div class="section-number">7</div>
+        <h2 class="section-title" data-translate="section7-title">Note Finder (Scale)</h2>
+        <div class="section-content">
+          <ul>
+            <li data-translate="section7-step1">Map a button to Note Finder.</li>
+            <li data-translate="section7-step2">Press the button and then the notes you want: the app marks microtonal offsets on the selected notes.</li>
+            <li data-translate="section7-step3">Press again without selection to clear.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 8: MIDI Mapping -->
+      <div class="section">
+        <div class="section-number">8</div>
+        <h2 class="section-title" data-translate="section8-title">MIDI Mapping & Map Manager</h2>
+        <div class="section-content">
+          <p><strong data-translate="section8-mapping">Mapping/Learn:</strong> <span data-translate="section8-mapping-desc">Learn any hardware button/slider to app functions.</span></p>
+          <p><strong data-translate="section8-manager">Map Manager (press & hold):</strong> <span data-translate="section8-manager-desc">View/change mapped controls and activation pole (Momentary or Toggle).</span></p>
+          <p><strong data-translate="section8-global">Global "MIDI Switch Toggle":</strong> <span data-translate="section8-global-desc">Changes overall activation type for trigger buttons (Momentary/Toggle).</span></p>
+          <p><strong data-translate="section8-panic">Panic:</strong> <span data-translate="section8-panic-desc">Immediate all-notes-off if a note "sticks".</span></p>
+        </div>
+      </div>
+
+      <!-- Section 9: Auto Recognition -->
+      <div class="section">
+        <div class="section-number">9</div>
+        <h2 class="section-title" data-translate="section9-title">Auto Mono/Poly & Sound Recognition</h2>
+        <div class="section-content">
+          <p data-translate="section9-intro">Two automation methods:</p>
+          <ol>
+            <li data-translate="section9-portamento"><strong>Portamento CC Auto:</strong> Recognizes mono/poly from Portamento. Fast, ~80% reliability.</li>
+            <li data-translate="section9-learn"><strong>Auto Sound Recognition (Learn):</strong> You learn the sound as Mono or Poly once. Then, when you select the same sound, the app automatically returns to the correct mode. More reliable for live.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Section 10: Settings -->
+      <div class="section">
+        <div class="section-number">10</div>
+        <h2 class="section-title" data-translate="section10-title">Settings</h2>
+        <div class="section-content">
+          <ul>
+            <li data-translate="section10-midi"><strong>MIDI In/Out & Channel Routing:</strong> Port selection and channel routing.</li>
+            <li data-translate="section10-volume"><strong>Seconda Volume:</strong> Volume of the second voice (Terza).</li>
+            <li data-translate="section10-latency"><strong>Latency:</strong> How "tight" the second voice plays with you.</li>
+            <li data-translate="section10-range"><strong>Note Range:</strong> Range/octaves where Terza or Scale are applied.</li>
+            <li data-translate="section10-learn"><strong>MIDI Learn Options:</strong> Settings for toggle buttons/auto modes (Portamento Auto & Sound Recognition).</li>
+            <li data-translate="section10-mpe"><strong>PC/MPE Mode:</strong> For hosts/instruments that support MPE, enable MPE in the plugin/instrument for correct poly microtonal.</li>
+            <li data-translate="section10-custom"><strong>Scale Custom:</strong> In Custom mode you create your own scale for Terza—you define for each note which "partner note" will function as Seconda.</li>
+            <li data-translate="section10-pitchbend"><strong>Pitch Bend Range (Microtonal):</strong> Default –60. Touch it and enter the value you want.</li>
+            <li data-translate="section10-tips"><strong>Synth Tips:</strong> Check your synth's MIDI settings and set sounds correctly for the corresponding mode (Mono/Poly, channels, MPE etc.).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 11: Presets -->
+      <div class="section">
+        <div class="section-number">11</div>
+        <h2 class="section-title" data-translate="section11-title">Presets</h2>
+        <div class="section-content">
+          <p data-translate="section11-content">Save/load Terza or Scale presets. If you change mode, the preset automatically adapts to the corresponding system.</p>
+        </div>
+      </div>
+
+      <!-- Section 12: Best Practices -->
+      <div class="section">
+        <div class="section-number">12</div>
+        <h2 class="section-title" data-translate="section12-title">Best Practices</h2>
+        <div class="section-content">
+          <ul>
+            <li data-translate="section12-mono">For Terza-Mono: always set a second sound on CH2.</li>
+            <li data-translate="section12-poly">For Microtonal Poly: prefer MPE-capable instruments/hosts or double channel/sound where needed.</li>
+            <li data-translate="section12-pitchbend">Keep consistent Pitch Bend Range between app and synth.</li>
+            <li data-translate="section12-recognition">Use Sound Recognition for reliable auto Mono/Poly in live.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="index.html" data-translate="nav-home">Home</a>
+          <a href="privacy.html" data-translate="nav-privacy">Privacy Policy</a>
+          <a href="terms.html" data-translate="nav-terms">Terms of Service</a>
+          <a href="imprint.html" data-translate="nav-imprint">Imprint</a>
+        </div>
+        <p>© 2025 Echopais. <span data-translate="footer-rights">All rights reserved</span>.</p>
+        <p data-translate="footer-note">Professional MIDI solutions and hardware integration</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        'subtitle': 'Professional MIDI Solutions',
+        'nav-home': 'Home',
+        'hero-subtitle': 'Complete Guide & Instructions',
+        'section1-title': 'What is Echo-Terza?',
+        'section1-content': 'echo-terza is a Seconda (Terza) and Microtonal Scale system for any synth/MIDI setup. It works either separately or in combination, with Root/Transpose control, Note/Chord Finder, and complete MIDI Mapping.',
+        'section2-title': 'Quick Start',
+        'section2-step1': 'Open Terza or Scale (only one active at a time; or Both for combination).',
+        'section2-step2': 'Choose Root (C…B) and Preset (Major/Minor etc. for Terza or scale for Scale).',
+        'section2-step3': 'If needed, set Transpose (e.g. +2 semitones). Everything adjusts correctly (Terza & Scale).',
+        'section2-step4': 'Select Mono/Poly according to your instrument/host.',
+        'section2-step5': 'Play. Tap on the piano to quickly change note/target depending on the mode.',
+        'section3-title': 'Interface',
+        'section3-terza': 'Terza On/Off',
+        'section3-terza-desc': 'Enables second voices (Seconda) according to the selected Terza preset and Root.',
+        'section3-scale': 'Scale (Microtonal) On/Off',
+        'section3-scale-desc': 'Enables microtonal rendering of scale notes.',
+        'section3-both': 'Both',
+        'section3-both-desc': 'Terza and Scale simultaneously.',
+        'section3-root': 'Root & Transpose',
+        'section3-root-desc': 'Root: C–B. Transpose: in semitones. Everything you hear is transferred correctly.',
+        'section3-piano': 'Piano Keys',
+        'section3-piano-desc': 'In Terza mode: tap for quick target change. In Scale/Microtonal: tap to mark/unmark scale note.',
+        'section4-title': 'Terza & Scale Functions',
+        'section4-terza': 'Terza (Seconda)',
+        'section4-terza-desc': 'Produces second voice based on preset and Root. Changing Transpose or Root, the result remains theoretically correct.',
+        'section4-scale': 'Scale (Microtonal)',
+        'section4-scale-desc': 'Applies microtonal tuning to selected scale notes. Default Pitch Bend Range: –60.',
+        'section4-important': 'Important: Terza and Scale are independent functions. Work them separately or open Both when you want both together.',
+        'section5-title': 'Mono / Poly Modes',
+        'section5-poly': 'Terza in Poly',
+        'section5-poly-desc': 'Works immediately and catches on all instruments/MIDI without special setup.',
+        'section5-mono': 'Terza in Mono',
+        'section5-mono-desc': 'You must set a second sound on your synth to MIDI In: Channel 2.',
+        'section5-scale-mono': 'Scale (Microtonal) in Mono/Poly',
+        'section5-scale-mono-desc': 'In Mono it works everywhere. In Poly, often requires mirroring sound/path.',
+        'section5-mpe': 'MPE / Pitch Bend',
+        'section5-mpe-desc': 'Microtonal works with Pitch Bend. For polyphonic microtonal, check if your instrument supports MPE.',
+        'section6-title': 'Chord Finder (Terza)',
+        'section6-step1': 'Map a button from your instrument to Chord Finder.',
+        'section6-step2': 'Press the mapped button and play the chord: e.g. C–E–G → C Major.',
+        'section6-special': 'Special presets: Hijaz, HijazKiar, Sabah with additional notes.',
+        'section7-title': 'Note Finder (Scale)',
+        'section7-step1': 'Map a button to Note Finder.',
+        'section7-step2': 'Press the button and then the notes you want.',
+        'section7-step3': 'Press again without selection to clear.',
+        'section8-title': 'MIDI Mapping & Map Manager',
+        'section8-mapping': 'Mapping/Learn',
+        'section8-mapping-desc': 'Learn any hardware button/slider to app functions.',
+        'section8-manager': 'Map Manager',
+        'section8-manager-desc': 'View/change mapped controls and activation pole.',
+        'section8-global': 'Global MIDI Switch Toggle',
+        'section8-global-desc': 'Changes overall activation type for trigger buttons.',
+        'section8-panic': 'Panic',
+        'section8-panic-desc': 'Immediate all-notes-off if a note sticks.',
+        'section9-title': 'Auto Mono/Poly & Sound Recognition',
+        'section9-intro': 'Two automation methods:',
+        'section9-portamento': 'Portamento CC Auto: Recognizes mono/poly from Portamento. Fast, ~80% reliability.',
+        'section9-learn': 'Auto Sound Recognition (Learn): Learn the sound once, app remembers the mode.',
+        'section10-title': 'Settings',
+        'section10-midi': 'MIDI In/Out & Channel Routing: Port selection and channel routing.',
+        'section10-volume': 'Seconda Volume: Volume of the second voice.',
+        'section10-latency': 'Latency: How tight the second voice plays with you.',
+        'section10-range': 'Note Range: Range/octaves where Terza or Scale are applied.',
+        'section10-learn': 'MIDI Learn Options: Settings for toggle buttons/auto modes.',
+        'section10-mpe': 'PC/MPE Mode: Enable MPE for correct poly microtonal.',
+        'section10-custom': 'Scale Custom: Create your own scale for Terza.',
+        'section10-pitchbend': 'Pitch Bend Range: Default –60.',
+        'section10-tips': 'Synth Tips: Check your synth MIDI settings.',
+        'section11-title': 'Presets',
+        'section11-content': 'Save/load Terza or Scale presets. Presets adapt automatically when changing mode.',
+        'section12-title': 'Best Practices',
+        'section12-mono': 'For Terza-Mono: always set a second sound on CH2.',
+        'section12-poly': 'For Microtonal Poly: prefer MPE-capable instruments.',
+        'section12-pitchbend': 'Keep consistent Pitch Bend Range between app and synth.',
+        'section12-recognition': 'Use Sound Recognition for reliable auto Mono/Poly in live.',
+        'nav-privacy': 'Privacy Policy',
+        'nav-terms': 'Terms of Service',
+        'nav-imprint': 'Imprint',
+        'footer-rights': 'All rights reserved',
+        'footer-note': 'Professional MIDI solutions and hardware integration'
+      },
+      de: {
+        'subtitle': 'Professionelle MIDI-Lösungen',
+        'nav-home': 'Startseite',
+        'hero-subtitle': 'Vollständige Anleitung & Anweisungen',
+        'section1-title': 'Was ist Echo-Terza?',
+        'section1-content': 'echo-terza ist ein Seconda (Terza) und Microtonal Scale System für jedes Synth/MIDI-Setup. Es funktioniert entweder separat oder in Kombination, mit Root/Transpose-Steuerung, Note/Chord Finder und vollständigem MIDI Mapping.',
+        'section2-title': 'Schnellstart',
+        'section2-step1': 'Öffnen Sie Terza oder Scale (nur eines aktiv; oder Both für Kombination).',
+        'section2-step2': 'Wählen Sie Root (C…B) und Preset (Major/Minor etc. für Terza oder Scale).',
+        'section2-step3': 'Falls nötig, setzen Sie Transpose (z.B. +2 Halbtöne). Alles passt sich korrekt an.',
+        'section2-step4': 'Wählen Sie Mono/Poly entsprechend Ihrem Instrument/Host.',
+        'section2-step5': 'Spielen Sie. Tippen Sie auf das Piano, um schnell Note/Ziel zu ändern.',
+        'section3-title': 'Benutzeroberfläche',
+        'section3-terza': 'Terza Ein/Aus',
+        'section3-terza-desc': 'Aktiviert zweite Stimmen (Seconda) gemäß dem gewählten Terza-Preset und Root.',
+        'section3-scale': 'Scale (Microtonal) Ein/Aus',
+        'section3-scale-desc': 'Aktiviert mikrotonale Wiedergabe von Skalennoten.',
+        'section3-both': 'Both',
+        'section3-both-desc': 'Terza und Scale gleichzeitig.',
+        'section3-root': 'Root & Transpose',
+        'section3-root-desc': 'Root: C–B. Transpose: in Halbtönen. Alles wird korrekt übertragen.',
+        'section3-piano': 'Klaviertasten',
+        'section3-piano-desc': 'Im Terza-Modus: Tippen für schnellen Zielwechsel. Im Scale-Modus: Tippen zum Markieren/Entmarkieren.',
+        'section4-title': 'Terza & Scale Funktionen',
+        'section4-terza': 'Terza (Seconda)',
+        'section4-terza-desc': 'Erzeugt zweite Stimme basierend auf Preset und Root. Bleibt theoretisch korrekt.',
+        'section4-scale': 'Scale (Microtonal)',
+        'section4-scale-desc': 'Wendet mikrotonale Stimmung auf ausgewählte Skalennoten an. Standard Pitch Bend Range: –60.',
+        'section4-important': 'Wichtig: Terza und Scale sind unabhängige Funktionen.',
+        'section5-title': 'Mono / Poly Modi',
+        'section5-poly': 'Terza in Poly',
+        'section5-poly-desc': 'Funktioniert sofort auf allen Instrumenten/MIDI ohne spezielle Einrichtung.',
+        'section5-mono': 'Terza in Mono',
+        'section5-mono-desc': 'Sie müssen einen zweiten Sound auf Ihrem Synth auf MIDI In: Kanal 2 setzen.',
+        'section5-scale-mono': 'Scale (Microtonal) in Mono/Poly',
+        'section5-scale-mono-desc': 'In Mono funktioniert es überall. In Poly erfordert oft Spiegelung.',
+        'section5-mpe': 'MPE / Pitch Bend',
+        'section5-mpe-desc': 'Microtonal funktioniert mit Pitch Bend. Für polyphon prüfen Sie MPE-Unterstützung.',
+        'section6-title': 'Chord Finder (Terza)',
+        'section6-step1': 'Ordnen Sie eine Taste Ihres Instruments dem Chord Finder zu.',
+        'section6-step2': 'Drücken Sie die zugeordnete Taste und spielen Sie den Akkord.',
+        'section6-special': 'Spezielle Presets: Hijaz, HijazKiar, Sabah mit zusätzlichen Noten.',
+        'section7-title': 'Note Finder (Scale)',
+        'section7-step1': 'Ordnen Sie eine Taste dem Note Finder zu.',
+        'section7-step2': 'Drücken Sie die Taste und dann die gewünschten Noten.',
+        'section7-step3': 'Drücken Sie erneut ohne Auswahl zum Löschen.',
+        'section8-title': 'MIDI Mapping & Map Manager',
+        'section8-mapping': 'Mapping/Learn',
+        'section8-mapping-desc': 'Lernen Sie jede Hardware-Taste/Slider für App-Funktionen.',
+        'section8-manager': 'Map Manager',
+        'section8-manager-desc': 'Anzeigen/Ändern zugeordneter Steuerelemente.',
+        'section8-global': 'Global MIDI Switch Toggle',
+        'section8-global-desc': 'Ändert den Aktivierungstyp für Trigger-Tasten.',
+        'section8-panic': 'Panic',
+        'section8-panic-desc': 'Sofortiges All-Notes-Off wenn eine Note hängt.',
+        'section9-title': 'Auto Mono/Poly & Sound Recognition',
+        'section9-intro': 'Zwei Automatisierungsmethoden:',
+        'section9-portamento': 'Portamento CC Auto: Erkennt Mono/Poly von Portamento. Schnell, ~80% Zuverlässigkeit.',
+        'section9-learn': 'Auto Sound Recognition: Lernen Sie den Sound einmal, App merkt sich den Modus.',
+        'section10-title': 'Einstellungen',
+        'section10-midi': 'MIDI In/Out & Kanal-Routing: Port-Auswahl und Kanal-Routing.',
+        'section10-volume': 'Seconda Volume: Lautstärke der zweiten Stimme.',
+        'section10-latency': 'Latency: Wie eng die zweite Stimme mit Ihnen spielt.',
+        'section10-range': 'Note Range: Bereich/Oktaven wo Terza oder Scale angewendet werden.',
+        'section10-learn': 'MIDI Learn Options: Einstellungen für Toggle-Tasten/Auto-Modi.',
+        'section10-mpe': 'PC/MPE Mode: MPE für korrektes Poly Microtonal aktivieren.',
+        'section10-custom': 'Scale Custom: Erstellen Sie Ihre eigene Scale für Terza.',
+        'section10-pitchbend': 'Pitch Bend Range: Standard –60.',
+        'section10-tips': 'Synth Tips: Überprüfen Sie Ihre Synth MIDI-Einstellungen.',
+        'section11-title': 'Presets',
+        'section11-content': 'Speichern/Laden von Terza oder Scale Presets. Presets passen sich automatisch an.',
+        'section12-title': 'Best Practices',
+        'section12-mono': 'Für Terza-Mono: immer zweiten Sound auf CH2 setzen.',
+        'section12-poly': 'Für Microtonal Poly: MPE-fähige Instrumente bevorzugen.',
+        'section12-pitchbend': 'Konsistente Pitch Bend Range zwischen App und Synth halten.',
+        'section12-recognition': 'Sound Recognition für zuverlässiges Auto Mono/Poly live verwenden.',
+        'nav-privacy': 'Datenschutzerklärung',
+        'nav-terms': 'Nutzungsbedingungen',
+        'nav-imprint': 'Impressum',
+        'footer-rights': 'Alle Rechte vorbehalten',
+        'footer-note': 'Professionelle MIDI-Lösungen und Hardware-Integration'
+      },
+      el: {
+        'subtitle': 'Επαγγελματικές MIDI Λύσεις',
+        'nav-home': 'Αρχική',
+        'hero-subtitle': 'Πλήρης Οδηγός & Οδηγίες',
+        'section1-title': 'Τι είναι το Echo-Terza;',
+        'section1-content': 'Το echo-terza είναι σύστημα Seconda (Terza) και Microtonal Scale για κάθε synth/MIDI setup. Δουλεύει είτε χωριστά είτε συνδυαστικά, με έλεγχο Root/Transpose, Note/Chord Finder, και πλήρες MIDI Mapping.',
+        'section2-title': 'Γρήγορο Ξεκίνημα',
+        'section2-step1': 'Άνοιξε Terza ή Scale (μόνο ένα ενεργό κάθε φορά· ή Both για συνδυασμό).',
+        'section2-step2': 'Διάλεξε Root (C…B) και Preset (Major/Minor κ.λπ. για Terza ή κλίμακα για Scale).',
+        'section2-step3': 'Αν χρειάζεται, όρισε Transpose (π.χ. +2 ημιτόνια). Όλα προσαρμόζονται σωστά.',
+        'section2-step4': 'Επίλεξε Mono/Poly σύμφωνα με το όργανο/host σου.',
+        'section2-step5': 'Παίξε. Με tap στο piano μπορείς να αλλάζεις γρήγορα note/στόχο.',
+        'section3-title': 'Διεπαφή',
+        'section3-terza': 'Terza On/Off',
+        'section3-terza-desc': 'Ενεργοποιεί δεύτερες φωνές (Seconda) σύμφωνα με το επιλεγμένο Terza preset και το Root.',
+        'section3-scale': 'Scale (Microtonal) On/Off',
+        'section3-scale-desc': 'Ενεργοποιεί microtonal απόδοση νότων της κλίμακας.',
+        'section3-both': 'Both',
+        'section3-both-desc': 'Terza και Scale ταυτόχρονα.',
+        'section3-root': 'Root & Transpose',
+        'section3-root-desc': 'Root: C–B. Transpose: σε ημιτόνια. Ό,τι ακούς μεταφέρεται σωστά.',
+        'section3-piano': 'Piano Keys',
+        'section3-piano-desc': 'Σε Terza mode: tap για γρήγορη αλλαγή στόχου. Σε Scale: tap για σημείωση/ακύρωση νότας.',
+        'section4-title': 'Λειτουργίες Terza & Scale',
+        'section4-terza': 'Terza (Seconda)',
+        'section4-terza-desc': 'Παράγει δεύτερη φωνή βάσει preset και Root. Μένει θεωρητικά σωστό παντού.',
+        'section4-scale': 'Scale (Microtonal)',
+        'section4-scale-desc': 'Εφαρμόζει microtonal κούρδισμα στις επιλεγμένες νότες. Προεπιλογή Pitch Bend Range: –60.',
+        'section4-important': 'Σημαντικό: Terza και Scale είναι ανεξάρτητες λειτουργίες.',
+        'section5-title': 'Mono / Poly Modes',
+        'section5-poly': 'Terza σε Poly',
+        'section5-poly-desc': 'Δουλεύει άμεσα σε όλα τα όργανα/MIDI χωρίς ειδική ρύθμιση.',
+        'section5-mono': 'Terza σε Mono',
+        'section5-mono-desc': 'Πρέπει να ορίσεις δεύτερο ήχο στο synth σου στο MIDI In: Channel 2.',
+        'section5-scale-mono': 'Scale (Microtonal) σε Mono/Poly',
+        'section5-scale-mono-desc': 'Σε Mono παίζει παντού. Σε Poly, χρειάζεται συχνά καθρέφτισμα.',
+        'section5-mpe': 'MPE / Pitch Bend',
+        'section5-mpe-desc': 'Το microtonal δουλεύει με Pitch Bend. Για πολυφωνικό, δες αν υποστηρίζει MPE.',
+        'section6-title': 'Chord Finder (Terza)',
+        'section6-step1': 'Κάνε map ένα κουμπί από το όργανο σου στο Chord Finder.',
+        'section6-step2': 'Πατάς το mapped κουμπί και παίζεις το ακόρντο.',
+        'section6-special': 'Ειδικά presets: Hijaz, HijazKiar, Sabah με επιπλέον νότες.',
+        'section7-title': 'Note Finder (Scale)',
+        'section7-step1': 'Κάνε map ένα κουμπί στο Note Finder.',
+        'section7-step2': 'Πατάς το κουμπί και ύστερα τις νότες που θες.',
+        'section7-step3': 'Πατάς ξανά χωρίς επιλογή για καθάρισμα.',
+        'section8-title': 'MIDI Mapping & Map Manager',
+        'section8-mapping': 'Mapping/Learn',
+        'section8-mapping-desc': 'Κάνε learn οποιοδήποτε hardware κουμπί/slider σε λειτουργίες του app.',
+        'section8-manager': 'Map Manager',
+        'section8-manager-desc': 'Βλέπεις/αλλάζεις τα mapped controls.',
+        'section8-global': 'Global MIDI Switch Toggle',
+        'section8-global-desc': 'Αλλάζει συνολικά τον τύπο ενεργοποίησης για τα trigger buttons.',
+        'section8-panic': 'Panic',
+        'section8-panic-desc': 'Άμεσο all-notes-off αν κολλήσει νότα.',
+        'section9-title': 'Auto Mono/Poly & Sound Recognition',
+        'section9-intro': 'Δύο τρόποι αυτοματισμού:',
+        'section9-portamento': 'Portamento CC Auto: Αναγνωρίζει mono/poly από Portamento. Γρήγορο, ~80% αξιοπιστία.',
+        'section9-learn': 'Auto Sound Recognition: Κάνεις learn τον ήχο μία φορά, το app θυμάται τον τρόπο.',
+        'section10-title': 'Ρυθμίσεις',
+        'section10-midi': 'MIDI In/Out & Channel Routing: Επιλογή θυρών και δρομολόγηση καναλιών.',
+        'section10-volume': 'Seconda Volume: Ένταση της δεύτερης φωνής.',
+        'section10-latency': 'Latency: Πόσο σφιχτά παίζει η δεύτερη φωνή μαζί σου.',
+        'section10-range': 'Note Range: Εύρος/οκτάβες στις οποίες εφαρμόζονται Terza ή Scale.',
+        'section10-learn': 'MIDI Learn Options: Ρυθμίσεις για τα toggle buttons/auto modes.',
+        'section10-mpe': 'PC/MPE Mode: Ενεργοποίησε MPE για σωστό poly microtonal.',
+        'section10-custom': 'Scale Custom: Φτιάξε δική σου κλίμακα για Terza.',
+        'section10-pitchbend': 'Pitch Bend Range: Προεπιλογή –60.',
+        'section10-tips': 'Synth Tips: Έλεγξε τα MIDI settings του synth σου.',
+        'section11-title': 'Presets',
+        'section11-content': 'Αποθήκευση/φόρτωση Terza ή Scale presets. Τα presets προσαρμόζονται αυτόματα.',
+        'section12-title': 'Καλές Πρακτικές',
+        'section12-mono': 'Για Terza-Mono: πάντα όρισε δεύτερο ήχο στο CH2.',
+        'section12-poly': 'Για Microtonal Poly: προτίμησε MPE-capable όργανα.',
+        'section12-pitchbend': 'Κράτα συνεπές Pitch Bend Range μεταξύ app και synth.',
+        'section12-recognition': 'Χρησιμοποίησε Sound Recognition για αξιόπιστο auto Mono/Poly σε live.',
+        'nav-privacy': 'Πολιτική Απορρήτου',
+        'nav-terms': 'Όροι Χρήσης',
+        'nav-imprint': 'Στοιχεία Επιχείρησης',
+        'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
+        'footer-note': 'Επαγγελματικές MIDI λύσεις και ενσωμάτωση hardware'
+      },
+      sq: {
+        'subtitle': 'Zgjidhje Profesionale MIDI',
+        'nav-home': 'Ballina',
+        'hero-subtitle': 'Udhëzues i Plotë & Udhëzime',
+        'section1-title': 'Çfarë është Echo-Terza?',
+        'section1-content': 'echo-terza është një sistem Seconda (Terza) dhe Microtonal Scale për çdo synth/MIDI setup. Funksionon ose veçmas ose në kombinim, me kontroll Root/Transpose, Note/Chord Finder, dhe MIDI Mapping të plotë.',
+        'section2-title': 'Fillim i Shpejtë',
+        'section2-step1': 'Hap Terza ose Scale (vetëm një aktiv në një kohë; ose Both për kombinim).',
+        'section2-step2': 'Zgjidh Root (C…B) dhe Preset (Major/Minor etj. për Terza ose shkallë për Scale).',
+        'section2-step3': 'Nëse nevojitet, vendos Transpose (p.sh. +2 gjysmëtonë). Gjithçka përshtatet saktë.',
+        'section2-step4': 'Zgjidh Mono/Poly sipas instrumentit/host tuaj.',
+        'section2-step5': 'Luaj. Prek pianon për të ndryshuar shpejt notën/objektivin.',
+        'section3-title': 'Ndërfaqja',
+        'section3-terza': 'Terza On/Off',
+        'section3-terza-desc': 'Aktivizon zërat e dytë (Seconda) sipas Terza preset dhe Root të zgjedhur.',
+        'section3-scale': 'Scale (Microtonal) On/Off',
+        'section3-scale-desc': 'Aktivizon renderimin mikrotonal të notave të shkallës.',
+        'section3-both': 'Both',
+        'section3-both-desc': 'Terza dhe Scale njëkohësisht.',
+        'section3-root': 'Root & Transpose',
+        'section3-root-desc': 'Root: C–B. Transpose: në gjysmëtonë. Gjithçka që dëgjon transferohet saktë.',
+        'section3-piano': 'Tastet e Pianos',
+        'section3-piano-desc': 'Në modalitetin Terza: prek për ndryshim të shpejtë objektivi. Në Scale: prek për të shënuar/çshënuar notën.',
+        'section4-title': 'Funksionet Terza & Scale',
+        'section4-terza': 'Terza (Seconda)',
+        'section4-terza-desc': 'Prodhon zërin e dytë bazuar në preset dhe Root. Mbetet teorikisht i saktë kudo.',
+        'section4-scale': 'Scale (Microtonal)',
+        'section4-scale-desc': 'Aplikon akordim mikrotonal në notat e zgjedhura të shkallës. Pitch Bend Range parazgjedhur: –60.',
+        'section4-important': 'E rëndësishme: Terza dhe Scale janë funksione të pavarura.',
+        'section5-title': 'Modalitetet Mono / Poly',
+        'section5-poly': 'Terza në Poly',
+        'section5-poly-desc': 'Funksionon menjëherë në të gjitha instrumentet/MIDI pa konfigurimin e veçantë.',
+        'section5-mono': 'Terza në Mono',
+        'section5-mono-desc': 'Duhet të vendosni një tingull të dytë në synth tuaj në MIDI In: Kanali 2.',
+        'section5-scale-mono': 'Scale (Microtonal) në Mono/Poly',
+        'section5-scale-mono-desc': 'Në Mono funksionon kudo. Në Poly, shpesh kërkon pasqyrim.',
+        'section5-mpe': 'MPE / Pitch Bend',
+        'section5-mpe-desc': 'Mikrotonal funksionon me Pitch Bend. Për polifonik, kontrolloni nëse instrumenti juaj mbështet MPE.',
+        'section6-title': 'Chord Finder (Terza)',
+        'section6-step1': 'Hartëzo një buton nga instrumenti juaj në Chord Finder.',
+        'section6-step2': 'Shtyp butonin e hartëzuar dhe luaj akordin.',
+        'section6-special': 'Preset specialë: Hijaz, HijazKiar, Sabah me nota shtesë.',
+        'section7-title': 'Note Finder (Scale)',
+        'section7-step1': 'Hartëzo një buton në Note Finder.',
+        'section7-step2': 'Shtyp butonin dhe pastaj notat që dëshironi.',
+        'section7-step3': 'Shtyp përsëri pa përzgjedhje për të pastruar.',
+        'section8-title': 'MIDI Mapping & Map Manager',
+        'section8-mapping': 'Mapping/Learn',
+        'section8-mapping-desc': 'Mëso çdo buton/rrëshqitës hardware për funksionet e aplikacionit.',
+        'section8-manager': 'Map Manager',
+        'section8-manager-desc': 'Shiko/ndrysho kontrollet e hartëzuara.',
+        'section8-global': 'Global MIDI Switch Toggle',
+        'section8-global-desc': 'Ndryshon llojin e aktivizimit për butonat trigger.',
+        'section8-panic': 'Panic',
+        'section8-panic-desc': 'All-notes-off i menjëhershëm nëse një notë ngec.',
+        'section9-title': 'Auto Mono/Poly & Sound Recognition',
+        'section9-intro': 'Dy metoda automatizimi:',
+        'section9-portamento': 'Portamento CC Auto: Njeh mono/poly nga Portamento. I shpejtë, ~80% besueshmëri.',
+        'section9-learn': 'Auto Sound Recognition: Mëso tingullin një herë, aplikacioni mban mend modalitetin.',
+        'section10-title': 'Cilësimet',
+        'section10-midi': 'MIDI In/Out & Channel Routing: Zgjedhja e portave dhe routing i kanaleve.',
+        'section10-volume': 'Seconda Volume: Volumi i zërit të dytë.',
+        'section10-latency': 'Latency: Sa ngushtë luan zëri i dytë me ju.',
+        'section10-range': 'Note Range: Diapazoni/oktavat ku aplikohen Terza ose Scale.',
+        'section10-learn': 'MIDI Learn Options: Cilësimet për butonat toggle/modalitetet auto.',
+        'section10-mpe': 'PC/MPE Mode: Aktivizo MPE për poly microtonal të saktë.',
+        'section10-custom': 'Scale Custom: Krijo shkallën tënde për Terza.',
+        'section10-pitchbend': 'Pitch Bend Range: Parazgjedhur –60.',
+        'section10-tips': 'Synth Tips: Kontrollo cilësimet MIDI të synth tuaj.',
+        'section11-title': 'Presets',
+        'section11-content': 'Ruaj/ngarko preset Terza ose Scale. Presets përshtaten automatikisht.',
+        'section12-title': 'Praktikat më të Mira',
+        'section12-mono': 'Për Terza-Mono: gjithmonë vendos tingull të dytë në CH2.',
+        'section12-poly': 'Për Microtonal Poly: prefero instrumente të aftë për MPE.',
+        'section12-pitchbend': 'Mbaj Pitch Bend Range konsistent midis aplikacionit dhe synth.',
+        'section12-recognition': 'Përdor Sound Recognition për auto Mono/Poly të besueshëm në live.',
+        'nav-privacy': 'Politika e Privatësisë',
+        'nav-terms': 'Kushtet e Shërbimit',
+        'nav-imprint': 'Imprint',
+        'footer-rights': 'Të gjitha të drejtat e rezervuara',
+        'footer-note': 'Zgjidhje profesionale MIDI dhe integrimi i hardware'
+      },
+      sr: {
+        'subtitle': 'Profesionalna MIDI Rešenja',
+        'nav-home': 'Početna',
+        'hero-subtitle': 'Kompletan Vodič i Uputstva',
+        'section1-title': 'Šta je Echo-Terza?',
+        'section1-content': 'echo-terza je Seconda (Terza) i Microtonal Scale sistem za bilo koji synth/MIDI setup. Radi ili odvojeno ili u kombinaciji, sa Root/Transpose kontrolom, Note/Chord Finder-om, i kompletnim MIDI Mapping-om.',
+        'section2-title': 'Brzi Početak',
+        'section2-step1': 'Otvorite Terza ili Scale (samo jedan aktivan u isto vreme; ili Both za kombinaciju).',
+        'section2-step2': 'Izaberite Root (C…B) i Preset (Major/Minor itd. za Terza ili skalu za Scale).',
+        'section2-step3': 'Ako je potrebno, podesite Transpose (npr. +2 polutona). Sve se pravilno prilagođava.',
+        'section2-step4': 'Izaberite Mono/Poly prema vašem instrumentu/host-u.',
+        'section2-step5': 'Svirajte. Dodirnite klavir da brzo promenite notu/cilj.',
+        'section3-title': 'Interfejs',
+        'section3-terza': 'Terza On/Off',
+        'section3-terza-desc': 'Omogućava druge glasove (Seconda) prema izabranom Terza preset-u i Root-u.',
+        'section3-scale': 'Scale (Microtonal) On/Off',
+        'section3-scale-desc': 'Omogućava mikrotonalno renderovanje nota skale.',
+        'section3-both': 'Both',
+        'section3-both-desc': 'Terza i Scale istovremeno.',
+        'section3-root': 'Root & Transpose',
+        'section3-root-desc': 'Root: C–B. Transpose: u polutonovima. Sve što čujete se pravilno prenosi.',
+        'section3-piano': 'Klavirske Dirke',
+        'section3-piano-desc': 'U Terza režimu: dodirnite za brzu promenu cilja. U Scale: dodirnite da označite/odznačite notu.',
+        'section4-title': 'Terza & Scale Funkcije',
+        'section4-terza': 'Terza (Seconda)',
+        'section4-terza-desc': 'Proizvodi drugi glas na osnovu preset-a i Root-a. Ostaje teorijski tačan svuda.',
+        'section4-scale': 'Scale (Microtonal)',
+        'section4-scale-desc': 'Primenjuje mikrotonalno štimovanje na izabrane note skale. Podrazumevani Pitch Bend Range: –60.',
+        'section4-important': 'Važno: Terza i Scale su nezavisne funkcije.',
+        'section5-title': 'Mono / Poly Režimi',
+        'section5-poly': 'Terza u Poly',
+        'section5-poly-desc': 'Radi odmah na svim instrumentima/MIDI bez posebnog podešavanja.',
+        'section5-mono': 'Terza u Mono',
+        'section5-mono-desc': 'Morate podesiti drugi zvuk na vašem synth-u na MIDI In: Kanal 2.',
+        'section5-scale-mono': 'Scale (Microtonal) u Mono/Poly',
+        'section5-scale-mono-desc': 'U Mono radi svuda. U Poly, često zahteva preslikavanje.',
+        'section5-mpe': 'MPE / Pitch Bend',
+        'section5-mpe-desc': 'Microtonal radi sa Pitch Bend. Za polifoniju, proverite da li vaš instrument podržava MPE.',
+        'section6-title': 'Chord Finder (Terza)',
+        'section6-step1': 'Mapirajte dugme sa vašeg instrumenta na Chord Finder.',
+        'section6-step2': 'Pritisnite mapirano dugme i svirajte akord.',
+        'section6-special': 'Specijalni preset-i: Hijaz, HijazKiar, Sabah sa dodatnim notama.',
+        'section7-title': 'Note Finder (Scale)',
+        'section7-step1': 'Mapirajte dugme na Note Finder.',
+        'section7-step2': 'Pritisnite dugme i zatim note koje želite.',
+        'section7-step3': 'Pritisnite ponovo bez izbora da očistite.',
+        'section8-title': 'MIDI Mapping & Map Manager',
+        'section8-mapping': 'Mapping/Learn',
+        'section8-mapping-desc': 'Naučite bilo koje hardware dugme/klizač za funkcije aplikacije.',
+        'section8-manager': 'Map Manager',
+        'section8-manager-desc': 'Pogledajte/promenite mapirane kontrole.',
+        'section8-global': 'Global MIDI Switch Toggle',
+        'section8-global-desc': 'Menja tip aktivacije za trigger dugmad.',
+        'section8-panic': 'Panic',
+        'section8-panic-desc': 'Trenutni all-notes-off ako nota zaglave.',
+        'section9-title': 'Auto Mono/Poly & Sound Recognition',
+        'section9-intro': 'Dve metode automatizacije:',
+        'section9-portamento': 'Portamento CC Auto: Prepoznaje mono/poly iz Portamento. Brzo, ~80% pouzdanost.',
+        'section9-learn': 'Auto Sound Recognition: Naučite zvuk jednom, aplikacija pamti režim.',
+        'section10-title': 'Podešavanja',
+        'section10-midi': 'MIDI In/Out & Channel Routing: Izbor portova i routing kanala.',
+        'section10-volume': 'Seconda Volume: Jačina drugog glasa.',
+        'section10-latency': 'Latency: Koliko čvrsto drugi glas svira sa vama.',
+        'section10-range': 'Note Range: Opseg/oktave gde se primenjuju Terza ili Scale.',
+        'section10-learn': 'MIDI Learn Options: Podešavanja za toggle dugmad/auto režime.',
+        'section10-mpe': 'PC/MPE Mode: Omogućite MPE za tačan poly microtonal.',
+        'section10-custom': 'Scale Custom: Napravite svoju skalu za Terza.',
+        'section10-pitchbend': 'Pitch Bend Range: Podrazumevano –60.',
+        'section10-tips': 'Synth Tips: Proverite MIDI podešavanja vašeg synth-a.',
+        'section11-title': 'Preset-i',
+        'section11-content': 'Sačuvajte/učitajte Terza ili Scale preset-e. Preset-i se automatski prilagođavaju.',
+        'section12-title': 'Najbolje Prakse',
+        'section12-mono': 'Za Terza-Mono: uvek podesite drugi zvuk na CH2.',
+        'section12-poly': 'Za Microtonal Poly: preferirajte instrumente sposobne za MPE.',
+        'section12-pitchbend': 'Održavajte dosledan Pitch Bend Range između aplikacije i synth-a.',
+        'section12-recognition': 'Koristite Sound Recognition za pouzdan auto Mono/Poly uživo.',
+        'nav-privacy': 'Politika Privatnosti',
+        'nav-terms': 'Uslovi Korišćenja',
+        'nav-imprint': 'Imprint',
+        'footer-rights': 'Sva prava zadržana',
+        'footer-note': 'Profesionalna MIDI rešenja i integracija hardware-a'
+      },
+      bg: {
+        'subtitle': 'Професионални MIDI Решения',
+        'nav-home': 'Начало',
+        'hero-subtitle': 'Пълно Ръководство и Инструкции',
+        'section1-title': 'Какво е Echo-Terza?',
+        'section1-content': 'echo-terza е Seconda (Terza) и Microtonal Scale система за всяка synth/MIDI настройка. Работи или отделно, или в комбинация, с Root/Transpose контрол, Note/Chord Finder и пълно MIDI Mapping.',
+        'section2-title': 'Бърз Старт',
+        'section2-step1': 'Отворете Terza или Scale (само един активен наведнъж; или Both за комбинация).',
+        'section2-step2': 'Изберете Root (C…B) и Preset (Major/Minor и т.н. за Terza или скала за Scale).',
+        'section2-step3': 'Ако е необходимо, задайте Transpose (напр. +2 полутона). Всичко се адаптира правилно.',
+        'section2-step4': 'Изберете Mono/Poly според вашия инструмент/host.',
+        'section2-step5': 'Свирете. Докоснете пианото, за да промените бързо нотата/целта.',
+        'section3-title': 'Интерфейс',
+        'section3-terza': 'Terza On/Off',
+        'section3-terza-desc': 'Активира втори гласове (Seconda) според избрания Terza preset и Root.',
+        'section3-scale': 'Scale (Microtonal) On/Off',
+        'section3-scale-desc': 'Активира микротонално рендериране на ноти от скалата.',
+        'section3-both': 'Both',
+        'section3-both-desc': 'Terza и Scale едновременно.',
+        'section3-root': 'Root & Transpose',
+        'section3-root-desc': 'Root: C–B. Transpose: в полутонове. Всичко, което чувате, се прехвърля правилно.',
+        'section3-piano': 'Клавиши на Пиано',
+        'section3-piano-desc': 'В Terza режим: докоснете за бърза промяна на целта. В Scale: докоснете, за да маркирате/демаркирате нота.',
+        'section4-title': 'Terza & Scale Функции',
+        'section4-terza': 'Terza (Seconda)',
+        'section4-terza-desc': 'Произвежда втори глас въз основа на preset и Root. Остава теоретично правилен навсякъде.',
+        'section4-scale': 'Scale (Microtonal)',
+        'section4-scale-desc': 'Прилага микротонално настройване към избрани ноти от скалата. По подразбиране Pitch Bend Range: –60.',
+        'section4-important': 'Важно: Terza и Scale са независими функции.',
+        'section5-title': 'Mono / Poly Режими',
+        'section5-poly': 'Terza в Poly',
+        'section5-poly-desc': 'Работи веднага на всички инструменти/MIDI без специална настройка.',
+        'section5-mono': 'Terza в Mono',
+        'section5-mono-desc': 'Трябва да зададете втори звук на вашия synth на MIDI In: Канал 2.',
+        'section5-scale-mono': 'Scale (Microtonal) в Mono/Poly',
+        'section5-scale-mono-desc': 'В Mono работи навсякъде. В Poly често изисква огледално копие.',
+        'section5-mpe': 'MPE / Pitch Bend',
+        'section5-mpe-desc': 'Microtonal работи с Pitch Bend. За полифония проверете дали вашият инструмент поддържа MPE.',
+        'section6-title': 'Chord Finder (Terza)',
+        'section6-step1': 'Картографирайте бутон от вашия инструмент към Chord Finder.',
+        'section6-step2': 'Натиснете картографирания бутон и свирете акорда.',
+        'section6-special': 'Специални preset-и: Hijaz, HijazKiar, Sabah с допълнителни ноти.',
+        'section7-title': 'Note Finder (Scale)',
+        'section7-step1': 'Картографирайте бутон към Note Finder.',
+        'section7-step2': 'Натиснете бутона и след това нотите, които искате.',
+        'section7-step3': 'Натиснете отново без избор, за да изчистите.',
+        'section8-title': 'MIDI Mapping & Map Manager',
+        'section8-mapping': 'Mapping/Learn',
+        'section8-mapping-desc': 'Научете всеки hardware бутон/плъзгач за функции на приложението.',
+        'section8-manager': 'Map Manager',
+        'section8-manager-desc': 'Вижте/променете картографираните контроли.',
+        'section8-global': 'Global MIDI Switch Toggle',
+        'section8-global-desc': 'Променя типа активация за trigger бутоните.',
+        'section8-panic': 'Panic',
+        'section8-panic-desc': 'Незабавен all-notes-off, ако нота се заседне.',
+        'section9-title': 'Auto Mono/Poly & Sound Recognition',
+        'section9-intro': 'Два метода за автоматизация:',
+        'section9-portamento': 'Portamento CC Auto: Разпознава mono/poly от Portamento. Бързо, ~80% надеждност.',
+        'section9-learn': 'Auto Sound Recognition: Научете звука веднъж, приложението запомня режима.',
+        'section10-title': 'Настройки',
+        'section10-midi': 'MIDI In/Out & Channel Routing: Избор на портове и маршрутизация на канали.',
+        'section10-volume': 'Seconda Volume: Сила на втория глас.',
+        'section10-latency': 'Latency: Колко плътно вторият глас свири с вас.',
+        'section10-range': 'Note Range: Обхват/октави, където се прилагат Terza или Scale.',
+        'section10-learn': 'MIDI Learn Options: Настройки за toggle бутони/auto режими.',
+        'section10-mpe': 'PC/MPE Mode: Активирайте MPE за правилен poly microtonal.',
+        'section10-custom': 'Scale Custom: Създайте своя скала за Terza.',
+        'section10-pitchbend': 'Pitch Bend Range: По подразбиране –60.',
+        'section10-tips': 'Synth Tips: Проверете MIDI настройките на вашия synth.',
+        'section11-title': 'Preset-и',
+        'section11-content': 'Запазете/заредете Terza или Scale preset-и. Preset-ите се адаптират автоматично.',
+        'section12-title': 'Най-добри Практики',
+        'section12-mono': 'За Terza-Mono: винаги задавайте втори звук на CH2.',
+        'section12-poly': 'За Microtonal Poly: предпочитайте инструменти, способни за MPE.',
+        'section12-pitchbend': 'Поддържайте последователен Pitch Bend Range между приложението и synth.',
+        'section12-recognition': 'Използвайте Sound Recognition за надежден auto Mono/Poly на живо.',
+        'nav-privacy': 'Политика за Поверителност',
+        'nav-terms': 'Условия за Ползване',
+        'nav-imprint': 'Imprint',
+        'footer-rights': 'Всички права запазени',
+        'footer-note': 'Професионални MIDI решения и интеграция на hardware'
+      },
+      tr: {
+        'subtitle': 'Profesyonel MIDI Çözümleri',
+        'nav-home': 'Ana Sayfa',
+        'hero-subtitle': 'Tam Kılavuz ve Talimatlar',
+        'section1-title': 'Echo-Terza Nedir?',
+        'section1-content': 'echo-terza, herhangi bir synth/MIDI kurulumu için Seconda (Terza) ve Microtonal Scale sistemidir. Ayrı ayrı veya birlikte çalışır, Root/Transpose kontrolü, Note/Chord Finder ve tam MIDI Mapping ile.',
+        'section2-title': 'Hızlı Başlangıç',
+        'section2-step1': 'Terza veya Scale\'i açın (aynı anda sadece biri aktif; veya kombinasyon için Both).',
+        'section2-step2': 'Root (C…B) ve Preset seçin (Terza için Major/Minor vb. veya Scale için ölçek).',
+        'section2-step3': 'Gerekirse Transpose ayarlayın (örn. +2 yarım ton). Her şey doğru şekilde ayarlanır.',
+        'section2-step4': 'Enstrümanınıza/host\'unuza göre Mono/Poly seçin.',
+        'section2-step5': 'Çalın. Moda bağlı olarak notayı/hedefi hızlıca değiştirmek için piyano\'ya dokunun.',
+        'section3-title': 'Arayüz',
+        'section3-terza': 'Terza Açık/Kapalı',
+        'section3-terza-desc': 'Seçilen Terza preset ve Root\'a göre ikinci sesleri (Seconda) etkinleştirir.',
+        'section3-scale': 'Scale (Microtonal) Açık/Kapalı',
+        'section3-scale-desc': 'Ölçek notalarının mikrotonal işlenmesini etkinleştirir.',
+        'section3-both': 'Both',
+        'section3-both-desc': 'Terza ve Scale aynı anda.',
+        'section3-root': 'Root & Transpose',
+        'section3-root-desc': 'Root: C–B. Transpose: yarım tonlarda. Duyduğunuz her şey doğru şekilde aktarılır.',
+        'section3-piano': 'Piyano Tuşları',
+        'section3-piano-desc': 'Terza modunda: hızlı hedef değişimi için dokunun. Scale\'de: notayı işaretlemek/işareti kaldırmak için dokunun.',
+        'section4-title': 'Terza & Scale Fonksiyonları',
+        'section4-terza': 'Terza (Seconda)',
+        'section4-terza-desc': 'Preset ve Root\'a dayalı ikinci ses üretir. Her yerde teorik olarak doğru kalır.',
+        'section4-scale': 'Scale (Microtonal)',
+        'section4-scale-desc': 'Seçilen ölçek notalarına mikrotonal akort uygular. Varsayılan Pitch Bend Range: –60.',
+        'section4-important': 'Önemli: Terza ve Scale bağımsız fonksiyonlardır.',
+        'section5-title': 'Mono / Poly Modları',
+        'section5-poly': 'Poly\'de Terza',
+        'section5-poly-desc': 'Özel kurulum olmadan tüm enstrümanlarda/MIDI\'de hemen çalışır.',
+        'section5-mono': 'Mono\'da Terza',
+        'section5-mono-desc': 'Synth\'inizde MIDI In: Kanal 2\'ye ikinci bir ses ayarlamanız gerekir.',
+        'section5-scale-mono': 'Mono/Poly\'de Scale (Microtonal)',
+        'section5-scale-mono-desc': 'Mono\'da her yerde çalışır. Poly\'de genellikle yansıtma gerektirir.',
+        'section5-mpe': 'MPE / Pitch Bend',
+        'section5-mpe-desc': 'Microtonal, Pitch Bend ile çalışır. Polifonik için enstrümanınızın MPE destekleyip desteklemediğini kontrol edin.',
+        'section6-title': 'Chord Finder (Terza)',
+        'section6-step1': 'Enstrümanınızdan Chord Finder\'a bir düğme eşleyin.',
+        'section6-step2': 'Eşlenen düğmeye basın ve akoru çalın.',
+        'section6-special': 'Özel preset\'ler: Ek notalarla Hijaz, HijazKiar, Sabah.',
+        'section7-title': 'Note Finder (Scale)',
+        'section7-step1': 'Note Finder\'a bir düğme eşleyin.',
+        'section7-step2': 'Düğmeye basın ve ardından istediğiniz notaları.',
+        'section7-step3': 'Temizlemek için seçim yapmadan tekrar basın.',
+        'section8-title': 'MIDI Mapping & Map Manager',
+        'section8-mapping': 'Mapping/Learn',
+        'section8-mapping-desc': 'Uygulama işlevleri için herhangi bir donanım düğmesini/kaydırıcısını öğrenin.',
+        'section8-manager': 'Map Manager',
+        'section8-manager-desc': 'Eşlenen kontrolleri görüntüleyin/değiştirin.',
+        'section8-global': 'Global MIDI Switch Toggle',
+        'section8-global-desc': 'Tetik düğmeleri için aktivasyon türünü değiştirir.',
+        'section8-panic': 'Panic',
+        'section8-panic-desc': 'Bir nota takılırsa anında all-notes-off.',
+        'section9-title': 'Auto Mono/Poly & Sound Recognition',
+        'section9-intro': 'İki otomasyon yöntemi:',
+        'section9-portamento': 'Portamento CC Auto: Portamento\'dan mono/poly tanır. Hızlı, ~%80 güvenilirlik.',
+        'section9-learn': 'Auto Sound Recognition: Sesi bir kez öğrenin, uygulama modu hatırlar.',
+        'section10-title': 'Ayarlar',
+        'section10-midi': 'MIDI In/Out & Channel Routing: Port seçimi ve kanal yönlendirme.',
+        'section10-volume': 'Seconda Volume: İkinci sesin hacmi.',
+        'section10-latency': 'Latency: İkinci sesin sizinle ne kadar sıkı çaldığı.',
+        'section10-range': 'Note Range: Terza veya Scale\'in uygulandığı aralık/oktavlar.',
+        'section10-learn': 'MIDI Learn Options: Toggle düğmeleri/otomatik modlar için ayarlar.',
+        'section10-mpe': 'PC/MPE Mode: Doğru poly microtonal için MPE\'yi etkinleştirin.',
+        'section10-custom': 'Scale Custom: Terza için kendi ölçeğinizi oluşturun.',
+        'section10-pitchbend': 'Pitch Bend Range: Varsayılan –60.',
+        'section10-tips': 'Synth Tips: Synth\'inizin MIDI ayarlarını kontrol edin.',
+        'section11-title': 'Preset\'ler',
+        'section11-content': 'Terza veya Scale preset\'lerini kaydedin/yükleyin. Preset\'ler otomatik olarak uyarlanır.',
+        'section12-title': 'En İyi Uygulamalar',
+        'section12-mono': 'Terza-Mono için: her zaman CH2\'de ikinci bir ses ayarlayın.',
+        'section12-poly': 'Microtonal Poly için: MPE özellikli enstrümanları tercih edin.',
+        'section12-pitchbend': 'Uygulama ve synth arasında tutarlı Pitch Bend Range tutun.',
+        'section12-recognition': 'Canlı performansta güvenilir otomatik Mono/Poly için Sound Recognition kullanın.',
+        'nav-privacy': 'Gizlilik Politikası',
+        'nav-terms': 'Hizmet Şartları',
+        'nav-imprint': 'Künye',
+        'footer-rights': 'Tüm hakları saklıdır',
+        'footer-note': 'Profesyonel MIDI çözümleri ve donanım entegrasyonu'
+      }
+    };
+
+    let currentLanguage = 'en';
+
+    function changeLanguage(lang) {
+      currentLanguage = lang;
+      
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update all translatable elements
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+      
+      // Update document language
+      document.documentElement.lang = lang;
+      
+      // Store language preference
+      localStorage.setItem('echopais-language', lang);
+    }
+
+    // Load saved language preference
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('echopais-language') || 'en';
+      if (savedLang !== 'en') {
+        const langBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${savedLang}')"]`);
+        if (langBtn) {
+          langBtn.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
