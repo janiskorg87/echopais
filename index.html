@@ -302,6 +302,61 @@
       font-weight: 500;
     }
     
+    /* Christmas Banner */
+    .christmas-banner {
+      background: linear-gradient(135deg, #d32f2f 0%, #1b5e20 50%, #d32f2f 100%);
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: snow 10s linear infinite;
+    }
+    
+    .christmas-banner::before {
+      content: '❄️';
+      position: absolute;
+      top: 10px;
+      left: 10%;
+      font-size: 1.5rem;
+      animation: fall 5s linear infinite;
+    }
+    
+    .christmas-banner::after {
+      content: '🎄';
+      position: absolute;
+      top: 10px;
+      right: 10%;
+      font-size: 1.5rem;
+      animation: fall 5s linear infinite 2.5s;
+    }
+    
+    .christmas-banner h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    @keyframes snow {
+      0% { background-position: 0 0; }
+      100% { background-position: 100px 100px; }
+    }
+    
+    @keyframes fall {
+      0% { transform: translateY(-20px); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(20px); opacity: 0; }
+    }
+    
+    @media (max-width: 768px) {
+      .christmas-banner h2 {
+        font-size: 1.25rem;
+      }
+    }
+    
     /* Products Section */
     .section-header {
       text-align: center;
@@ -463,6 +518,41 @@
       font-size: 2rem;
       font-weight: 800;
       color: var(--orange-400);
+    }
+    
+    .product-edition {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--orange-300);
+      margin: 0.25rem 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .price-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+    
+    .old-price {
+      font-size: 1.5rem;
+      color: var(--zinc-500);
+      text-decoration: line-through;
+    }
+    
+    .new-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--orange-400);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .christmas-symbol {
+      font-size: 1.25rem;
     }
     
     .product-meta {
@@ -1035,6 +1125,11 @@
     </div>
   </header>
 
+  <!-- Christmas Banner -->
+  <div class="christmas-banner">
+    <h2 data-translate="christmas-banner">🎄 Christmas Deal: 20% Off All Products! 🎄</h2>
+  </div>
+
   <!-- Main Content -->
   <main class="container">
     <!-- Hero Section -->
@@ -1122,12 +1217,16 @@
                 <span>4.9</span>
               </div>
             </div>
-            <h3 class="product-title">Scaler For Kronos</h3>
+            <h3 class="product-title">ECHOPAIS SCALER K.K</h3>
+            <p class="product-edition">Kronos Edition</p>
             <p class="product-description" data-translate="scaler-description">
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€149.99</span>
+              <div class="price-container">
+                <span class="old-price">€149.99</span>
+                <span class="new-price">€119.99 <span class="christmas-symbol">🎄</span></span>
+              </div>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1160,12 +1259,16 @@
                 <span>4.9</span>
               </div>
             </div>
-            <h3 class="product-title">Scaler For Nautilus</h3>
+            <h3 class="product-title">ECHOPAIS SCALER K.N</h3>
+            <p class="product-edition">Nautilus Edition</p>
             <p class="product-description" data-translate="scaler-description">
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€99.99</span>
+              <div class="price-container">
+                <span class="old-price">€99.99</span>
+                <span class="new-price">€79.99 <span class="christmas-symbol">🎄</span></span>
+              </div>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1198,12 +1301,16 @@
                 <span>4.9</span>
               </div>
             </div>
-            <h3 class="product-title">Scaler For Pa Series</h3>
+            <h3 class="product-title">ECHOPAIS SCALER K.P</h3>
+            <p class="product-edition">Pa Series Edition</p>
             <p class="product-description" data-translate="scaler-description">
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€79.99</span>
+              <div class="price-container">
+                <span class="old-price">€79.99</span>
+                <span class="new-price">€63.99 <span class="christmas-symbol">🎄</span></span>
+              </div>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1236,12 +1343,16 @@
                 <span>4.9</span>
               </div>
             </div>
-            <h3 class="product-title">Scaler For M3</h3>
+            <h3 class="product-title">ECHOPAIS SCALER K.M</h3>
+            <p class="product-edition">M3 Edition</p>
             <p class="product-description" data-translate="scaler-description">
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€99.99</span>
+              <div class="price-container">
+                <span class="old-price">€99.99</span>
+                <span class="new-price">€79.99 <span class="christmas-symbol">🎄</span></span>
+              </div>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1259,30 +1370,37 @@
           </div>
         </div>
 
-        <!-- Scaler Max -->
+        <!-- Pad Controller Pro -->
         <div class="product-card">
           <div class="product-image-container">
-            <img src="scalermax.png" alt="Scaler Max" style="max-width: 80%; max-height: 80%;">
+            <img src="padcontroller.png" alt="Pad Controller Pro" style="max-width: 80%; max-height: 80%;">
           </div>
           <div class="product-content">
             <div class="product-header">
-              <span class="product-category">iOS - Scaler</span>
+              <span class="product-category">iOS</span>
               <div class="product-rating">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
-                <span>4.9</span>
+                <span>4.8</span>
               </div>
             </div>
-            <h3 class="product-title">Scaler Max</h3>
-            <p class="product-description" data-translate="scaler-description">
-              Advanced scaler for keyboard synthesizers.
+            <h3 class="product-title">ECHOPAIS CONTROLLER</h3>
+            <p class="product-edition">ECHOPAD LIVE</p>
+            <p class="product-description">
+              Professional key note editor.
             </p>
             <div class="product-footer">
-              <span class="product-price">€169.99</span>
+              <div class="price-container">
+                <span class="old-price">€49.99</span>
+                <span class="new-price">€39.99 <span class="christmas-symbol">🎄</span></span>
+              </div>
+              <a href="tutorial1.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
+                Tutorial
+              </a>
             </div>
             <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
+              <a href="https://apps.apple.com/de/app/pad-controller-pro-v2-1/id6746576846" class="btn btn-primary btn-block btn-icon" target="_blank" rel="noopener">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
@@ -1310,11 +1428,15 @@
               </div>
             </div>
             <h3 class="product-title">ECHO-TERZA</h3>
+            <p class="product-edition">ECHOPAIS TERZA</p>
             <p class="product-description" data-translate="scaler-description">
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€179.99</span>
+              <div class="price-container">
+                <span class="old-price">€179.99</span>
+                <span class="new-price">€149.99 <span class="christmas-symbol">🎄</span></span>
+              </div>
               <a href="tutorial-echoterza.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1348,376 +1470,21 @@
               </div>
             </div>
             <h3 class="product-title">ECHO-SCALE</h3>
+            <p class="product-edition">ECHOPAIS DAW Scale Edition PC & MAC</p>
             <p class="product-description" data-translate="scaler-description">
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€69.99</span>
+              <div class="price-container">
+                <span class="old-price">€69.99</span>
+                <span class="new-price">€55.99 <span class="christmas-symbol">🎄</span></span>
+              </div>
               <a href="tutorial-echoscale.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
             </div>
             <div class="product-buttons">
               <a href="https://apps.apple.com/de/app/echo-scale/6753189209" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Individual Apps -->
-      <div class="products-grid">
-        <!-- MIDI Key Editor -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="midikeyeditor.png" alt="MIDI Key Editor" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.8</span>
-              </div>
-            </div>
-            <h3 class="product-title">MIDI Key Editor</h3>
-            <p class="product-description">
-              Professional key note editor.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">€119.99</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Playtone -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="playtone.png" alt="Playtone" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.8</span>
-              </div>
-            </div>
-            <h3 class="product-title">Playtone</h3>
-            <p class="product-description">
-              Professional key note editor.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">€19.99</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pad Controller Pro -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="padcontroller.png" alt="Pad Controller Pro" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.8</span>
-              </div>
-            </div>
-            <h3 class="product-title">Pad Controller Pro</h3>
-            <p class="product-description">
-              Professional key note editor.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">€49.99</span>
-              <a href="tutorial1.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
-                Tutorial
-              </a>
-            </div>
-            <div class="product-buttons">
-              <a href="https://apps.apple.com/de/app/pad-controller-pro-v2-1/id6746576846" class="btn btn-primary btn-block btn-icon" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Echopais -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="echopais.png" alt="Echopais" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.8</span>
-              </div>
-            </div>
-            <h3 class="product-title">Echopais</h3>
-            <p class="product-description">
-              Professional key note editor.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">Free</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Midi Tuner -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="echopais.png" alt="Echopais" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.8</span>
-              </div>
-            </div>
-            <h3 class="product-title">Echopais</h3>
-            <p class="product-description">
-              Professional key note editor.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">Free</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Demo Apps -->
-      <div class="products-grid">
-        <!-- Demo 1 -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="echopais.png" alt="Demo 1" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS - Demo</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.7</span>
-              </div>
-            </div>
-            <h3 class="product-title">Demo 1</h3>
-            <p class="product-description">
-              Demo application.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">Free</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Demo 2 -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="echopais.png" alt="Demo 2" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS - Demo</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.7</span>
-              </div>
-            </div>
-            <h3 class="product-title">Demo 2</h3>
-            <p class="product-description">
-              Demo application.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">Free</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Demo 3 -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="echopais.png" alt="Demo 3" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS - Demo</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.7</span>
-              </div>
-            </div>
-            <h3 class="product-title">Demo 3</h3>
-            <p class="product-description">
-              Demo application.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">Free</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Demo 4 -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="echopais.png" alt="Demo 4" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS - Demo</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.7</span>
-              </div>
-            </div>
-            <h3 class="product-title">Demo 4</h3>
-            <p class="product-description">
-              Demo application.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">Free</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-appstore">App Store</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Demo 5 -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="echopais.png" alt="Demo 5" style="max-width: 80%; max-height: 80%;">
-          </div>
-          <div class="product-content">
-            <div class="product-header">
-              <span class="product-category">iOS - Demo</span>
-              <div class="product-rating">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>4.7</span>
-              </div>
-            </div>
-            <h3 class="product-title">Demo 5</h3>
-            <p class="product-description">
-              Demo application.
-            </p>
-            <div class="product-footer">
-              <span class="product-price">Free</span>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
@@ -1760,20 +1527,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€99.99</span>
-              <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
-                Tutorial
-              </a>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-playstore">Google Play</span>
-              </a>
+              <p>Coming Soon</p>
             </div>
           </div>
         </div>
@@ -1798,20 +1552,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€99.99</span>
-              <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
-                Tutorial
-              </a>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-playstore">Google Play</span>
-              </a>
+              <p>Coming Soon</p>
             </div>
           </div>
         </div>
@@ -1836,20 +1577,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€99.99</span>
-              <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
-                Tutorial
-              </a>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-playstore">Google Play</span>
-              </a>
+              <p>Coming Soon</p>
             </div>
           </div>
         </div>
@@ -1874,20 +1602,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€99.99</span>
-              <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
-                Tutorial
-              </a>
-            </div>
-            <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span data-translate="btn-playstore">Google Play</span>
-              </a>
+              <p>Coming Soon</p>
             </div>
           </div>
         </div>
@@ -2420,11 +2135,7 @@
             </div>
             
             <div class="product-footer">
-              <span class="product-price">€549.99</span>
-              <div class="product-meta">
-                <div>Hardware by certified manufacturers</div>
-                <div>Firmware by ECHOPAIS</div>
-              </div>
+              <p>Ask for availability</p>
             </div>
             <div class="product-buttons">
               <a href="#" class="btn btn-primary btn-block btn-icon">
@@ -2494,11 +2205,7 @@
             </div>
             
             <div class="product-footer">
-              <span class="product-price">€449.99</span>
-              <div class="product-meta">
-                <div>Hardware by certified manufacturers</div>
-                <div>Firmware by ECHOPAIS</div>
-              </div>
+              <p>Ask for availability</p>
             </div>
             <div class="product-buttons">
               <a href="#" class="btn btn-primary btn-block btn-icon">
@@ -2568,11 +2275,7 @@
             </div>
             
             <div class="product-footer">
-              <span class="product-price">€379.99</span>
-              <div class="product-meta">
-                <div>Hardware by certified manufacturers</div>
-                <div>Firmware by ECHOPAIS</div>
-              </div>
+              <p>Ask for availability</p>
             </div>
             <div class="product-buttons">
               <a href="#" class="btn btn-primary btn-block btn-icon">
@@ -2880,7 +2583,8 @@
         'developer-title': 'Meet the Developer',
         'developer-name': 'Giannis Tsotsis ( Gentian Coci )',
         'developer-desc': 'Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.',
-        'nav-agb': 'Terms & Conditions'
+        'nav-agb': 'Terms & Conditions',
+        'christmas-banner': '🎄 Christmas Deal: 20% Off All Products! 🎄'
       },
       de: {
         'subtitle': 'MIDI SYSTEM',
@@ -2994,7 +2698,8 @@
         'developer-title': 'Lernen Sie den Entwickler kennen',
         'developer-name': 'Giannis Tsotsis ( Gentian Coci )',
         'developer-desc': 'Audio-Softwareingenieur und Musiker mit über 10 Jahren Erfahrung in der Entwicklung professioneller Audio-Anwendungen. Spezialisiert auf MIDI-Controller, digitale Signalverarbeitung und interaktive Musiksysteme.',
-        'nav-agb': 'AGB'
+        'nav-agb': 'AGB',
+        'christmas-banner': '🎄 Weihnachtsangebot: 20% Rabatt auf alle Produkte! 🎄'
       },
       el: {
         'subtitle': 'MIDI SYSTEM',
@@ -3108,7 +2813,8 @@
         'developer-title': 'Γνωρίστε τον Προγραμματιστή',
         'developer-name': 'Giannis Tsotsis ( Gentian Coci )',
         'developer-desc': 'Μηχανικός λογισμικού ήχου και μουσικός με πάνω από 10 χρόνια εμπειρίας στην ανάπτυξη επαγγελματικών εφαρμογών ήχου. Ειδικεύεται σε MIDI controllers, επεξεργασία ψηφιακού σήματος και διαδραστικά μουσικά συστήματα.',
-        'nav-agb': 'Όροι & Προϋποθέσεις'
+        'nav-agb': 'Όροι & Προϋποθέσεις',
+        'christmas-banner': '🎄 Χριστουγεννιάτικη Προσφορά: 20% Έκπτωση σε Όλα τα Προϊόντα! 🎄'
       },
       sq: {
         'subtitle': 'MIDI SYSTEM',
@@ -3222,7 +2928,8 @@
         'developer-title': 'Takoni Zhvilluesin',
         'developer-name': 'Giannis Tsotsis ( Gentian Coci )',
         'developer-desc': 'Inxhinier software audio dhe muzikant me mbi 10 vjet përvojë në zhvillimin e aplikacioneve profesionale audio. Specializuar në kontrollerë MIDI, përpunim të sinjalit dixhital dhe sisteme interaktive muzikore.',
-        'nav-agb': 'Kushtet & Termat'
+        'nav-agb': 'Kushtet & Termat',
+        'christmas-banner': '🎄 Ofertë Krishtlindje: 20% Zbritje në Të Gjitha Produktet! 🎄'
       },
       sr: {
         'subtitle': 'MIDI SYSTEM',
@@ -3336,7 +3043,8 @@
         'developer-title': 'Упознајте Програмера',
         'developer-name': 'Giannis Tsotsis ( Gentian Coci )',
         'developer-desc': 'Инжењер аудио софтвера и музичар са преко 10 година искуства у развоју професионалних аудио апликација. Специјализован за MIDI контролере, дигиталну обраду сигнала и интерактивне музичке системе.',
-        'nav-agb': 'Услови & Одредбе'
+        'nav-agb': 'Услови & Одредбе',
+        'christmas-banner': '🎄 Божићни Попуст: 20% Попуста на Све Производе! 🎄'
       },
       bg: {
         'subtitle': 'MIDI SYSTEM',
@@ -3450,7 +3158,8 @@
         'developer-title': 'Запознайте се с Разработчика',
         'developer-name': 'Giannis Tsotsis ( Gentian Coci )',
         'developer-desc': 'Инженер по аудио софтуер и музикант с над 10 години опит в разработването на професионални аудио приложения. Специализиран в MIDI контролери, цифрова обработка на сигнали и интерактивни музикални системи.',
-        'nav-agb': 'Условия & Правила'
+        'nav-agb': 'Условия & Правила',
+        'christmas-banner': '🎄 Коледна Оферта: 20% Отстъпка за Всички Продукти! 🎄'
       },
       tr: {
         'subtitle': 'MIDI SYSTEM',
@@ -3564,7 +3273,8 @@
         'developer-title': 'Geliştiriciyle Tanışın',
         'developer-name': 'Giannis Tsotsis ( Gentian Coci )',
         'developer-desc': 'Profesyonel ses uygulamaları geliştirmede 10 yıldan fazla deneyime sahip ses yazılımı mühendisi ve müzisyen. MIDI kontrolörler, dijital sinyal işleme ve etkileşimli müzik sistemlerinde uzmanlaşmıştır.',
-        'nav-agb': 'Şartlar & Koşullar'
+        'nav-agb': 'Şartlar & Koşullar',
+        'christmas-banner': '🎄 Noel Fırsatı: Tüm Ürünlerde %20 İndirim! 🎄'
       }
     };
 
