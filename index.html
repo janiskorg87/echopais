@@ -302,58 +302,196 @@
       font-weight: 500;
     }
     
-    /* Christmas Banner */
-    .christmas-banner {
-      background: linear-gradient(135deg, #d32f2f 0%, #1b5e20 50%, #d32f2f 100%);
-      color: white;
-      text-align: center;
-      padding: 1rem 2rem;
+    /* Featured Product Banner */
+    .featured-product-section {
+      background: linear-gradient(135deg, var(--zinc-800) 0%, var(--zinc-900) 100%);
+      border-radius: 2rem;
+      padding: 3rem;
+      margin: 2rem 0 4rem;
+      border: 1px solid var(--zinc-700);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      animation: snow 10s linear infinite;
     }
     
-    .christmas-banner::before {
-      content: '❄️';
+    .promo-banner {
       position: absolute;
-      top: 10px;
-      left: 10%;
-      font-size: 1.5rem;
-      animation: fall 5s linear infinite;
-    }
-    
-    .christmas-banner::after {
-      content: '🎄';
-      position: absolute;
-      top: 10px;
-      right: 10%;
-      font-size: 1.5rem;
-      animation: fall 5s linear infinite 2.5s;
-    }
-    
-    .christmas-banner h2 {
-      font-size: 1.5rem;
+      top: 20px;
+      right: -35px;
+      background: linear-gradient(135deg, #ff3333, #cc0000);
+      color: white;
+      padding: 0.5rem 3rem;
       font-weight: 800;
-      margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      font-size: 0.9rem;
+      transform: rotate(45deg);
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+      z-index: 10;
     }
     
-    @keyframes snow {
-      0% { background-position: 0 0; }
-      100% { background-position: 100px 100px; }
+    .promo-stamp {
+      background: linear-gradient(135deg, #ff6600, #ff3300);
+      border: 3px dashed rgba(255, 255, 255, 0.5);
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      transform: rotate(-3deg);
+      box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+      animation: pulse-stamp 2s ease-in-out infinite;
     }
     
-    @keyframes fall {
-      0% { transform: translateY(-20px); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(20px); opacity: 0; }
+    .promo-stamp-content {
+      text-align: center;
+    }
+    
+    .promo-old-price {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: line-through;
+      display: block;
+    }
+    
+    .promo-new-price {
+      font-size: 2rem;
+      font-weight: 900;
+      color: white;
+      display: block;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .promo-timer {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    
+    .promo-timer svg {
+      animation: spin-clock 3s linear infinite;
+    }
+    
+    @keyframes pulse-stamp {
+      0%, 100% { transform: rotate(-3deg) scale(1); }
+      50% { transform: rotate(-3deg) scale(1.05); }
+    }
+    
+    @keyframes spin-clock {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .featured-content {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .featured-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+    
+    .featured-image img {
+      width: 100%;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 40px rgba(255, 102, 0, 0.2);
+    }
+    
+    .featured-details {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .featured-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    
+    .featured-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--zinc-100);
+      margin-bottom: 0.5rem;
+    }
+    
+    .featured-subtitle {
+      font-size: 1.25rem;
+      color: var(--orange-400);
+      margin-bottom: 1.5rem;
+    }
+    
+    .featured-description {
+      color: var(--zinc-300);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .featured-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    
+    .featured-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--zinc-300);
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+    
+    .featured-features li::before {
+      content: "✓";
+      color: var(--orange-400);
+      font-weight: bold;
+    }
+    
+    .featured-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .featured-app-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     
     @media (max-width: 768px) {
-      .christmas-banner h2 {
-        font-size: 1.25rem;
+      .featured-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .featured-image {
+        max-width: 100%;
+      }
+      
+      .featured-title {
+        font-size: 2rem;
+      }
+      
+      .featured-buttons {
+        justify-content: center;
+      }
+      
+      .featured-features li {
+        justify-content: center;
       }
     }
     
@@ -527,32 +665,6 @@
       margin: 0.25rem 0;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-    }
-    
-    .price-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
-    }
-    
-    .old-price {
-      font-size: 1.5rem;
-      color: var(--zinc-500);
-      text-decoration: line-through;
-    }
-    
-    .new-price {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--orange-400);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .christmas-symbol {
-      font-size: 1.25rem;
     }
     
     .product-meta {
@@ -1125,13 +1237,63 @@
     </div>
   </header>
 
-  <!-- Christmas Banner -->
-  <div class="christmas-banner">
-    <h2 data-translate="christmas-banner">🎄 Christmas Deal: 20% Off All Products! 🎄</h2>
-  </div>
-
   <!-- Main Content -->
   <main class="container">
+    
+    <!-- Featured Product: ECHOSTAGE-LIVE -->
+    <section class="featured-product-section">
+      <div class="promo-banner">50% OFF</div>
+      <div class="featured-content">
+        <div class="featured-image">
+          <img src="EchostageFont.png" alt="ECHOSTAGE-LIVE - Professional Pad Controller" style="margin-bottom: 1.5rem;">
+          <img src="EchostageBack.png" alt="ECHOSTAGE-LIVE App Interface" style="border-radius: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4);">
+        </div>
+        <div class="featured-details">
+          <div class="promo-stamp">
+            <div class="promo-stamp-content">
+              <span class="promo-old-price">€499</span>
+              <span class="promo-new-price">€249</span>
+              <div class="promo-timer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>⏳ Limited Time Offer!</span>
+              </div>
+            </div>
+          </div>
+          <img src="Echosatge.png" alt="ECHOSTAGE-LIVE App Icon" class="featured-app-icon">
+          <span class="featured-badge">🎹 NEW RELEASE</span>
+          <h2 class="featured-title">ECHOSTAGE-LIVE</h2>
+          <p class="featured-subtitle">Professional Pad Controller for Live Performance</p>
+          <p class="featured-description">
+            Advanced pad-based audio and MIDI performance engine with deep control and flexibility for live use. 
+            Built for the stage with reliable playback, deep MIDI integration and total control.
+          </p>
+          <ul class="featured-features">
+            <li>Up to 9 audio layers per pad with individual routing</li>
+            <li>Up to 8 MIDI layers supporting CC, Note, Program Change & SysEx</li>
+            <li>Sample-accurate triggering for live performance</li>
+            <li>Full bus mixer with per-channel volume, pan, mute & solo</li>
+            <li>Adjustable pad grid from 1×1 up to 10×10</li>
+            <li>Scene manager for instant recall of complex live setups</li>
+            <li>High-quality time-stretching for real-time tempo changes</li>
+            <li>Built-in metronome with pad-synced playback</li>
+          </ul>
+          <div class="featured-buttons">
+            <a href="https://apps.apple.com/us/app/echostage-live/id6756158272" class="btn btn-primary btn-lg btn-icon" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>App Store</span>
+            </a>
+            <a href="https://echopais.com/echostage.html" class="btn btn-outline btn-lg">Tutorial</a>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-content">
@@ -1223,10 +1385,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€149.99</span>
-                <span class="new-price">€119.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€149.99</span>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1265,10 +1424,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€99.99</span>
-                <span class="new-price">€79.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€99.99</span>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1307,10 +1463,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€79.99</span>
-                <span class="new-price">€63.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€79.99</span>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1349,10 +1502,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€99.99</span>
-                <span class="new-price">€79.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€99.99</span>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1391,10 +1541,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€74.99</span>
-                <span class="new-price">€59.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€74.99</span>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1433,10 +1580,7 @@
               Professional key note editor.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€49.99</span>
-                <span class="new-price">€39.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€49.99</span>
               <a href="tutorial1.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1475,10 +1619,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€149.99</span>
-                <span class="new-price">€119.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€149.99</span>
               <a href="tutorial-echoterza.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1517,10 +1658,7 @@
               Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€69.99</span>
-                <span class="new-price">€55.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€69.99</span>
               <a href="tutorial-echoscale.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1559,10 +1697,7 @@
               Professional metronome for precise timing.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€6.99</span>
-                <span class="new-price">€5.59 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€6.99</span>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
@@ -1580,12 +1715,13 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ECHOTIME METRONOME -->
+      <!-- More iOS Apps Grid -->
+      <div class="products-grid">
+        <!-- ECHOROUTING -->
         <div class="product-card">
           <div class="product-image-container">
-            <img src="echorouting.png" alt="ECHOPAIS TIME" style="max-width: 80%; max-height: 80%;">
+            <img src="echorouting.png" alt="ECHOROUTING" style="max-width: 80%; max-height: 80%;">
           </div>
           <div class="product-content">
             <div class="product-header">
@@ -1597,22 +1733,88 @@
                 <span>4.9</span>
               </div>
             </div>
-            <h3 class="product-title">ECHORUTING</h3>
-            <p class="product-edition">ECHOROUTING</p>
+            <h3 class="product-title">ECHOROUTING</h3>
+            <p class="product-edition">MIDI Routing</p>
             <p class="product-description">
-              Professional Midi ROuting.
+              Professional MIDI Routing.
             </p>
             <div class="product-footer">
-              <div class="price-container">
-                <span class="old-price">€35.99</span>
-                <span class="new-price">€29.99 <span class="christmas-symbol">🎄</span></span>
-              </div>
+              <span class="product-price">€35.99</span>
               <a href="tutorial.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
                 Tutorial
               </a>
             </div>
             <div class="product-buttons">
               <a href="https://apps.apple.com/de/app/echorouting/id6755695084" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ECHOPAD LIVE -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="Echopad.png" alt="ECHOPAD LIVE" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">ECHOPAD LIVE</h3>
+            <p class="product-edition">Pad Controller Audio & MIDI</p>
+            <p class="product-description">
+              Professional pad controller for audio and MIDI performance.
+            </p>
+            <div class="product-footer">
+              <p>Coming Soon</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ECHOSTAGE-LIVE -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="Echosatge.png" alt="ECHOSTAGE-LIVE" style="max-width: 80%; max-height: 80%;">
+            <span class="product-badge">50% OFF</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">ECHOSTAGE-LIVE</h3>
+            <p class="product-edition">Pad Controller</p>
+            <p class="product-description">
+              Advanced pad-based audio and MIDI performance engine for live use.
+            </p>
+            <div class="product-footer">
+              <div class="price-container">
+                <span class="old-price" style="font-size: 1rem; color: var(--zinc-500); text-decoration: line-through;">€499</span>
+                <span class="product-price">€249</span>
+              </div>
+              <a href="https://echopais.com/echostage.html" class="btn btn-outline btn-sm" data-translate="btn-tutorial">
+                Tutorial
+              </a>
+            </div>
+            <div class="product-buttons">
+              <a href="https://apps.apple.com/us/app/echostage-live/id6756158272" class="btn btn-primary btn-block btn-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
