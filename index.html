@@ -745,6 +745,141 @@
     .legal-disclaimer strong {
       color: var(--orange-300);
     }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 4rem 0;
+      margin: 4rem 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .testimonial-card {
+      background: linear-gradient(135deg, var(--zinc-800) 0%, var(--zinc-900) 100%);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 102, 0, 0.4);
+    }
+
+    .testimonial-content {
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .testimonial-user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid var(--orange-500);
+      object-fit: cover;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+    }
+
+    .testimonial-user-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .testimonial-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      white-space: nowrap;
+    }
+
+    .testimonial-location {
+      font-size: 0.75rem;
+      color: var(--zinc-400);
+    }
+
+    .testimonial-stars {
+      color: var(--orange-400);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+
+    .testimonial-text {
+      flex: 1;
+      font-size: 0.95rem;
+      color: var(--zinc-300);
+      line-height: 1.6;
+      font-style: italic;
+      position: relative;
+      padding-left: 1rem;
+      border-left: 3px solid var(--orange-500);
+    }
+
+    .testimonial-text::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: -5px;
+      font-size: 3rem;
+      color: rgba(255, 102, 0, 0.2);
+      font-family: Georgia, serif;
+    }
+
+    @media (max-width: 600px) {
+      .testimonial-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .testimonial-user {
+        min-width: auto;
+      }
+
+      .testimonial-text {
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid var(--orange-500);
+        padding-top: 1rem;
+      }
+
+      .testimonial-text::before {
+        display: none;
+      }
+    }
     
     /* Contact Section */
     .contact-section {
@@ -1240,6 +1375,43 @@
   <!-- Main Content -->
   <main class="container">
     
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span data-translate="hero-badge">Professional MIDI Solutions</span>
+        </div>
+        
+        <h1 class="hero-title" data-translate="hero-title">ECHOPAIS MIDI SYSTEM</h1>
+        <p class="hero-subtitle" data-translate="hero-subtitle">Professional MIDI Controllers & Applications</p>
+        <p class="hero-description" data-translate="hero-description">
+          Advanced iOS/Android applications and custom hardware controllers for professional music production. 
+          Featuring scalers, editors, and complete MIDI control solutions.
+        </p>
+        
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary btn-lg btn-icon">
+            <span data-translate="btn-explore">Explore Products</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#hardware" class="btn btn-outline btn-lg btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span data-translate="btn-hardware">View Hardware</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Featured Product: ECHOSTAGE-LIVE -->
     <section class="featured-product-section">
       <div class="promo-banner">50% OFF</div>
@@ -1294,39 +1466,103 @@
         </div>
       </div>
     </section>
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-          <span data-translate="hero-badge">Professional MIDI Solutions</span>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="testimonials-title">What Our Users Say</h2>
+        <p class="section-subtitle" data-translate="testimonials-subtitle">Real feedback from musicians and producers worldwide</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 - Kostas Gitsis -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-user">
+              <img src="kostasgitsis.jpg" alt="Kostas Gitsis" class="testimonial-avatar">
+              <div class="testimonial-user-info">
+                <h4 class="testimonial-name">Kostas Gitsis</h4>
+                <span class="testimonial-location">🇬🇷 Greece</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Από την πρώτη στιγμή που άρχισα να χρησιμοποιώ το ECHOSTAGE-LIVE ξεχώρισε για τη σταθερότητα, την ευχρηστία και τη συνολική ποιότητα υλοποίησης. Με ένα πολύ όμορφο και καλοφτιαγμένο interface! Καλύπτει πλήρως τις ανάγκες μου και με βοήθησε να βελτιώσω σημαντικά την παραγωγικότητά μου. Είναι ξεκάθαρο ότι έχει σχεδιαστεί από επαγγελματίες για επαγγελματίες! Το προτείνω ανεπιφύλακτα σε όποιον αναζητά μια αξιόπιστη και επαγγελματική λύση σε βαθμό να αντικαταστήσει έναν υπολογιστή για την αναπαραγωγή audio αρχείων στον χώρο του Live Performing!"</p>
+          </div>
         </div>
-        
-        <h1 class="hero-title" data-translate="hero-title">ECHOPAIS MIDI SYSTEM</h1>
-        <p class="hero-subtitle" data-translate="hero-subtitle">Professional MIDI Controllers & Applications</p>
-        <p class="hero-description" data-translate="hero-description">
-          Advanced iOS/Android applications and custom hardware controllers for professional music production. 
-          Featuring scalers, editors, and complete MIDI control solutions.
-        </p>
-        
-        <div class="hero-buttons">
-          <a href="#products" class="btn btn-primary btn-lg btn-icon">
-            <span data-translate="btn-explore">Explore Products</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-          <a href="#hardware" class="btn btn-outline btn-lg btn-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
-            <span data-translate="btn-hardware">View Hardware</span>
-          </a>
+
+        <!-- Testimonial 2 - Miltos Papaioannou -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-user">
+              <img src="miltospapaioannou.jpg" alt="Miltos Papaioannou" class="testimonial-avatar">
+              <div class="testimonial-user-info">
+                <h4 class="testimonial-name">Miltos Papaioannou</h4>
+                <span class="testimonial-location">🇬🇷 Greece</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Το ECHOROUTING με διευκολύνει με τα routings άμεσα και εύκολα. Το ECHOSTAGE-LIVE μου έλυσε τα χέρια - τέλος στο να κουβαλάω laptop και controllers στις εμφανίσεις! Με το ECHO-SCALE βάζω microtonal notes στο MainStage και σε άλλα DAWs χωρίς πρόβλημα. Από παλιά είχα πάρει και το ECHOPAIS CONTROLLER ως launchpad controller. Τώρα που βγήκε το ECHOSTAGE-LIVE που είναι τέλεια επαγγελματικό, η δουλειά μου έγινε πολύ πιο εύκολη. Άριστη εξυπηρέτηση!"</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 - Stavros Pazarentsis -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-user">
+              <img src="stavrospazarentsis.jpg" alt="Stavros Pazarentsis" class="testimonial-avatar">
+              <div class="testimonial-user-info">
+                <h4 class="testimonial-name">Stavros Pazarentsis</h4>
+                <span class="testimonial-location">🇬🇷 Greece</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Το ECHOSTAGE-LIVE άλλαξε τον τρόπο που δουλεύω στη σκηνή! Η ταχύτητα και η ακρίβεια είναι εντυπωσιακές. Πλέον δεν χρειάζομαι βαρύ εξοπλισμό - μόνο το iPad μου και είμαι έτοιμος για κάθε live εμφάνιση. Η ECHOPAIS έχει δημιουργήσει κάτι πραγματικά επαναστατικό για τους μουσικούς!"</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 - Trifon Pazarentsis -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-user">
+              <img src="trifonpazarentsis.jpg" alt="Trifon Pazarentsis" class="testimonial-avatar">
+              <div class="testimonial-user-info">
+                <h4 class="testimonial-name">Trifon Pazarentsis</h4>
+                <span class="testimonial-location">🇬🇷 Greece</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Μετά από χρόνια αναζήτησης, το ECHOSTAGE-LIVE είναι η λύση που περίμενα! Εξαιρετική απόκριση, μηδενικά κολλήματα και επαγγελματικό αποτέλεσμα σε κάθε εμφάνιση. Η ομάδα της ECHOPAIS ξέρει τις ανάγκες των μουσικών και τις καλύπτει απόλυτα. Bravo!"</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 5 - Dimitrios Danos -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-user">
+              <img src="dimitriosdanos.jpg" alt="Dimitrios Danos" class="testimonial-avatar">
+              <div class="testimonial-user-info">
+                <h4 class="testimonial-name">Dimitrios Danos</h4>
+                <span class="testimonial-location">🇩🇪 Germany</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Έχω πάρει σχεδόν όλες τις εφαρμογές της ECHOPAIS και είμαι απόλυτα ευχαριστημένος! Μου έχουν διευκολύνει τη ζωή και τη δουλειά μου σημαντικά. Το ECHO-SCALE, το ECHOTERZA, το ECHOSTAGE-LIVE - όλα είναι κορυφαία στην κατηγορία τους. Η ποιότητα και η αξιοπιστία είναι εξαιρετική. Συνιστώ ανεπιφύλακτα!"</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 6 - Georgios Voultsios -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="testimonial-user">
+              <img src="georgiosvoultsios.jpg" alt="Georgios Voultsios" class="testimonial-avatar">
+              <div class="testimonial-user-info">
+                <h4 class="testimonial-name">Georgios Voultsios</h4>
+                <span class="testimonial-location">🇩🇪 Germany</span>
+                <div class="testimonial-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Έχω πάρει από την εταιρεία ECHOPAIS πολλές εφαρμογές όπως ECHOPAIS SCALER Kronos, ECHOPAIS CONTROLLER, ECHO-TERZA και ECHOSTAGE-LIVE. Είμαι πολύ ευχαριστημένος! Με το ECHOTERZA μπορώ να βάζω δεύτερες φωνές στο synth μου, με το SCALER Kronos βάζω εύκολα microtonal notes άμεσα με triggered button. Το ECHOSTAGE-LIVE μου έλυσε τα χέρια - δεν κουβαλάω πια PC και Launchpad controller, μόνο με ένα iPad έχω ό,τι θέλω! Συγχαρητήρια στον δημιουργό και στην ECHOPAIS!"</p>
+          </div>
         </div>
       </div>
     </section>
@@ -2489,6 +2725,8 @@
         'stat-countries': 'Countries',
         'ios-title': 'iOS Applications',
         'ios-subtitle': 'Professional MIDI applications for iPhone and iPad',
+        'testimonials-title': 'What Our Users Say',
+        'testimonials-subtitle': 'Real feedback from musicians and producers worldwide',
         'featured': 'Featured',
         'ios-app1-desc': 'Advanced scaler for all keyboard synthesizers with 3 modes and 3 types. Professional MIDI control with step sequencing.',
         'feature-scaler': 'Scaler for all keyboards',
@@ -2604,6 +2842,8 @@
         'stat-countries': 'Länder',
         'ios-title': 'iOS-Anwendungen',
         'ios-subtitle': 'Professionelle MIDI-Anwendungen für iPhone und iPad',
+        'testimonials-title': 'Was Unsere Nutzer Sagen',
+        'testimonials-subtitle': 'Echtes Feedback von Musikern und Produzenten weltweit',
         'featured': 'Empfohlen',
         'ios-app1-desc': 'Erweiterte Scaler für alle Keyboard-Synthesizer mit 3 Modi und 3 Typen. Professionelle MIDI-Kontrolle mit Step-Sequencing.',
         'feature-scaler': 'Scaler für alle Keyboards',
@@ -2719,6 +2959,8 @@
         'stat-countries': 'Χώρες',
         'ios-title': 'iOS Εφαρμογές',
         'ios-subtitle': 'Επαγγελματικές MIDI εφαρμογές για iPhone και iPad',
+        'testimonials-title': 'Τι Λένε οι Χρήστες μας',
+        'testimonials-subtitle': 'Πραγματικά σχόλια από μουσικούς και παραγωγούς παγκοσμίως',
         'featured': 'Προτεινόμενο',
         'ios-app1-desc': 'Προηγμένος scaler για όλους τους keyboard synthesizers με 3 modes και 3 types. Επαγγελματικός MIDI έλεγχος με step sequencing.',
         'feature-scaler': 'Scaler για όλα τα keyboards',
@@ -2834,6 +3076,8 @@
         'stat-countries': 'Shtete',
         'ios-title': 'Aplikacione iOS',
         'ios-subtitle': 'Aplikacione profesionale MIDI për iPhone dhe iPad',
+        'testimonials-title': 'Çfarë Thonë Përdoruesit',
+        'testimonials-subtitle': 'Komente reale nga muzikantë dhe prodhues nga e gjithë bota',
         'featured': 'I Zgjedhur',
         'ios-app1-desc': 'Scaler i avancuar për të gjitha keyboard synthesizers me 3 modes dhe 3 types. Kontroll profesional MIDI me step sequencing.',
         'feature-scaler': 'Scaler për të gjitha keyboards',
@@ -2949,6 +3193,8 @@
         'stat-countries': 'Земље',
         'ios-title': 'iOS Апликације',
         'ios-subtitle': 'Професионалне MIDI апликације за iPhone и iPad',
+        'testimonials-title': 'Шта Кажу Наши Корисници',
+        'testimonials-subtitle': 'Праве рецензије од музичара и продуцената широм света',
         'featured': 'Издвојено',
         'ios-app1-desc': 'Напредни scaler за све keyboard synthesizers са 3 modes и 3 types. Професионална MIDI контрола са step sequencing.',
         'feature-scaler': 'Scaler за све keyboards',
@@ -3064,6 +3310,8 @@
         'stat-countries': 'Държави',
         'ios-title': 'iOS Приложения',
         'ios-subtitle': 'Професионални MIDI приложения за iPhone и iPad',
+        'testimonials-title': 'Какво Казват Нашите Потребители',
+        'testimonials-subtitle': 'Реални отзиви от музиканти и продуценти по целия свят',
         'featured': 'Препоръчано',
         'ios-app1-desc': 'Усъвършенстван scaler за всички keyboard synthesizers с 3 modes и 3 types. Професионален MIDI контрол със step sequencing.',
         'feature-scaler': 'Scaler за всички keyboards',
@@ -3179,6 +3427,8 @@
         'stat-countries': 'Ülkeler',
         'ios-title': 'iOS Uygulamaları',
         'ios-subtitle': 'iPhone ve iPad için profesyonel MIDI uygulamaları',
+        'testimonials-title': 'Kullanıcılarımız Ne Diyor',
+        'testimonials-subtitle': 'Dünya çapındaki müzisyen ve prodüktörlerden gerçek yorumlar',
         'featured': 'Öne Çıkan',
         'ios-app1-desc': '3 mode ve 3 type ile tüm keyboard synthesizers için gelişmiş scaler. Step sequencing ile profesyonel MIDI kontrolü.',
         'feature-scaler': 'Tüm keyboards için Scaler',
