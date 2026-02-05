@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ECHOSTAGE-LIVE Tutorial - ECHOPAIS</title>
-  <meta name="description" content="Complete tutorial and video guides for ECHOSTAGE-LIVE Pad Controller">
+  <title>ECHOSTAGE-LIVE | Professional Pad Controller - ECHOPAIS</title>
+  <meta name="description" content="Advanced pad-based audio and MIDI performance engine with deep control and flexibility for live use. Complete manual, tutorials and documentation.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -94,6 +94,13 @@
       font-size: 0.75rem;
       color: var(--orange-400);
       margin: 0;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
     
     .nav-link {
@@ -241,21 +248,6 @@
       margin-bottom: 1rem;
     }
     
-    @media (max-width: 900px) {
-      .hero-layout {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .hero-text {
-        text-align: center;
-      }
-      
-      .hero-images {
-        max-width: 100%;
-      }
-    }
-    
     .promo-highlight {
       background: linear-gradient(135deg, #ff3333, #cc0000);
       color: white;
@@ -275,6 +267,13 @@
     
     .promo-highlight .new-price {
       font-size: 1.5rem;
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
     
     .tutorial-content {
@@ -351,6 +350,39 @@
       color: var(--orange-400);
     }
     
+    /* Feature Grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .feature-card {
+      background: var(--zinc-700);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border-left: 3px solid var(--orange-500);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(255, 102, 0, 0.15);
+    }
+    
+    .feature-card h4 {
+      color: var(--orange-400);
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+    
+    .feature-card p {
+      color: var(--zinc-300);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    
     /* Video Grid */
     .video-grid {
       display: grid;
@@ -379,17 +411,6 @@
       border: none;
     }
     
-    .video-card-placeholder {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, var(--zinc-600), var(--zinc-700));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--zinc-400);
-      font-weight: 600;
-    }
-    
     .video-info {
       padding: 1rem;
     }
@@ -411,7 +432,7 @@
       display: inline-block;
     }
     
-    /* App Store Button */
+    /* Buttons */
     .appstore-btn {
       display: inline-flex;
       align-items: center;
@@ -425,7 +446,6 @@
       font-size: 1.1rem;
       transition: all 0.3s ease;
       box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
-      margin-top: 1rem;
     }
     
     .appstore-btn:hover {
@@ -433,7 +453,28 @@
       box-shadow: 0 12px 35px rgba(255, 102, 0, 0.4);
     }
     
-    /* YouTube Button */
+    .pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, var(--zinc-600), var(--zinc-700));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--zinc-600);
+    }
+    
+    .pdf-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(135deg, var(--zinc-500), var(--zinc-600));
+    }
+    
     .youtube-btn {
       display: inline-flex;
       align-items: center;
@@ -454,31 +495,163 @@
       box-shadow: 0 12px 35px rgba(255, 0, 0, 0.4);
     }
     
-    /* Feature Grid */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+    /* Manual Section */
+    .manual-section {
+      background: linear-gradient(135deg, var(--zinc-800), var(--zinc-900));
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
     }
     
-    .feature-card {
+    .manual-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange-500), var(--orange-400));
+    }
+    
+    .manual-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .manual-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--zinc-100);
+      margin-bottom: 1rem;
+    }
+    
+    .manual-header p {
+      color: var(--zinc-400);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .manual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .manual-card {
+      background: var(--zinc-700);
+      border-radius: 1rem;
+      padding: 2rem;
+      border-left: 4px solid var(--orange-500);
+    }
+    
+    .manual-card h3 {
+      color: var(--orange-400);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .manual-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .manual-card li {
+      color: var(--zinc-300);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--zinc-600);
+      font-size: 0.95rem;
+    }
+    
+    .manual-card li:last-child {
+      border-bottom: none;
+    }
+    
+    .manual-download {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--zinc-700);
+    }
+    
+    .manual-download p {
+      color: var(--zinc-400);
+      margin-bottom: 1rem;
+    }
+    
+    /* Subsection Styles */
+    .subsection {
       background: var(--zinc-700);
       border-radius: 1rem;
       padding: 1.5rem;
-      border-left: 3px solid var(--orange-500);
+      margin: 1.5rem 0;
     }
     
-    .feature-card h4 {
+    .subsection h4 {
       color: var(--orange-400);
-      margin-bottom: 0.75rem;
       font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     
-    .feature-card p {
-      color: var(--zinc-300);
-      font-size: 0.9rem;
-      margin: 0;
+    .subsection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .subsection-item {
+      background: var(--zinc-800);
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+    
+    .subsection-item strong {
+      color: var(--orange-300);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    
+    .subsection-item span {
+      color: var(--zinc-400);
+      font-size: 0.875rem;
+    }
+    
+    /* Keyboard Shortcuts */
+    .shortcut-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .shortcut-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--zinc-800);
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+    }
+    
+    .shortcut-key {
+      background: var(--zinc-600);
+      color: var(--zinc-100);
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+      font-size: 0.875rem;
+      border: 1px solid var(--zinc-500);
     }
     
     /* Footer */
@@ -513,7 +686,63 @@
       color: var(--orange-400);
     }
     
+    /* Table of Contents */
+    .toc {
+      background: var(--zinc-700);
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .toc h3 {
+      color: var(--zinc-100);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .toc-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .toc-list a {
+      color: var(--zinc-400);
+      text-decoration: none;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    
+    .toc-list a:hover {
+      color: var(--orange-400);
+      background: rgba(255, 102, 0, 0.1);
+    }
+    
     /* Responsive */
+    @media (max-width: 900px) {
+      .hero-layout {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-text {
+        text-align: center;
+      }
+      
+      .hero-images {
+        max-width: 100%;
+      }
+      
+      .btn-group {
+        justify-content: center;
+      }
+    }
+    
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
@@ -536,6 +765,10 @@
       .video-grid {
         grid-template-columns: 1fr;
       }
+      
+      .manual-header h2 {
+        font-size: 1.75rem;
+      }
     }
   </style>
 </head>
@@ -552,7 +785,10 @@
           </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <div class="nav-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#manual" class="nav-link">Manual</a>
+          <a href="#tutorials" class="nav-link">Tutorials</a>
           <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
           
           <div class="language-selector">
@@ -571,6 +807,7 @@
 
   <!-- Main Content -->
   <main class="container">
+    <!-- Hero Section -->
     <div class="tutorial-hero">
       <div class="hero-layout">
         <div class="hero-images">
@@ -581,28 +818,53 @@
           <a href="https://apps.apple.com/us/app/echostage-live/id6756158272" target="_blank" class="app-icon-link">
             <img src="Echosatge.png" alt="ECHOSTAGE-LIVE App Icon">
           </a>
-          <span class="app-badge" data-translate="app-badge">🎹 Pad Controller</span>
+          <span class="app-badge" data-translate="app-badge">Pad Controller</span>
           <h1 class="tutorial-title" data-translate="hero-title">ECHOSTAGE-LIVE</h1>
           <p class="tutorial-subtitle" data-translate="hero-subtitle">
             Advanced pad-based audio and MIDI performance engine with deep control and flexibility for live use. 
             Built for the stage with reliable playback, deep MIDI integration and total control.
           </p>
           <div class="promo-highlight">
-            <span class="old-price">€499</span>
-            <span class="new-price">€249</span>
+            <span class="old-price">&#8364;499</span>
+            <span class="new-price">&#8364;249</span>
             <span style="display: block; font-size: 0.85rem; margin-top: 0.25rem;" data-translate="promo-limited">50% OFF - Limited Time!</span>
           </div>
-          <br>
-          <a href="https://apps.apple.com/us/app/echostage-live/id6756158272" target="_blank" class="appstore-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span data-translate="appstore-btn">Download on App Store</span>
-          </a>
+          <div class="btn-group">
+            <a href="https://apps.apple.com/us/app/echostage-live/id6756158272" target="_blank" class="appstore-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span data-translate="appstore-btn">Download on App Store</span>
+            </a>
+            <a href="Manual-EchoStage.pdf" download class="pdf-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span data-translate="pdf-btn">Download PDF Manual</span>
+            </a>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <h3>Quick Navigation</h3>
+      <ul class="toc-list">
+        <li><a href="#features">Key Features</a></li>
+        <li><a href="#interface">Interface Overview</a></li>
+        <li><a href="#midi">MIDI Settings</a></li>
+        <li><a href="#audio">Audio Settings</a></li>
+        <li><a href="#mixer">Mixer &amp; Routing</a></li>
+        <li><a href="#manual">Full Manual</a></li>
+        <li><a href="#tutorials">Video Tutorials</a></li>
+        <li><a href="#credits">Credits</a></li>
+      </ul>
     </div>
 
     <div class="tutorial-content">
@@ -621,73 +883,386 @@
       </div>
 
       <!-- Section 2: Key Features -->
-      <div class="section">
+      <div class="section" id="features">
         <div class="section-number">2</div>
         <h2 class="section-title" data-translate="section2-title">Key Features</h2>
         <div class="section-content">
           <div class="feature-grid">
             <div class="feature-card">
-              <h4 data-translate="feature1-title">🎛️ Advanced Pad Engine</h4>
+              <h4 data-translate="feature1-title">Advanced Pad Engine</h4>
               <p data-translate="feature1-desc">Up to 9 audio layers per pad with individual file, volume, bus and routing. Up to 8 MIDI layers per pad supporting CC, Note, Program Change and SysEx.</p>
             </div>
             <div class="feature-card">
-              <h4 data-translate="feature2-title">🎵 Audio & MIDI Playback</h4>
+              <h4 data-translate="feature2-title">Audio &amp; MIDI Playback</h4>
               <p data-translate="feature2-desc">Audio-only, MIDI-only or combined playback. Wait and loop modes with measure-based timing. Sample-accurate triggering for live performance.</p>
             </div>
             <div class="feature-card">
-              <h4 data-translate="feature3-title">🎚️ Full Mixer</h4>
+              <h4 data-translate="feature3-title">Full Mixer</h4>
               <p data-translate="feature3-desc">Per-channel volume, pan, mute and solo. Selectable audio interface. Adjustable buffer size and sample rate.</p>
             </div>
             <div class="feature-card">
-              <h4 data-translate="feature4-title">⚡ Performance Controls</h4>
+              <h4 data-translate="feature4-title">Performance Controls</h4>
               <p data-translate="feature4-desc">Global or per-pad tempo and pitch control. Tap tempo support. Independent tempo and pitch locking. Stepper mode.</p>
             </div>
             <div class="feature-card">
-              <h4 data-translate="feature5-title">🎨 Pad Customization</h4>
-              <p data-translate="feature5-desc">Custom pad names and colors. Import custom pad images. Adjustable grid from 1×1 up to 10×10. Free pad movement.</p>
+              <h4 data-translate="feature5-title">Pad Customization</h4>
+              <p data-translate="feature5-desc">Custom pad names and colors. Import custom pad images. Adjustable grid from 1x1 up to 10x10. Free pad movement.</p>
             </div>
             <div class="feature-card">
-              <h4 data-translate="feature6-title">📁 Scene Manager</h4>
+              <h4 data-translate="feature6-title">Scene Manager</h4>
               <p data-translate="feature6-desc">Save, load, export and import scenes. Instantly recall complex live setups. Ideal for shows, rehearsals and studio sessions.</p>
+            </div>
+            <div class="feature-card">
+              <h4>Waveform Display</h4>
+              <p>Full waveform view with zoom and scroll. Start, end, loop start and loop end markers. Adjustable marker precision.</p>
+            </div>
+            <div class="feature-card">
+              <h4>Metronome</h4>
+              <p>Built-in metronome with customizable sounds. Accent on first beat option. Start from bar option with count-in. Pad-synced playback.</p>
+            </div>
+            <div class="feature-card">
+              <h4>Time Stretching</h4>
+              <p>High-quality time-stretching powered by Signalsmith Stretch. Real-time tempo changes without affecting pitch.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Section 3: MIDI Trigger Modes -->
-      <div class="section">
+      <!-- Section 3: Interface Overview -->
+      <div class="section" id="interface">
         <div class="section-number">3</div>
-        <h2 class="section-title" data-translate="section3-title">MIDI Trigger Modes</h2>
+        <h2 class="section-title">Interface Overview</h2>
         <div class="section-content">
-          <ul>
-            <li><strong data-translate="trigger-momentary">Momentary:</strong> <span data-translate="trigger-momentary-desc">MIDI is sent while the pad is held down</span></li>
-            <li><strong data-translate="trigger-toggle">Toggle:</strong> <span data-translate="trigger-toggle-desc">First tap activates, second tap deactivates</span></li>
-            <li><strong data-translate="trigger-oneshot">One-Shot:</strong> <span data-translate="trigger-oneshot-desc">Single trigger on pad press</span></li>
-          </ul>
+          <div class="subsection">
+            <h4>Main Toolbar</h4>
+            <div class="subsection-grid">
+              <div class="subsection-item">
+                <strong>File</strong>
+                <span>Scene management (New, Open, Save, Export, Import)</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Edit</strong>
+                <span>Undo/Redo and grid size settings (1x1 to 10x10)</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Settings</strong>
+                <span>Audio, MIDI, and metronome configuration</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Mode Toggle</strong>
+                <span>Switch between Edit and Move modes</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="subsection">
+            <h4>Mode Descriptions</h4>
+            <ul>
+              <li><strong>Edit Mode:</strong> Tapping a pad opens the Edit Pad panel. Long press opens pad context menu. Drag to select multiple pads.</li>
+              <li><strong>Move Mode:</strong> Tapping a pad selects it (orange border). Drag selected pad(s) to reposition. Long press opens pad context menu.</li>
+              <li><strong>Performance Mode:</strong> Available when both Edit and Move are disabled. Full pad triggering without editing.</li>
+            </ul>
+          </div>
+          
+          <div class="subsection">
+            <h4>Pad Context Menu</h4>
+            <p>Long press any pad to access:</p>
+            <ul>
+              <li>Edit Pad - Open the pad editor</li>
+              <li>Duplicate Pad - Create a copy of the pad</li>
+              <li>Delete Pad - Remove the pad</li>
+              <li>Copy/Paste - Copy pad settings to clipboard</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: MIDI Settings -->
+      <div class="section" id="midi">
+        <div class="section-number">4</div>
+        <h2 class="section-title" data-translate="section3-title">MIDI Settings</h2>
+        <div class="section-content">
+          <div class="subsection">
+            <h4>Global MIDI Settings</h4>
+            <div class="subsection-grid">
+              <div class="subsection-item">
+                <strong>MIDI Output</strong>
+                <span>Select output device for sending MIDI</span>
+              </div>
+              <div class="subsection-item">
+                <strong>MIDI Input</strong>
+                <span>Select input device for receiving MIDI</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Clock Output</strong>
+                <span>Send MIDI clock to external devices</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Clock Input</strong>
+                <span>Sync to external MIDI clock</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="subsection">
+            <h4>MIDI Message Types</h4>
+            <ul>
+              <li><strong>Note:</strong> Standard MIDI note with channel, note number, and velocity</li>
+              <li><strong>Control Change (CC):</strong> MIDI CC messages with channel, CC number, and value</li>
+              <li><strong>Program Change:</strong> Bank and program change messages</li>
+              <li><strong>SysEx:</strong> System Exclusive messages for device-specific control</li>
+            </ul>
+          </div>
+          
+          <div class="subsection">
+            <h4>MIDI Trigger Modes</h4>
+            <ul>
+              <li><strong data-translate="trigger-momentary">Momentary:</strong> <span data-translate="trigger-momentary-desc">MIDI is sent while the pad is held down</span></li>
+              <li><strong data-translate="trigger-toggle">Toggle:</strong> <span data-translate="trigger-toggle-desc">First tap activates, second tap deactivates</span></li>
+              <li><strong data-translate="trigger-oneshot">One-Shot:</strong> <span data-translate="trigger-oneshot-desc">Single trigger on pad press</span></li>
+            </ul>
+          </div>
+          
           <div class="highlight-box">
             <p><strong data-translate="learn-mode">Learn Mode:</strong> <span data-translate="learn-mode-desc">Fast MIDI mapping - press Learn, then press your external controller button to map instantly!</span></p>
           </div>
+          
+          <div class="subsection">
+            <h4>Pad Navigation via MIDI</h4>
+            <p>Control pad navigation using MIDI:</p>
+            <ul>
+              <li><strong>Page Up/Down:</strong> Navigate between pad pages</li>
+              <li><strong>Row Up/Down:</strong> Navigate between rows</li>
+              <li><strong>Next/Previous:</strong> Move to adjacent pads</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <!-- Section 4: Audio Features -->
-      <div class="section">
-        <div class="section-number">4</div>
-        <h2 class="section-title" data-translate="section4-title">Advanced Audio Features</h2>
-        <div class="section-content">
-          <ul>
-            <li data-translate="audio-feature1">Original and target settings for tempo, note, measure and time signature</li>
-            <li data-translate="audio-feature2">High-quality time-stretching for real-time tempo changes (powered by Signalsmith Stretch)</li>
-            <li data-translate="audio-feature3">Built-in metronome with pad-synced playback and advanced timing options</li>
-            <li data-translate="audio-feature4">Per-layer channel routing and preview playback</li>
-            <li data-translate="audio-feature5">Global tuning control</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Section 5: Video Tutorials -->
-      <div class="section">
+      <!-- Section 5: Audio Settings -->
+      <div class="section" id="audio">
         <div class="section-number">5</div>
+        <h2 class="section-title" data-translate="section4-title">Audio Settings</h2>
+        <div class="section-content">
+          <div class="subsection">
+            <h4>Edit Pad - Audio Tab</h4>
+            <div class="subsection-grid">
+              <div class="subsection-item">
+                <strong>File</strong>
+                <span>Select audio file for the layer</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Volume</strong>
+                <span>Layer volume (0-100%)</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Bus</strong>
+                <span>Route to mixer channel 1-8</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Preview</strong>
+                <span>Listen to layer before triggering</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="subsection">
+            <h4>Waveform View</h4>
+            <p>The waveform display provides visual editing of audio files:</p>
+            <ul>
+              <li><strong>Start Marker (Green):</strong> Playback start position</li>
+              <li><strong>End Marker (Red):</strong> Playback end position</li>
+              <li><strong>Loop Start (Blue):</strong> Loop region start</li>
+              <li><strong>Loop End (Purple):</strong> Loop region end</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Waveform Controls:</strong></p>
+            <ul>
+              <li>Pinch to zoom in/out</li>
+              <li>Drag to scroll through waveform</li>
+              <li>Double-tap marker to reset to default</li>
+            </ul>
+          </div>
+          
+          <div class="subsection">
+            <h4>Original &amp; Target Settings</h4>
+            <p>Configure tempo and timing properties:</p>
+            <div class="subsection-grid">
+              <div class="subsection-item">
+                <strong>Tempo</strong>
+                <span>Original BPM of the audio file</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Note</strong>
+                <span>Beat division (1/4, 1/8, etc.)</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Measure</strong>
+                <span>Time signature numerator</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Time Signature</strong>
+                <span>Beats per measure</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="subsection">
+            <h4>Metronome Settings</h4>
+            <ul>
+              <li><strong>Sound:</strong> Choose click sound (Default, Woodblock, Beep, etc.)</li>
+              <li><strong>Accent:</strong> Emphasize first beat of each measure</li>
+              <li><strong>Count-In:</strong> Number of bars before playback starts</li>
+              <li><strong>Start from Bar:</strong> Begin at specific bar number</li>
+              <li><strong>Link to Pad:</strong> Sync metronome with pad tempo</li>
+            </ul>
+          </div>
+          
+          <div class="highlight-box">
+            <p><strong>Time Stretching:</strong> This app uses <strong>Signalsmith Stretch</strong> for high-quality time-stretching. Adjust tempo in real-time without affecting pitch.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Mixer & Routing -->
+      <div class="section" id="mixer">
+        <div class="section-number">6</div>
+        <h2 class="section-title">Mixer &amp; Audio Routing</h2>
+        <div class="section-content">
+          <div class="subsection">
+            <h4>8-Channel Mixer</h4>
+            <p>Full mixing console with 8 audio channels:</p>
+            <div class="subsection-grid">
+              <div class="subsection-item">
+                <strong>Volume Fader</strong>
+                <span>Channel level control</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Pan</strong>
+                <span>Stereo positioning</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Mute</strong>
+                <span>Silence channel</span>
+              </div>
+              <div class="subsection-item">
+                <strong>Solo</strong>
+                <span>Isolate channel</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="subsection">
+            <h4>Audio Interface Settings</h4>
+            <ul>
+              <li><strong>Output Device:</strong> Select audio output hardware</li>
+              <li><strong>Sample Rate:</strong> 44.1kHz, 48kHz, 96kHz, etc.</li>
+              <li><strong>Buffer Size:</strong> 64 to 2048 samples (lower = less latency)</li>
+            </ul>
+          </div>
+          
+          <div class="subsection">
+            <h4>Channel Routing</h4>
+            <p>Each audio layer can be routed to any of the 8 mixer channels. Use the <strong>Bus</strong> setting in the Audio layer editor to assign routing.</p>
+          </div>
+          
+          <div class="highlight-box">
+            <p><strong>Tip:</strong> Use lower buffer sizes (64-128) for live performance to minimize latency. Use higher buffer sizes for complex projects to prevent audio dropouts.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manual Section -->
+      <section class="manual-section" id="manual">
+        <div class="manual-header">
+          <h2>Complete User Manual</h2>
+          <p>Everything you need to know about ECHOSTAGE-LIVE in one comprehensive guide.</p>
+        </div>
+        
+        <div class="manual-grid">
+          <div class="manual-card">
+            <h3>Getting Started</h3>
+            <ul>
+              <li>Installation &amp; Setup</li>
+              <li>Interface Overview</li>
+              <li>Creating Your First Scene</li>
+              <li>Adding Audio to Pads</li>
+              <li>Basic Playback Controls</li>
+            </ul>
+          </div>
+          
+          <div class="manual-card">
+            <h3>Pad Configuration</h3>
+            <ul>
+              <li>Audio Layers (up to 9)</li>
+              <li>MIDI Layers (up to 8)</li>
+              <li>Trigger Modes</li>
+              <li>Custom Names &amp; Colors</li>
+              <li>Pad Images</li>
+            </ul>
+          </div>
+          
+          <div class="manual-card">
+            <h3>MIDI Integration</h3>
+            <ul>
+              <li>Input/Output Configuration</li>
+              <li>Learn Mode Mapping</li>
+              <li>CC, Note &amp; SysEx</li>
+              <li>Clock Sync</li>
+              <li>Navigation Control</li>
+            </ul>
+          </div>
+          
+          <div class="manual-card">
+            <h3>Audio Engine</h3>
+            <ul>
+              <li>Waveform Editing</li>
+              <li>Time Stretching</li>
+              <li>Loop Points</li>
+              <li>Tempo &amp; Pitch Lock</li>
+              <li>Global Tuning</li>
+            </ul>
+          </div>
+          
+          <div class="manual-card">
+            <h3>Mixer &amp; Effects</h3>
+            <ul>
+              <li>8-Channel Mixer</li>
+              <li>Volume, Pan, Mute, Solo</li>
+              <li>Audio Routing</li>
+              <li>Buffer &amp; Sample Rate</li>
+              <li>Output Configuration</li>
+            </ul>
+          </div>
+          
+          <div class="manual-card">
+            <h3>Scene Management</h3>
+            <ul>
+              <li>Save &amp; Load Scenes</li>
+              <li>Export/Import Projects</li>
+              <li>Grid Configurations</li>
+              <li>Backup Strategies</li>
+              <li>Live Set Organization</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="manual-download">
+          <p>Download the complete PDF manual for offline reference:</p>
+          <a href="Manual-EchoStage.pdf" download class="pdf-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            Download PDF Manual (Full Version)
+          </a>
+        </div>
+      </section>
+
+      <!-- Section 7: Video Tutorials -->
+      <div class="section" id="tutorials">
+        <div class="section-number">7</div>
         <h2 class="section-title" data-translate="section5-title">Video Tutorials</h2>
         <div class="section-content">
           <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;" data-translate="section5-intro">
@@ -709,7 +1284,7 @@
             
             <!-- Video 1 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/MDlAfVzT5g8" title="ECHOSTAGE Tutorial 1" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/MDlAfVzT5g8" title="ECHOSTAGE Tutorial 1" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 1</span>
                 <p class="video-title" data-translate="video1-title">Getting Started with ECHOSTAGE-LIVE</p>
@@ -718,7 +1293,7 @@
 
             <!-- Video 2 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/NlM2EvlQvYE" title="ECHOSTAGE Tutorial 2" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/NlM2EvlQvYE" title="ECHOSTAGE Tutorial 2" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 2</span>
                 <p class="video-title" data-translate="video2-title">Metronome Setup</p>
@@ -727,7 +1302,7 @@
 
             <!-- Video 3 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/bm5-HJO7cXw" title="ECHOSTAGE Tutorial 3" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/bm5-HJO7cXw" title="ECHOSTAGE Tutorial 3" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 3</span>
                 <p class="video-title" data-translate="video3-title">PadGrid Layout</p>
@@ -736,16 +1311,16 @@
 
             <!-- Video 4 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/-R6Tm1RBdrk" title="ECHOSTAGE Tutorial 4" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/-R6Tm1RBdrk" title="ECHOSTAGE Tutorial 4" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 4</span>
-                <p class="video-title" data-translate="video4-title">Scene Manager - Import & Export</p>
+                <p class="video-title" data-translate="video4-title">Scene Manager - Import &amp; Export</p>
               </div>
             </div>
 
             <!-- Video 5 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/vM5Th_hLMto" title="ECHOSTAGE Tutorial 5" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/vM5Th_hLMto" title="ECHOSTAGE Tutorial 5" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 5</span>
                 <p class="video-title" data-translate="video5-title">MIDI Settings - Connection In/Out</p>
@@ -754,25 +1329,25 @@
 
             <!-- Video 6 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/D734ggz1xA0" title="ECHOSTAGE Tutorial 6" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/D734ggz1xA0" title="ECHOSTAGE Tutorial 6" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 6</span>
-                <p class="video-title" data-translate="video6-title">Move Pads - Drag & Redirect</p>
+                <p class="video-title" data-translate="video6-title">Move Pads - Drag &amp; Redirect</p>
               </div>
             </div>
 
             <!-- Video 7 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/FNI3wATKxKk" title="ECHOSTAGE Tutorial 7" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/FNI3wATKxKk" title="ECHOSTAGE Tutorial 7" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 7</span>
-                <p class="video-title" data-translate="video7-title">Media Controller - Pitch & Tempo</p>
+                <p class="video-title" data-translate="video7-title">Media Controller - Pitch &amp; Tempo</p>
               </div>
             </div>
 
             <!-- Video 8 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/qHk0lruiOhQ" title="ECHOSTAGE Tutorial 8" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/qHk0lruiOhQ" title="ECHOSTAGE Tutorial 8" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 8</span>
                 <p class="video-title" data-translate="video8-title">Release - All Platforms</p>
@@ -781,7 +1356,7 @@
 
             <!-- Video 9 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/4QPrRssDZMY" title="ECHOSTAGE Tutorial 9" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/4QPrRssDZMY" title="ECHOSTAGE Tutorial 9" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 9</span>
                 <p class="video-title" data-translate="video9-title">Pad MIDI Settings</p>
@@ -790,16 +1365,16 @@
 
             <!-- Video 10 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/YWEpW0HJVpw" title="ECHOSTAGE Tutorial 10" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/YWEpW0HJVpw" title="ECHOSTAGE Tutorial 10" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 10</span>
-                <p class="video-title" data-translate="video10-title">Pad Audio Settings & Layer Import</p>
+                <p class="video-title" data-translate="video10-title">Pad Audio Settings &amp; Layer Import</p>
               </div>
             </div>
 
             <!-- Video 11 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/A2jgabXtg7g" title="ECHOSTAGE Tutorial 11" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/A2jgabXtg7g" title="ECHOSTAGE Tutorial 11" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 11</span>
                 <p class="video-title" data-translate="video11-title">Update Information</p>
@@ -808,10 +1383,10 @@
 
             <!-- Video 12 -->
             <div class="video-card">
-              <iframe src="https://www.youtube.com/embed/D4I6qrmrQJY" title="ECHOSTAGE Tutorial 12" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/D4I6qrmrQJY" title="ECHOSTAGE Tutorial 12" allowfullscreen loading="lazy"></iframe>
               <div class="video-info">
                 <span class="video-number">Tutorial 12</span>
-                <p class="video-title" data-translate="video12-title">Tips & Tricks</p>
+                <p class="video-title" data-translate="video12-title">Tips &amp; Tricks</p>
               </div>
             </div>
 
@@ -819,10 +1394,10 @@
         </div>
       </div>
 
-      <!-- Section 6: Credits -->
-      <div class="section">
-        <div class="section-number">6</div>
-        <h2 class="section-title" data-translate="section6-title">Developer & Credits</h2>
+      <!-- Section 8: Credits -->
+      <div class="section" id="credits">
+        <div class="section-number">8</div>
+        <h2 class="section-title" data-translate="section6-title">Developer &amp; Credits</h2>
         <div class="section-content">
           <p><strong data-translate="section6-dev">Developed by:</strong> Giannis Tsotsis</p>
           <div class="highlight-box">
@@ -843,7 +1418,7 @@
           <a href="terms.html" data-translate="footer-terms">Terms of Service</a>
           <a href="imprint.html" data-translate="footer-imprint">Imprint</a>
         </div>
-        <p>© 2026 ECHOPAIS. <span data-translate="footer-rights">All rights reserved.</span></p>
+        <p>&copy; 2026 ECHOPAIS. <span data-translate="footer-rights">All rights reserved.</span></p>
         <p data-translate="footer-note">Professional MIDI solutions and hardware integration</p>
       </div>
     </div>
@@ -853,29 +1428,30 @@
     const translations = {
       en: {
         'nav-home': 'Home',
-        'app-badge': '🎹 Pad Controller',
+        'app-badge': 'Pad Controller',
         'hero-title': 'ECHOSTAGE-LIVE',
         'hero-subtitle': 'Advanced pad-based audio and MIDI performance engine with deep control and flexibility for live use. Built for the stage with reliable playback, deep MIDI integration and total control.',
         'promo-limited': '50% OFF - Limited Time!',
         'appstore-btn': 'Download on App Store',
+        'pdf-btn': 'Download PDF Manual',
         'section1-title': 'What is ECHOSTAGE-LIVE?',
-        'section1-content': 'ECHOSTAGE-LIVE is an advanced pad-based audio and MIDI performance engine designed specifically for live use. It combines powerful audio playback with deep MIDI integration, giving you total control over your performance.',
+        'section1-content': 'is an advanced pad-based audio and MIDI performance engine designed specifically for live use. It combines powerful audio playback with deep MIDI integration, giving you total control over your performance.',
         'section1-perfect': 'Perfect For:',
         'section1-perfect-list': 'Live performers, electronic musicians, DJs and hybrid setups, theater and stage productions, studio-to-stage workflows.',
         'section2-title': 'Key Features',
-        'feature1-title': '🎛️ Advanced Pad Engine',
+        'feature1-title': 'Advanced Pad Engine',
         'feature1-desc': 'Up to 9 audio layers per pad with individual file, volume, bus and routing. Up to 8 MIDI layers per pad supporting CC, Note, Program Change and SysEx.',
-        'feature2-title': '🎵 Audio & MIDI Playback',
+        'feature2-title': 'Audio & MIDI Playback',
         'feature2-desc': 'Audio-only, MIDI-only or combined playback. Wait and loop modes with measure-based timing. Sample-accurate triggering for live performance.',
-        'feature3-title': '🎚️ Full Mixer',
+        'feature3-title': 'Full Mixer',
         'feature3-desc': 'Per-channel volume, pan, mute and solo. Selectable audio interface. Adjustable buffer size and sample rate.',
-        'feature4-title': '⚡ Performance Controls',
+        'feature4-title': 'Performance Controls',
         'feature4-desc': 'Global or per-pad tempo and pitch control. Tap tempo support. Independent tempo and pitch locking. Stepper mode.',
-        'feature5-title': '🎨 Pad Customization',
-        'feature5-desc': 'Custom pad names and colors. Import custom pad images. Adjustable grid from 1×1 up to 10×10. Free pad movement.',
-        'feature6-title': '📁 Scene Manager',
+        'feature5-title': 'Pad Customization',
+        'feature5-desc': 'Custom pad names and colors. Import custom pad images. Adjustable grid from 1x1 up to 10x10. Free pad movement.',
+        'feature6-title': 'Scene Manager',
         'feature6-desc': 'Save, load, export and import scenes. Instantly recall complex live setups. Ideal for shows, rehearsals and studio sessions.',
-        'section3-title': 'MIDI Trigger Modes',
+        'section3-title': 'MIDI Settings',
         'trigger-momentary': 'Momentary:',
         'trigger-momentary-desc': 'MIDI is sent while the pad is held down',
         'trigger-toggle': 'Toggle:',
@@ -884,12 +1460,7 @@
         'trigger-oneshot-desc': 'Single trigger on pad press',
         'learn-mode': 'Learn Mode:',
         'learn-mode-desc': 'Fast MIDI mapping - press Learn, then press your external controller button to map instantly!',
-        'section4-title': 'Advanced Audio Features',
-        'audio-feature1': 'Original and target settings for tempo, note, measure and time signature',
-        'audio-feature2': 'High-quality time-stretching for real-time tempo changes (powered by Signalsmith Stretch)',
-        'audio-feature3': 'Built-in metronome with pad-synced playback and advanced timing options',
-        'audio-feature4': 'Per-layer channel routing and preview playback',
-        'audio-feature5': 'Global tuning control',
+        'section4-title': 'Audio Settings',
         'section5-title': 'Video Tutorials',
         'section5-intro': 'Watch our comprehensive video tutorials to master ECHOSTAGE-LIVE quickly!',
         'youtube-channel': 'ECHOPAIS YouTube Channel',
@@ -905,7 +1476,6 @@
         'video10-title': 'Pad Audio Settings & Layer Import',
         'video11-title': 'Update Information',
         'video12-title': 'Tips & Tricks',
-        'coming-soon': '🎬 Coming Soon',
         'section6-title': 'Developer & Credits',
         'section6-dev': 'Developed by:',
         'section6-legal': 'Legal Notice:',
@@ -918,43 +1488,39 @@
       },
       de: {
         'nav-home': 'Startseite',
-        'app-badge': '🎹 Pad Controller',
+        'app-badge': 'Pad Controller',
         'hero-title': 'ECHOSTAGE-LIVE',
-        'hero-subtitle': 'Fortschrittliche pad-basierte Audio- und MIDI-Performance-Engine mit tiefer Kontrolle und Flexibilität für den Live-Einsatz. Entwickelt für die Bühne mit zuverlässiger Wiedergabe, tiefer MIDI-Integration und totaler Kontrolle.',
+        'hero-subtitle': 'Fortschrittliche pad-basierte Audio- und MIDI-Performance-Engine mit tiefer Kontrolle und Flexibilitat fur den Live-Einsatz. Entwickelt fur die Buhne mit zuverlassiger Wiedergabe, tiefer MIDI-Integration und totaler Kontrolle.',
         'promo-limited': '50% RABATT - Zeitlich begrenzt!',
         'appstore-btn': 'Im App Store laden',
+        'pdf-btn': 'PDF-Handbuch herunterladen',
         'section1-title': 'Was ist ECHOSTAGE-LIVE?',
-        'section1-content': 'ECHOSTAGE-LIVE ist eine fortschrittliche pad-basierte Audio- und MIDI-Performance-Engine, die speziell für den Live-Einsatz entwickelt wurde. Sie kombiniert leistungsstarke Audiowiedergabe mit tiefer MIDI-Integration und gibt Ihnen die volle Kontrolle über Ihre Performance.',
-        'section1-perfect': 'Perfekt für:',
-        'section1-perfect-list': 'Live-Performer, elektronische Musiker, DJs und Hybrid-Setups, Theater- und Bühnenproduktionen, Studio-to-Stage-Workflows.',
+        'section1-content': 'ist eine fortschrittliche pad-basierte Audio- und MIDI-Performance-Engine, die speziell fur den Live-Einsatz entwickelt wurde. Sie kombiniert leistungsstarke Audiowiedergabe mit tiefer MIDI-Integration und gibt Ihnen die volle Kontrolle uber Ihre Performance.',
+        'section1-perfect': 'Perfekt fur:',
+        'section1-perfect-list': 'Live-Performer, elektronische Musiker, DJs und Hybrid-Setups, Theater- und Buhnenproduktionen, Studio-to-Stage-Workflows.',
         'section2-title': 'Hauptfunktionen',
-        'feature1-title': '🎛️ Fortschrittliche Pad-Engine',
-        'feature1-desc': 'Bis zu 9 Audio-Layer pro Pad mit individueller Datei, Lautstärke, Bus und Routing. Bis zu 8 MIDI-Layer pro Pad mit Unterstützung für CC, Note, Program Change und SysEx.',
-        'feature2-title': '🎵 Audio & MIDI Wiedergabe',
-        'feature2-desc': 'Nur-Audio, Nur-MIDI oder kombinierte Wiedergabe. Warte- und Loop-Modi mit taktbasiertem Timing. Sample-genaues Triggering für Live-Performance.',
-        'feature3-title': '🎚️ Vollständiger Mixer',
-        'feature3-desc': 'Lautstärke, Pan, Mute und Solo pro Kanal. Wählbares Audio-Interface. Einstellbare Puffergröße und Samplerate.',
-        'feature4-title': '⚡ Performance-Steuerung',
-        'feature4-desc': 'Globale oder pro-Pad Tempo- und Pitch-Kontrolle. Tap-Tempo-Unterstützung. Unabhängige Tempo- und Pitch-Sperre. Stepper-Modus.',
-        'feature5-title': '🎨 Pad-Anpassung',
-        'feature5-desc': 'Benutzerdefinierte Pad-Namen und Farben. Import benutzerdefinierter Pad-Bilder. Einstellbares Raster von 1×1 bis 10×10. Freie Pad-Bewegung.',
-        'feature6-title': '📁 Szenen-Manager',
-        'feature6-desc': 'Szenen speichern, laden, exportieren und importieren. Komplexe Live-Setups sofort abrufen. Ideal für Shows, Proben und Studio-Sessions.',
-        'section3-title': 'MIDI Trigger-Modi',
+        'feature1-title': 'Fortschrittliche Pad-Engine',
+        'feature1-desc': 'Bis zu 9 Audio-Layer pro Pad mit individueller Datei, Lautstarke, Bus und Routing. Bis zu 8 MIDI-Layer pro Pad mit Unterstutzung fur CC, Note, Program Change und SysEx.',
+        'feature2-title': 'Audio & MIDI Wiedergabe',
+        'feature2-desc': 'Nur-Audio, Nur-MIDI oder kombinierte Wiedergabe. Warte- und Loop-Modi mit taktbasiertem Timing. Sample-genaues Triggering fur Live-Performance.',
+        'feature3-title': 'Vollstandiger Mixer',
+        'feature3-desc': 'Lautstarke, Pan, Mute und Solo pro Kanal. Wahlbares Audio-Interface. Einstellbare Puffergrosse und Samplerate.',
+        'feature4-title': 'Performance-Steuerung',
+        'feature4-desc': 'Globale oder pro-Pad Tempo- und Pitch-Kontrolle. Tap-Tempo-Unterstutzung. Unabhangige Tempo- und Pitch-Sperre. Stepper-Modus.',
+        'feature5-title': 'Pad-Anpassung',
+        'feature5-desc': 'Benutzerdefinierte Pad-Namen und Farben. Import benutzerdefinierter Pad-Bilder. Einstellbares Raster von 1x1 bis 10x10. Freie Pad-Bewegung.',
+        'feature6-title': 'Szenen-Manager',
+        'feature6-desc': 'Szenen speichern, laden, exportieren und importieren. Komplexe Live-Setups sofort abrufen. Ideal fur Shows, Proben und Studio-Sessions.',
+        'section3-title': 'MIDI-Einstellungen',
         'trigger-momentary': 'Momentan:',
-        'trigger-momentary-desc': 'MIDI wird gesendet, während das Pad gedrückt wird',
+        'trigger-momentary-desc': 'MIDI wird gesendet, wahrend das Pad gedruckt wird',
         'trigger-toggle': 'Umschalten:',
         'trigger-toggle-desc': 'Erstes Tippen aktiviert, zweites Tippen deaktiviert',
         'trigger-oneshot': 'Einmalig:',
-        'trigger-oneshot-desc': 'Einmaliges Auslösen beim Pad-Druck',
+        'trigger-oneshot-desc': 'Einmaliges Auslosen beim Pad-Druck',
         'learn-mode': 'Lern-Modus:',
-        'learn-mode-desc': 'Schnelles MIDI-Mapping - drücken Sie Lernen, dann Ihren externen Controller-Button für sofortiges Mapping!',
-        'section4-title': 'Erweiterte Audio-Funktionen',
-        'audio-feature1': 'Original- und Zieleinstellungen für Tempo, Note, Takt und Taktart',
-        'audio-feature2': 'Hochwertiges Time-Stretching für Echtzeit-Tempoänderungen (powered by Signalsmith Stretch)',
-        'audio-feature3': 'Eingebautes Metronom mit pad-synchronisierter Wiedergabe und erweiterten Timing-Optionen',
-        'audio-feature4': 'Kanal-Routing und Vorschau-Wiedergabe pro Layer',
-        'audio-feature5': 'Globale Stimmungskontrolle',
+        'learn-mode-desc': 'Schnelles MIDI-Mapping - drucken Sie Lernen, dann Ihren externen Controller-Button fur sofortiges Mapping!',
+        'section4-title': 'Audio-Einstellungen',
         'section5-title': 'Video-Tutorials',
         'section5-intro': 'Sehen Sie sich unsere umfassenden Video-Tutorials an, um ECHOSTAGE-LIVE schnell zu meistern!',
         'youtube-channel': 'ECHOPAIS YouTube Kanal',
@@ -965,346 +1531,192 @@
         'video5-title': 'MIDI-Einstellungen - Verbindung Ein/Aus',
         'video6-title': 'Pads Verschieben - Ziehen & Umleiten',
         'video7-title': 'Media Controller - Pitch & Tempo',
-        'video8-title': 'Veröffentlichung - Alle Plattformen',
+        'video8-title': 'Veroffentlichung - Alle Plattformen',
         'video9-title': 'Pad-MIDI-Einstellungen',
         'video10-title': 'Pad-Audio-Einstellungen & Layer-Import',
         'video11-title': 'Update-Informationen',
         'video12-title': 'Tipps & Tricks',
-        'coming-soon': '🎬 Kommt bald',
         'section6-title': 'Entwickler & Credits',
         'section6-dev': 'Entwickelt von:',
         'section6-legal': 'Rechtlicher Hinweis:',
-        'section6-legal-desc': 'Diese App verwendet Signalsmith Stretch für Audio-Time-Stretching. Signalsmith Stretch ist unter der MIT-Lizenz lizenziert.',
+        'section6-legal-desc': 'Diese App verwendet Signalsmith Stretch fur Audio-Time-Stretching. Signalsmith Stretch ist unter der MIT-Lizenz lizenziert.',
         'footer-privacy': 'Datenschutz',
         'footer-terms': 'Nutzungsbedingungen',
         'footer-imprint': 'Impressum',
         'footer-rights': 'Alle Rechte vorbehalten.',
-        'footer-note': 'Professionelle MIDI-Lösungen und Hardware-Integration'
+        'footer-note': 'Professionelle MIDI-Losungen und Hardware-Integration'
       },
       el: {
-        'nav-home': 'Αρχική',
-        'app-badge': '🎹 Pad Controller',
+        'nav-home': 'Αρχικη',
+        'app-badge': 'Pad Controller',
         'hero-title': 'ECHOSTAGE-LIVE',
-        'hero-subtitle': 'Προηγμένη μηχανή audio και MIDI performance βασισμένη σε pads με βαθύ έλεγχο και ευελιξία για live χρήση. Σχεδιασμένο για τη σκηνή με αξιόπιστη αναπαραγωγή, βαθιά MIDI ενσωμάτωση και πλήρη έλεγχο.',
-        'promo-limited': '50% ΕΚΠΤΩΣΗ - Περιορισμένος χρόνος!',
-        'appstore-btn': 'Κατέβασε από το App Store',
-        'section1-title': 'Τι είναι το ECHOSTAGE-LIVE;',
-        'section1-content': 'Το ECHOSTAGE-LIVE είναι μια προηγμένη μηχανή audio και MIDI performance βασισμένη σε pads, σχεδιασμένη ειδικά για live χρήση. Συνδυάζει ισχυρή αναπαραγωγή ήχου με βαθιά MIDI ενσωμάτωση, δίνοντάς σου πλήρη έλεγχο της performance σου.',
-        'section1-perfect': 'Ιδανικό για:',
-        'section1-perfect-list': 'Live performers, ηλεκτρονικούς μουσικούς, DJs και υβριδικά setups, θεατρικές και σκηνικές παραγωγές, studio-to-stage workflows.',
-        'section2-title': 'Βασικά Χαρακτηριστικά',
-        'feature1-title': '🎛️ Προηγμένη Μηχανή Pads',
-        'feature1-desc': 'Έως 9 audio layers ανά pad με ξεχωριστό αρχείο, ένταση, bus και routing. Έως 8 MIDI layers ανά pad με υποστήριξη CC, Note, Program Change και SysEx.',
-        'feature2-title': '🎵 Audio & MIDI Αναπαραγωγή',
-        'feature2-desc': 'Αναπαραγωγή μόνο audio, μόνο MIDI ή συνδυασμένη. Λειτουργίες αναμονής και loop με timing βασισμένο σε μέτρα. Sample-accurate triggering για live performance.',
-        'feature3-title': '🎚️ Πλήρες Mixer',
-        'feature3-desc': 'Ένταση, pan, mute και solo ανά κανάλι. Επιλέξιμο audio interface. Ρυθμιζόμενο buffer size και sample rate.',
-        'feature4-title': '⚡ Έλεγχοι Performance',
-        'feature4-desc': 'Global ή ανά-pad έλεγχος tempo και pitch. Υποστήριξη tap tempo. Ανεξάρτητο κλείδωμα tempo και pitch. Λειτουργία stepper.',
-        'feature5-title': '🎨 Προσαρμογή Pads',
-        'feature5-desc': 'Προσαρμοσμένα ονόματα και χρώματα pads. Εισαγωγή προσαρμοσμένων εικόνων pad. Ρυθμιζόμενο grid από 1×1 έως 10×10. Ελεύθερη μετακίνηση pad.',
-        'feature6-title': '📁 Διαχειριστής Σκηνών',
-        'feature6-desc': 'Αποθήκευση, φόρτωση, εξαγωγή και εισαγωγή σκηνών. Άμεση ανάκληση πολύπλοκων live setups. Ιδανικό για shows, πρόβες και studio sessions.',
-        'section3-title': 'MIDI Trigger Modes',
-        'trigger-momentary': 'Στιγμιαίο:',
-        'trigger-momentary-desc': 'Το MIDI στέλνεται όσο το pad είναι πατημένο',
-        'trigger-toggle': 'Εναλλαγή:',
-        'trigger-toggle-desc': 'Πρώτο πάτημα ενεργοποιεί, δεύτερο απενεργοποιεί',
-        'trigger-oneshot': 'Μονή:',
-        'trigger-oneshot-desc': 'Μονό trigger στο πάτημα του pad',
-        'learn-mode': 'Λειτουργία Learn:',
-        'learn-mode-desc': 'Γρήγορο MIDI mapping - πάτα Learn, μετά το κουμπί του controller σου για άμεσο mapping!',
-        'section4-title': 'Προηγμένες Λειτουργίες Audio',
-        'audio-feature1': 'Ρυθμίσεις πηγής και στόχου για tempo, νότα, μέτρο και χρονική υπογραφή',
-        'audio-feature2': 'Υψηλής ποιότητας time-stretching για αλλαγές tempo σε πραγματικό χρόνο (με Signalsmith Stretch)',
-        'audio-feature3': 'Ενσωματωμένο μετρονόμο με pad-synced αναπαραγωγή και προηγμένες επιλογές timing',
-        'audio-feature4': 'Routing καναλιού ανά layer και preview αναπαραγωγή',
-        'audio-feature5': 'Γενικός έλεγχος κουρδίσματος',
+        'hero-subtitle': 'Προηγμενη μηχανη audio και MIDI performance βασισμενη σε pads με βαθυ ελεγχο και ευελιξια για live χρηση. Σχεδιασμενο για τη σκηνη με αξιοπιστη αναπαραγωγη, βαθια MIDI ενσωματωση και πληρη ελεγχο.',
+        'promo-limited': '50% ΕΚΠΤΩΣΗ - Περιορισμενος χρονος!',
+        'appstore-btn': 'Κατεβασε απο το App Store',
+        'pdf-btn': 'Κατεβασε το PDF Manual',
+        'section1-title': 'Τι ειναι το ECHOSTAGE-LIVE;',
+        'section1-content': 'ειναι μια προηγμενη μηχανη audio και MIDI performance βασισμενη σε pads, σχεδιασμενη ειδικα για live χρηση. Συνδυαζει ισχυρη αναπαραγωγη ηχου με βαθια MIDI ενσωματωση, δινοντας σου πληρη ελεγχο της performance σου.',
+        'section1-perfect': 'Ιδανικο για:',
+        'section1-perfect-list': 'Live performers, ηλεκτρονικους μουσικους, DJs και υβριδικα setups, θεατρικες και σκηνικες παραγωγες, studio-to-stage workflows.',
+        'section2-title': 'Βασικα Χαρακτηριστικα',
+        'feature1-title': 'Προηγμενη Μηχανη Pads',
+        'feature1-desc': 'Εως 9 audio layers ανα pad με ξεχωριστο αρχειο, ενταση, bus και routing. Εως 8 MIDI layers ανα pad με υποστηριξη CC, Note, Program Change και SysEx.',
+        'feature2-title': 'Audio & MIDI Αναπαραγωγη',
+        'feature2-desc': 'Αναπαραγωγη μονο audio, μονο MIDI η συνδυασμενη. Λειτουργιες αναμονης και loop με timing βασισμενο σε μετρα. Sample-accurate triggering για live performance.',
+        'feature3-title': 'Πληρες Mixer',
+        'feature3-desc': 'Ενταση, pan, mute και solo ανα καναλι. Επιλεξιμο audio interface. Ρυθμιζομενο buffer size και sample rate.',
+        'feature4-title': 'Ελεγχοι Performance',
+        'feature4-desc': 'Global η ανα-pad ελεγχος tempo και pitch. Υποστηριξη tap tempo. Ανεξαρτητο κλειδωμα tempo και pitch. Λειτουργια stepper.',
+        'feature5-title': 'Προσαρμογη Pads',
+        'feature5-desc': 'Προσαρμοσμενα ονοματα και χρωματα pads. Εισαγωγη προσαρμοσμενων εικονων pad. Ρυθμιζομενο grid απο 1x1 εως 10x10. Ελευθερη μετακινηση pad.',
+        'feature6-title': 'Διαχειριστης Σκηνων',
+        'feature6-desc': 'Αποθηκευση, φορτωση, εξαγωγη και εισαγωγη σκηνων. Αμεση ανακληση πολυπλοκων live setups. Ιδανικο για shows, προβες και studio sessions.',
+        'section3-title': 'Ρυθμισεις MIDI',
+        'trigger-momentary': 'Στιγμιαιο:',
+        'trigger-momentary-desc': 'Το MIDI στελνεται οσο το pad ειναι πατημενο',
+        'trigger-toggle': 'Εναλλαγη:',
+        'trigger-toggle-desc': 'Πρωτο πατημα ενεργοποιει, δευτερο απενεργοποιει',
+        'trigger-oneshot': 'Μονη:',
+        'trigger-oneshot-desc': 'Μονο trigger στο πατημα του pad',
+        'learn-mode': 'Λειτουργια Learn:',
+        'learn-mode-desc': 'Γρηγορο MIDI mapping - πατα Learn, μετα το κουμπι του controller σου για αμεσο mapping!',
+        'section4-title': 'Ρυθμισεις Audio',
         'section5-title': 'Video Tutorials',
-        'section5-intro': 'Δες τα ολοκληρωμένα video tutorials μας για να κατακτήσεις το ECHOSTAGE-LIVE γρήγορα!',
-        'youtube-channel': 'ECHOPAIS YouTube Κανάλι',
-        'video1-title': 'Ξεκινώντας με το ECHOSTAGE-LIVE',
-        'video2-title': 'Ρύθμιση Μετρονόμου',
-        'video3-title': 'Διάταξη PadGrid',
+        'section5-intro': 'Δες τα ολοκληρωμενα video tutorials μας για να κατακτησεις το ECHOSTAGE-LIVE γρηγορα!',
+        'youtube-channel': 'ECHOPAIS YouTube Καναλι',
+        'video1-title': 'Ξεκινωντας με το ECHOSTAGE-LIVE',
+        'video2-title': 'Ρυθμιση Μετρονομου',
+        'video3-title': 'Διαταξη PadGrid',
         'video4-title': 'Scene Manager - Import & Export',
-        'video5-title': 'MIDI Ρυθμίσεις - Σύνδεση In/Out',
-        'video6-title': 'Μετακίνηση Pads - Drag & Redirect',
+        'video5-title': 'MIDI Ρυθμισεις - Συνδεση In/Out',
+        'video6-title': 'Μετακινηση Pads - Drag & Redirect',
         'video7-title': 'Media Controller - Pitch & Tempo',
-        'video8-title': 'Release - Όλες οι Πλατφόρμες',
-        'video9-title': 'Pad MIDI Ρυθμίσεις',
-        'video10-title': 'Pad Audio Ρυθμίσεις & Layer Import',
-        'video11-title': 'Πληροφορίες Ενημέρωσης',
-        'video12-title': 'Συμβουλές & Κόλπα',
-        'coming-soon': '🎬 Έρχεται Σύντομα',
-        'section6-title': 'Προγραμματιστής & Credits',
-        'section6-dev': 'Αναπτύχθηκε από:',
-        'section6-legal': 'Νομική Σημείωση:',
-        'section6-legal-desc': 'Αυτή η εφαρμογή χρησιμοποιεί το Signalsmith Stretch για time-stretching audio. Το Signalsmith Stretch διατίθεται με άδεια MIT.',
-        'footer-privacy': 'Πολιτική Απορρήτου',
-        'footer-terms': 'Όροι Χρήσης',
-        'footer-imprint': 'Στοιχεία',
-        'footer-rights': 'Με επιφύλαξη παντός δικαιώματος.',
-        'footer-note': 'Επαγγελματικές λύσεις MIDI και ενσωμάτωση hardware'
+        'video8-title': 'Release - Ολες οι Πλατφορμες',
+        'video9-title': 'Pad MIDI Ρυθμισεις',
+        'video10-title': 'Pad Audio Ρυθμισεις & Layer Import',
+        'video11-title': 'Πληροφοριες Ενημερωσης',
+        'video12-title': 'Συμβουλες & Κολπα',
+        'section6-title': 'Προγραμματιστης & Credits',
+        'section6-dev': 'Αναπτυχθηκε απο:',
+        'section6-legal': 'Νομικη Σημειωση:',
+        'section6-legal-desc': 'Αυτη η εφαρμογη χρησιμοποιει το Signalsmith Stretch για time-stretching audio. Το Signalsmith Stretch διατιθεται με αδεια MIT.',
+        'footer-privacy': 'Πολιτικη Απορρητου',
+        'footer-terms': 'Οροι Χρησης',
+        'footer-imprint': 'Στοιχεια',
+        'footer-rights': 'Με επιφυλαξη παντος δικαιωματος.',
+        'footer-note': 'Επαγγελματικες λυσεις MIDI και ενσωματωση hardware'
       },
       sq: {
         'nav-home': 'Ballina',
-        'app-badge': '🎹 Pad Controller',
+        'app-badge': 'Pad Controller',
         'hero-title': 'ECHOSTAGE-LIVE',
-        'hero-subtitle': 'Motor i avancuar i performancës audio dhe MIDI bazuar në pad me kontroll të thellë dhe fleksibilitet për përdorim live. Ndërtuar për skenë me riprodhim të besueshëm, integrim të thellë MIDI dhe kontroll total.',
-        'promo-limited': '50% ZBRITJE - Kohë e kufizuar!',
+        'hero-subtitle': 'Motor i avancuar i performances audio dhe MIDI bazuar ne pad me kontroll te thelle dhe fleksibilitet per perdorim live.',
+        'promo-limited': '50% ZBRITJE - Kohe e kufizuar!',
         'appstore-btn': 'Shkarko nga App Store',
-        'section1-title': 'Çfarë është ECHOSTAGE-LIVE?',
-        'section1-content': 'ECHOSTAGE-LIVE është një motor i avancuar i performancës audio dhe MIDI bazuar në pad, projektuar posaçërisht për përdorim live. Kombinon riprodhim të fuqishëm audio me integrim të thellë MIDI, duke të dhënë kontroll të plotë mbi performancën tënde.',
-        'section1-perfect': 'Perfekt Për:',
-        'section1-perfect-list': 'Performues live, muzikantë elektronikë, DJ dhe setup hibride, prodhime teatrale dhe skenike, workflows studio-në-skenë.',
-        'section2-title': 'Veçoritë Kryesore',
-        'feature1-title': '🎛️ Motor i Avancuar Pad',
-        'feature1-desc': 'Deri në 9 shtresa audio për pad me skedar, volum, bus dhe routing individual. Deri në 8 shtresa MIDI për pad që mbështesin CC, Note, Program Change dhe SysEx.',
-        'feature2-title': '🎵 Riprodhim Audio & MIDI',
-        'feature2-desc': 'Riprodhim vetëm-audio, vetëm-MIDI ose i kombinuar. Mënyra pritjeje dhe loop me kohëzim bazuar në masa. Triggering i saktë në sample për performancë live.',
-        'feature3-title': '🎚️ Mikser i Plotë',
-        'feature3-desc': 'Volum, pan, mute dhe solo për kanal. Interface audio e zgjedhshme. Madhësi buffer dhe sample rate e rregullueshme.',
-        'feature4-title': '⚡ Kontrolle Performance',
-        'feature4-desc': 'Kontroll global ose për-pad i tempos dhe pitch. Mbështetje tap tempo. Kyçje e pavarur e tempos dhe pitch. Mënyrë stepper.',
-        'feature5-title': '🎨 Personalizim Pad',
-        'feature5-desc': 'Emra dhe ngjyra të personalizuara pad. Importo imazhe të personalizuara pad. Grid i rregullueshëm nga 1×1 deri 10×10. Lëvizje e lirë pad.',
-        'feature6-title': '📁 Menaxheri i Skenave',
-        'feature6-desc': 'Ruaj, ngarko, eksporto dhe importo skena. Rikthe menjëherë setup komplekse live. Ideal për shfaqje, prova dhe sesione studio.',
-        'section3-title': 'Mënyrat MIDI Trigger',
-        'trigger-momentary': 'Momentale:',
-        'trigger-momentary-desc': 'MIDI dërgohet ndërsa pad mbahet shtypur',
-        'trigger-toggle': 'Toggle:',
-        'trigger-toggle-desc': 'Prekja e parë aktivizon, e dyta çaktivizon',
-        'trigger-oneshot': 'Një-Goditje:',
-        'trigger-oneshot-desc': 'Trigger i vetëm në shtypjen e pad',
-        'learn-mode': 'Mënyra Learn:',
-        'learn-mode-desc': 'Mapping i shpejtë MIDI - shtyp Learn, pastaj butonin e kontrollerit tënd për mapping të menjëhershëm!',
-        'section4-title': 'Veçori të Avancuara Audio',
-        'audio-feature1': 'Cilësime origjinale dhe të synuara për tempo, nota, masa dhe nënshkrim kohor',
-        'audio-feature2': 'Time-stretching i cilësisë së lartë për ndryshime tempo në kohë reale (powered by Signalsmith Stretch)',
-        'audio-feature3': 'Metronom i integruar me riprodhim të sinkronizuar me pad dhe opsione të avancuara kohëzimi',
-        'audio-feature4': 'Routing kanali për shtresë dhe riprodhim preview',
-        'audio-feature5': 'Kontroll global i akordimit',
+        'pdf-btn': 'Shkarko Manualin PDF',
+        'section1-title': 'Cfare eshte ECHOSTAGE-LIVE?',
+        'section1-content': 'eshte nje motor i avancuar i performances audio dhe MIDI bazuar ne pad, projektuar posacerisht per perdorim live.',
+        'section1-perfect': 'Perfekt Per:',
+        'section1-perfect-list': 'Performues live, muzikante elektronike, DJ dhe setup hibride.',
+        'section2-title': 'Vecorite Kryesore',
+        'section3-title': 'Rregullimet MIDI',
+        'section4-title': 'Rregullimet Audio',
         'section5-title': 'Video Tutorials',
-        'section5-intro': 'Shiko video tutorials tona gjithëpërfshirëse për të zotëruar ECHOSTAGE-LIVE shpejt!',
+        'section5-intro': 'Shiko video tutorials tona per te zoterurar ECHOSTAGE-LIVE shpejt!',
         'youtube-channel': 'ECHOPAIS Kanal YouTube',
-        'video1-title': 'Fillimi me ECHOSTAGE-LIVE',
-        'video2-title': 'Konfigurimi i Metronomit',
-        'video3-title': 'Layout i PadGrid',
-        'video4-title': 'Scene Manager - Import & Export',
-        'video5-title': 'Cilësimet MIDI - Lidhja In/Out',
-        'video6-title': 'Lëviz Pads - Drag & Ridrejto',
-        'video7-title': 'Media Controller - Pitch & Tempo',
-        'video8-title': 'Release - Të Gjitha Platformat',
-        'video9-title': 'Cilësimet MIDI të Pad',
-        'video10-title': 'Cilësimet Audio të Pad & Import Layer',
-        'video11-title': 'Informacione Përditësimi',
-        'video12-title': 'Këshilla & Truke',
-        'coming-soon': '🎬 Vjen Së Shpejti',
         'section6-title': 'Zhvilluesi & Credits',
         'section6-dev': 'Zhvilluar nga:',
         'section6-legal': 'Njoftim Ligjor:',
-        'section6-legal-desc': 'Ky app përdor Signalsmith Stretch për time-stretching audio. Signalsmith Stretch është i licencuar nën Licencën MIT.',
-        'footer-privacy': 'Politika e Privatësisë',
-        'footer-terms': 'Kushtet e Shërbimit',
+        'section6-legal-desc': 'Ky app perdor Signalsmith Stretch per time-stretching audio. Signalsmith Stretch eshte i licencuar nen Licencen MIT.',
+        'footer-privacy': 'Politika e Privatesise',
+        'footer-terms': 'Kushtet e Sherbimit',
         'footer-imprint': 'Imprint',
-        'footer-rights': 'Të gjitha të drejtat e rezervuara.',
+        'footer-rights': 'Te gjitha te drejtat e rezervuara.',
         'footer-note': 'Zgjidhje profesionale MIDI dhe integrim hardware'
       },
       sr: {
-        'nav-home': 'Početna',
-        'app-badge': '🎹 Pad Controller',
+        'nav-home': 'Pocetna',
+        'app-badge': 'Pad Controller',
         'hero-title': 'ECHOSTAGE-LIVE',
-        'hero-subtitle': 'Napredni audio i MIDI performance engine baziran na padovima sa dubokom kontrolom i fleksibilnošću za live upotrebu. Izgrađen za scenu sa pouzdanom reprodukcijom, dubokom MIDI integracijom i totalnom kontrolom.',
-        'promo-limited': '50% POPUSTA - Ograničeno vreme!',
+        'hero-subtitle': 'Napredni audio i MIDI performance engine baziran na padovima sa dubokom kontrolom i fleksibilnoscu za live upotrebu.',
+        'promo-limited': '50% POPUSTA - Ograniceno vreme!',
         'appstore-btn': 'Preuzmi sa App Store',
-        'section1-title': 'Šta je ECHOSTAGE-LIVE?',
-        'section1-content': 'ECHOSTAGE-LIVE je napredni audio i MIDI performance engine baziran na padovima, dizajniran posebno za live upotrebu. Kombinuje moćnu audio reprodukciju sa dubokom MIDI integracijom, dajući ti potpunu kontrolu nad tvojom performancom.',
-        'section1-perfect': 'Savršeno Za:',
-        'section1-perfect-list': 'Live performere, elektronske muzičare, DJ-eve i hibridne setupe, pozorišne i scenske produkcije, studio-to-stage tokove rada.',
-        'section2-title': 'Ključne Karakteristike',
-        'feature1-title': '🎛️ Napredni Pad Engine',
-        'feature1-desc': 'Do 9 audio slojeva po padu sa individualnim fajlom, volumenom, busom i rutiranjem. Do 8 MIDI slojeva po padu sa podrškom za CC, Note, Program Change i SysEx.',
-        'feature2-title': '🎵 Audio & MIDI Reprodukcija',
-        'feature2-desc': 'Samo-audio, samo-MIDI ili kombinovana reprodukcija. Wait i loop modovi sa tajmingom baziranim na taktovima. Sample-precizno okidanje za live performans.',
-        'feature3-title': '🎚️ Pun Mikser',
-        'feature3-desc': 'Volume, pan, mute i solo po kanalu. Izborni audio interfejs. Podesiva veličina bafera i sample rate.',
-        'feature4-title': '⚡ Kontrole Performansa',
-        'feature4-desc': 'Globalna ili per-pad tempo i pitch kontrola. Podrška za tap tempo. Nezavisno zaključavanje tempa i pitcha. Stepper mod.',
-        'feature5-title': '🎨 Prilagođavanje Padova',
-        'feature5-desc': 'Prilagođena imena i boje padova. Uvoz prilagođenih slika padova. Podesiva mreža od 1×1 do 10×10. Slobodno pomeranje padova.',
-        'feature6-title': '📁 Menadžer Scena',
-        'feature6-desc': 'Sačuvaj, učitaj, izvezi i uvezi scene. Trenutno pozovi kompleksne live setupe. Idealno za nastupe, probe i studijske sesije.',
-        'section3-title': 'MIDI Trigger Modovi',
-        'trigger-momentary': 'Momentalni:',
-        'trigger-momentary-desc': 'MIDI se šalje dok je pad pritisnut',
-        'trigger-toggle': 'Toggle:',
-        'trigger-toggle-desc': 'Prvi tap aktivira, drugi deaktivira',
-        'trigger-oneshot': 'Jedan-Pucanj:',
-        'trigger-oneshot-desc': 'Jedno okidanje pri pritisku pada',
-        'learn-mode': 'Learn Mod:',
-        'learn-mode-desc': 'Brzo MIDI mapiranje - pritisni Learn, zatim dugme tvog eksternog kontrolera za trenutno mapiranje!',
-        'section4-title': 'Napredne Audio Funkcije',
-        'audio-feature1': 'Originalne i ciljne postavke za tempo, notu, takt i vremenski potpis',
-        'audio-feature2': 'Visokokvalitetno time-stretching za promene tempa u realnom vremenu (powered by Signalsmith Stretch)',
-        'audio-feature3': 'Ugrađeni metronom sa pad-sinhronizovanom reprodukcijom i naprednim opcijama tajminga',
-        'audio-feature4': 'Rutiranje kanala po sloju i preview reprodukcija',
-        'audio-feature5': 'Globalna kontrola štimovanja',
+        'pdf-btn': 'Preuzmi PDF Manual',
+        'section1-title': 'Sta je ECHOSTAGE-LIVE?',
+        'section1-content': 'je napredni audio i MIDI performance engine baziran na padovima, dizajniran posebno za live upotrebu.',
+        'section1-perfect': 'Savrseno Za:',
+        'section1-perfect-list': 'Live performere, elektronske muzicare, DJ-eve i hibridne setupove.',
+        'section2-title': 'Kljucne Karakteristike',
+        'section3-title': 'MIDI Podesavanja',
+        'section4-title': 'Audio Podesavanja',
         'section5-title': 'Video Tutorijali',
-        'section5-intro': 'Pogledaj naše sveobuhvatne video tutorijale da brzo savladaš ECHOSTAGE-LIVE!',
+        'section5-intro': 'Pogledaj nase sveobuhvatne video tutorijale da brzo savladas ECHOSTAGE-LIVE!',
         'youtube-channel': 'ECHOPAIS YouTube Kanal',
-        'video1-title': 'Početak sa ECHOSTAGE-LIVE',
-        'video2-title': 'Podešavanje Metronoma',
-        'video3-title': 'PadGrid Raspored',
-        'video4-title': 'Scene Manager - Import & Export',
-        'video5-title': 'MIDI Podešavanja - Veza In/Out',
-        'video6-title': 'Pomeranje Padova - Povuci & Preusmeri',
-        'video7-title': 'Media Controller - Pitch & Tempo',
-        'video8-title': 'Izdanje - Sve Platforme',
-        'video9-title': 'Pad MIDI Podešavanja',
-        'video10-title': 'Pad Audio Podešavanja & Import Sloja',
-        'video11-title': 'Informacije o Ažuriranju',
-        'video12-title': 'Saveti & Trikovi',
-        'coming-soon': '🎬 Uskoro',
-        'section6-title': 'Razvijač & Credits',
+        'section6-title': 'Razvojac & Credits',
         'section6-dev': 'Razvio:',
         'section6-legal': 'Pravna Napomena:',
         'section6-legal-desc': 'Ova aplikacija koristi Signalsmith Stretch za time-stretching audio. Signalsmith Stretch je licenciran pod MIT Licencom.',
         'footer-privacy': 'Politika Privatnosti',
-        'footer-terms': 'Uslovi Korišćenja',
+        'footer-terms': 'Uslovi Koriscenja',
         'footer-imprint': 'Impresum',
-        'footer-rights': 'Sva prava zadržana.',
-        'footer-note': 'Profesionalna MIDI rešenja i hardverska integracija'
+        'footer-rights': 'Sva prava zadrzana.',
+        'footer-note': 'Profesionalna MIDI resenja i hardverska integracija'
       },
       bg: {
-        'nav-home': 'Начало',
-        'app-badge': '🎹 Pad Controller',
+        'nav-home': 'Nachalo',
+        'app-badge': 'Pad Controller',
         'hero-title': 'ECHOSTAGE-LIVE',
-        'hero-subtitle': 'Усъвършенстван audio и MIDI performance engine базиран на padове с дълбок контрол и гъвкавост за live употреба. Създаден за сцената с надеждно възпроизвеждане, дълбока MIDI интеграция и пълен контрол.',
-        'promo-limited': '50% ОТСТЪПКА - Ограничено време!',
-        'appstore-btn': 'Изтегли от App Store',
-        'section1-title': 'Какво е ECHOSTAGE-LIVE?',
-        'section1-content': 'ECHOSTAGE-LIVE е усъвършенстван audio и MIDI performance engine базиран на padове, проектиран специално за live употреба. Комбинира мощно audio възпроизвеждане с дълбока MIDI интеграция, давайки ти пълен контрол над представлението ти.',
-        'section1-perfect': 'Перфектно За:',
-        'section1-perfect-list': 'Live изпълнители, електронни музиканти, DJ-и и хибридни setupи, театрални и сценични продукции, studio-to-stage работни процеси.',
-        'section2-title': 'Ключови Функции',
-        'feature1-title': '🎛️ Усъвършенстван Pad Engine',
-        'feature1-desc': 'До 9 audio слоя на pad с индивидуален файл, сила на звука, bus и routing. До 8 MIDI слоя на pad с поддръжка на CC, Note, Program Change и SysEx.',
-        'feature2-title': '🎵 Audio & MIDI Възпроизвеждане',
-        'feature2-desc': 'Само-audio, само-MIDI или комбинирано възпроизвеждане. Wait и loop режими с timing базиран на тактове. Sample-точно задействане за live performance.',
-        'feature3-title': '🎚️ Пълен Миксер',
-        'feature3-desc': 'Сила на звука, pan, mute и solo на канал. Избираем audio интерфейс. Регулируем buffer size и sample rate.',
-        'feature4-title': '⚡ Performance Контроли',
-        'feature4-desc': 'Глобален или per-pad tempo и pitch контрол. Поддръжка на tap tempo. Независимо заключване на tempo и pitch. Stepper режим.',
-        'feature5-title': '🎨 Персонализация на Padове',
-        'feature5-desc': 'Персонализирани имена и цветове на padове. Импорт на персонализирани изображения. Регулируема мрежа от 1×1 до 10×10. Свободно движение на padове.',
-        'feature6-title': '📁 Scene Manager',
-        'feature6-desc': 'Запази, зареди, експортирай и импортирай сцени. Мигновено извикване на комплексни live setupи. Идеално за шоута, репетиции и студийни сесии.',
-        'section3-title': 'MIDI Trigger Режими',
-        'trigger-momentary': 'Моментен:',
-        'trigger-momentary-desc': 'MIDI се изпраща докато pad е натиснат',
-        'trigger-toggle': 'Toggle:',
-        'trigger-toggle-desc': 'Първо натискане активира, второ деактивира',
-        'trigger-oneshot': 'Един-Изстрел:',
-        'trigger-oneshot-desc': 'Единично задействане при натискане на pad',
-        'learn-mode': 'Learn Режим:',
-        'learn-mode-desc': 'Бързо MIDI mapping - натисни Learn, след това бутона на твоя външен controller за мигновено mapping!',
-        'section4-title': 'Усъвършенствани Audio Функции',
-        'audio-feature1': 'Оригинални и целеви настройки за tempo, нота, такт и времеви подпис',
-        'audio-feature2': 'Висококачествено time-stretching за промени на tempo в реално време (powered by Signalsmith Stretch)',
-        'audio-feature3': 'Вграден метроном с pad-синхронизирано възпроизвеждане и разширени опции за timing',
-        'audio-feature4': 'Routing на канал на слой и preview възпроизвеждане',
-        'audio-feature5': 'Глобален контрол на настройка',
-        'section5-title': 'Видео Уроци',
-        'section5-intro': 'Гледай нашите подробни видео уроци за да овладееш ECHOSTAGE-LIVE бързо!',
-        'youtube-channel': 'ECHOPAIS YouTube Канал',
-        'video1-title': 'Начало с ECHOSTAGE-LIVE',
-        'video2-title': 'Настройка на Метронома',
-        'video3-title': 'PadGrid Оформление',
-        'video4-title': 'Scene Manager - Import & Export',
-        'video5-title': 'MIDI Настройки - Връзка In/Out',
-        'video6-title': 'Преместване на Padове - Плъзгане & Пренасочване',
-        'video7-title': 'Media Controller - Pitch & Tempo',
-        'video8-title': 'Release - Всички Платформи',
-        'video9-title': 'Pad MIDI Настройки',
-        'video10-title': 'Pad Audio Настройки & Layer Import',
-        'video11-title': 'Информация за Актуализация',
-        'video12-title': 'Съвети & Трикове',
-        'coming-soon': '🎬 Очаквайте Скоро',
-        'section6-title': 'Разработчик & Credits',
-        'section6-dev': 'Разработено от:',
-        'section6-legal': 'Правна Бележка:',
-        'section6-legal-desc': 'Това приложение използва Signalsmith Stretch за time-stretching audio. Signalsmith Stretch е лицензиран под MIT Лиценз.',
-        'footer-privacy': 'Политика за Поверителност',
-        'footer-terms': 'Условия за Ползване',
-        'footer-imprint': 'Импресум',
-        'footer-rights': 'Всички права запазени.',
-        'footer-note': 'Професионални MIDI решения и хардуерна интеграция'
+        'hero-subtitle': 'Usavarshenstvuvan audio i MIDI performance engine baziran na padove s dalbok kontrol i gavkavost za live upotreba.',
+        'promo-limited': '50% OTSTAPKA - Ogranicheno vreme!',
+        'appstore-btn': 'Iztegli ot App Store',
+        'pdf-btn': 'Iztegli PDF Manual',
+        'section1-title': 'Kakvo e ECHOSTAGE-LIVE?',
+        'section1-content': 'e usavarshenstvuvan audio i MIDI performance engine baziran na padove, proektiran specialno za live upotreba.',
+        'section1-perfect': 'Perfektno Za:',
+        'section1-perfect-list': 'Live izpalniteli, elektronni muzikanti, DJ-i i hibridni setupi.',
+        'section2-title': 'Klyuchovi Funkcii',
+        'section3-title': 'MIDI Nastrojki',
+        'section4-title': 'Audio Nastrojki',
+        'section5-title': 'Video Uroci',
+        'section5-intro': 'Gledaj nashite podrobni video uroci za da ovladees ECHOSTAGE-LIVE barzo!',
+        'youtube-channel': 'ECHOPAIS YouTube Kanal',
+        'section6-title': 'Razrabotchik & Credits',
+        'section6-dev': 'Razraboteno ot:',
+        'section6-legal': 'Pravna Belezhka:',
+        'section6-legal-desc': 'Tova prilozhenie izpolzva Signalsmith Stretch za time-stretching audio. Signalsmith Stretch e licenziran pod MIT Licenz.',
+        'footer-privacy': 'Politika za Poveritelnost',
+        'footer-terms': 'Uslovia za Polzvane',
+        'footer-imprint': 'Impresum',
+        'footer-rights': 'Vsichki prava zapazeni.',
+        'footer-note': 'Profesionalni MIDI reshenia i harduerka integracia'
       },
       tr: {
         'nav-home': 'Ana Sayfa',
-        'app-badge': '🎹 Pad Controller',
+        'app-badge': 'Pad Controller',
         'hero-title': 'ECHOSTAGE-LIVE',
-        'hero-subtitle': 'Canlı kullanım için derin kontrol ve esneklik sunan gelişmiş pad tabanlı audio ve MIDI performans motoru. Güvenilir oynatma, derin MIDI entegrasyonu ve tam kontrol ile sahne için tasarlandı.',
-        'promo-limited': '%50 İNDİRİM - Sınırlı Süre!',
-        'appstore-btn': "App Store'dan İndir",
+        'hero-subtitle': 'Canli kullanim icin derin kontrol ve esneklik sunan gelismis pad tabanli audio ve MIDI performans motoru.',
+        'promo-limited': '%50 INDIRIM - Sinirli Sure!',
+        'appstore-btn': "App Store'dan Indir",
+        'pdf-btn': 'PDF Kilavuzu Indir',
         'section1-title': 'ECHOSTAGE-LIVE Nedir?',
-        'section1-content': 'ECHOSTAGE-LIVE, özellikle canlı kullanım için tasarlanmış gelişmiş pad tabanlı audio ve MIDI performans motorudur. Güçlü audio oynatmayı derin MIDI entegrasyonuyla birleştirerek performansınız üzerinde tam kontrol sağlar.',
-        'section1-perfect': 'Şunlar İçin Mükemmel:',
-        'section1-perfect-list': 'Canlı performansçılar, elektronik müzisyenler, DJ\'ler ve hibrit setuplar, tiyatro ve sahne prodüksiyonları, stüdyodan sahneye iş akışları.',
-        'section2-title': 'Ana Özellikler',
-        'feature1-title': '🎛️ Gelişmiş Pad Motoru',
-        'feature1-desc': 'Pad başına bireysel dosya, ses seviyesi, bus ve routing ile 9 audio katmanına kadar. CC, Note, Program Change ve SysEx destekli pad başına 8 MIDI katmanına kadar.',
-        'feature2-title': '🎵 Audio & MIDI Oynatma',
-        'feature2-desc': 'Sadece-audio, sadece-MIDI veya kombine oynatma. Ölçü tabanlı zamanlamalı bekleme ve döngü modları. Canlı performans için sample-doğru tetikleme.',
-        'feature3-title': '🎚️ Tam Mikser',
-        'feature3-desc': 'Kanal başına ses, pan, mute ve solo. Seçilebilir audio arayüzü. Ayarlanabilir buffer boyutu ve sample rate.',
-        'feature4-title': '⚡ Performans Kontrolleri',
-        'feature4-desc': 'Global veya pad başına tempo ve pitch kontrolü. Tap tempo desteği. Bağımsız tempo ve pitch kilitleme. Stepper modu.',
-        'feature5-title': '🎨 Pad Özelleştirme',
-        'feature5-desc': 'Özel pad isimleri ve renkleri. Özel pad görselleri içe aktarma. 1×1\'den 10×10\'a ayarlanabilir grid. Serbest pad hareketi.',
-        'feature6-title': '📁 Sahne Yöneticisi',
-        'feature6-desc': 'Sahneleri kaydet, yükle, dışa aktar ve içe aktar. Kompleks canlı setupları anında çağır. Gösteriler, provalar ve stüdyo seansları için ideal.',
-        'section3-title': 'MIDI Tetikleme Modları',
-        'trigger-momentary': 'Anlık:',
-        'trigger-momentary-desc': 'MIDI, pad basılı tutulurken gönderilir',
-        'trigger-toggle': 'Aç/Kapa:',
-        'trigger-toggle-desc': 'İlk dokunuş etkinleştirir, ikinci devre dışı bırakır',
-        'trigger-oneshot': 'Tek-Atış:',
-        'trigger-oneshot-desc': 'Pad basışında tek tetikleme',
-        'learn-mode': 'Learn Modu:',
-        'learn-mode-desc': 'Hızlı MIDI mapping - Learn\'e basın, ardından anında mapping için harici controller düğmenize basın!',
-        'section4-title': 'Gelişmiş Audio Özellikleri',
-        'audio-feature1': 'Tempo, nota, ölçü ve zaman işareti için orijinal ve hedef ayarları',
-        'audio-feature2': 'Gerçek zamanlı tempo değişiklikleri için yüksek kaliteli time-stretching (Signalsmith Stretch ile)',
-        'audio-feature3': 'Pad-senkronize oynatma ve gelişmiş zamanlama seçenekleriyle yerleşik metronom',
-        'audio-feature4': 'Katman başına kanal yönlendirme ve önizleme oynatma',
-        'audio-feature5': 'Global akort kontrolü',
-        'section5-title': 'Video Eğitimleri',
-        'section5-intro': 'ECHOSTAGE-LIVE\'ı hızla ustalaşmak için kapsamlı video eğitimlerimizi izleyin!',
-        'youtube-channel': 'ECHOPAIS YouTube Kanalı',
-        'video1-title': 'ECHOSTAGE-LIVE\'a Başlarken',
-        'video2-title': 'Metronom Kurulumu',
-        'video3-title': 'PadGrid Düzeni',
-        'video4-title': 'Scene Manager - İçe & Dışa Aktarma',
-        'video5-title': 'MIDI Ayarları - Bağlantı Giriş/Çıkış',
-        'video6-title': 'Pad Taşıma - Sürükle & Yönlendir',
-        'video7-title': 'Media Controller - Pitch & Tempo',
-        'video8-title': 'Yayın - Tüm Platformlar',
-        'video9-title': 'Pad MIDI Ayarları',
-        'video10-title': 'Pad Audio Ayarları & Katman İçe Aktarma',
-        'video11-title': 'Güncelleme Bilgileri',
-        'video12-title': 'İpuçları & Püf Noktaları',
-        'coming-soon': '🎬 Çok Yakında',
-        'section6-title': 'Geliştirici & Katkıda Bulunanlar',
-        'section6-dev': 'Geliştiren:',
+        'section1-content': 'ozellikle canli kullanim icin tasarlanmis gelismis pad tabanli audio ve MIDI performans motorudur.',
+        'section1-perfect': 'Sunlar Icin Mukemmel:',
+        'section1-perfect-list': 'Canli performanscilar, elektronik muzisyenler, DJ\'ler ve hibrit setuplar.',
+        'section2-title': 'Ana Ozellikler',
+        'section3-title': 'MIDI Ayarlari',
+        'section4-title': 'Audio Ayarlari',
+        'section5-title': 'Video Egitimleri',
+        'section5-intro': 'ECHOSTAGE-LIVE\'i hizla ustalas mak icin kapsamli video egitimlerimizi izleyin!',
+        'youtube-channel': 'ECHOPAIS YouTube Kanali',
+        'section6-title': 'Gelistirici & Katk ida Bulunanlar',
+        'section6-dev': 'Gelistiren:',
         'section6-legal': 'Yasal Bildirim:',
-        'section6-legal-desc': 'Bu uygulama audio time-stretching için Signalsmith Stretch kullanmaktadır. Signalsmith Stretch, MIT Lisansı altında lisanslanmıştır.',
-        'footer-privacy': 'Gizlilik Politikası',
-        'footer-terms': 'Kullanım Şartları',
-        'footer-imprint': 'Künye',
-        'footer-rights': 'Tüm hakları saklıdır.',
-        'footer-note': 'Profesyonel MIDI çözümleri ve donanım entegrasyonu'
+        'section6-legal-desc': 'Bu uygulama audio time-stretching icin Signalsmith Stretch kullanmaktadir. Signalsmith Stretch, MIT Lisansi altinda lisanslanmistir.',
+        'footer-privacy': 'Gizlilik Politikasi',
+        'footer-terms': 'Kullanim Sartlari',
+        'footer-imprint': 'Kunye',
+        'footer-rights': 'Tum haklari saklidir.',
+        'footer-note': 'Profesyonel MIDI cozumleri ve donanim entegrasyonu'
       }
     };
 
@@ -1348,6 +1760,20 @@
         }
       }
     });
-  </script>
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </style>
 </body>
 </html>
